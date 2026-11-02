@@ -9,7 +9,7 @@
     <meta name="description" content="书接上回自建meting-api（带网易云VIP） | 锦木祈杰のblog这次主要是折腾了一下获取专辑图片模糊的问题，还增加了一个调用次数获取欢迎使用~专辑图片获取项目默认获取图片大小是90*90的，这就导致在播放器页面看到的专辑图是糊掉的在 src&#x2F;Meting.php 文件中，pic 方法用于获取专辑图片，它接受一个 $size 参数（默认值为90）：public function pic($">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MetingApi一些小改动">
-<meta property="og:url" content="https://qijie233.github.io/archives/metingapifix/index.html">
+<meta property="og:url" content="https://meow.qijieya.cn/archives/metingapifix/index.html">
 <meta property="og:site_name" content="锦木祈杰のblog">
 <meta property="og:description" content="书接上回自建meting-api（带网易云VIP） | 锦木祈杰のblog这次主要是折腾了一下获取专辑图片模糊的问题，还增加了一个调用次数获取欢迎使用~专辑图片获取项目默认获取图片大小是90*90的，这就导致在播放器页面看到的专辑图是糊掉的在 src&#x2F;Meting.php 文件中，pic 方法用于获取专辑图片，它接受一个 $size 参数（默认值为90）：public function pic($">
 <meta property="og:locale" content="zh_CN">
@@ -103,17 +103,17 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/metingapifix/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/metingapifix/&text=MetingApi一些小改动"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/metingapifix/&is_video=false&description=MetingApi一些小改动"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=MetingApi一些小改动&body=Check out this article: https://qijie233.github.io/archives/metingapifix/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/metingapifix/&name=MetingApi一些小改动&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/metingapifix/&t=MetingApi一些小改动"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/metingapifix/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/metingapifix/&text=MetingApi一些小改动"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/metingapifix/&is_video=false&description=MetingApi一些小改动"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=MetingApi一些小改动&body=Check out this article: https://meow.qijieya.cn/archives/metingapifix/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/metingapifix/&name=MetingApi一些小改动&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/metingapifix/&t=MetingApi一些小改动"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -250,17 +250,17 @@ file_put_contents($stats_file, json_encode($stats));
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/metingapifix/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/metingapifix/&text=MetingApi一些小改动"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/metingapifix/&is_video=false&description=MetingApi一些小改动"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=MetingApi一些小改动&body=Check out this article: https://qijie233.github.io/archives/metingapifix/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/metingapifix/&name=MetingApi一些小改动&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/metingapifix/&t=MetingApi一些小改动"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/metingapifix/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/metingapifix/&text=MetingApi一些小改动"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/metingapifix/&is_video=false&description=MetingApi一些小改动"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=MetingApi一些小改动&body=Check out this article: https://meow.qijieya.cn/archives/metingapifix/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/metingapifix/&name=MetingApi一些小改动&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/metingapifix/&t=MetingApi一些小改动"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

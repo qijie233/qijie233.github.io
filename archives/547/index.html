@@ -9,7 +9,7 @@
     <meta name="description" content="前言为了压榨KDE桌面环境以及获得使用更为舒适（作者个人认为）的平铺窗口管理器（i3wm），参考了这篇英文教程。 本文将结合这英文教程与作者个人尝试来讲解如何“撅”掉KWin_x11，换上i3wm。 以Kubuntu为例，安装依赖1sudo apt install i3-wm  嘎KWin_x11，换上i3wm这里以Plasma版本5.25为界限分类讨论。 &gt;&#x3D; 5.25可以使用s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="优化KDE：嘎掉KWin_x11 换上i3wm">
-<meta property="og:url" content="https://qijie233.github.io/archives/547/index.html">
+<meta property="og:url" content="https://meow.qijieya.cn/archives/547/index.html">
 <meta property="og:site_name" content="锦木祈杰のblog">
 <meta property="og:description" content="前言为了压榨KDE桌面环境以及获得使用更为舒适（作者个人认为）的平铺窗口管理器（i3wm），参考了这篇英文教程。 本文将结合这英文教程与作者个人尝试来讲解如何“撅”掉KWin_x11，换上i3wm。 以Kubuntu为例，安装依赖1sudo apt install i3-wm  嘎KWin_x11，换上i3wm这里以Plasma版本5.25为界限分类讨论。 &gt;&#x3D; 5.25可以使用s">
 <meta property="og:locale" content="zh_CN">
@@ -96,17 +96,17 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/547/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/547/&text=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/547/&is_video=false&description=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=优化KDE：嘎掉KWin_x11 换上i3wm&body=Check out this article: https://qijie233.github.io/archives/547/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/547/&name=优化KDE：嘎掉KWin_x11 换上i3wm&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/547/&t=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/547/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/547/&text=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/547/&is_video=false&description=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=优化KDE：嘎掉KWin_x11 换上i3wm&body=Check out this article: https://meow.qijieya.cn/archives/547/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/547/&name=优化KDE：嘎掉KWin_x11 换上i3wm&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/547/&t=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -220,17 +220,17 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/547/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/547/&text=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/547/&is_video=false&description=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=优化KDE：嘎掉KWin_x11 换上i3wm&body=Check out this article: https://qijie233.github.io/archives/547/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/547/&name=优化KDE：嘎掉KWin_x11 换上i3wm&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/547/&t=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/547/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/547/&text=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/547/&is_video=false&description=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=优化KDE：嘎掉KWin_x11 换上i3wm&body=Check out this article: https://meow.qijieya.cn/archives/547/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/547/&title=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/547/&name=优化KDE：嘎掉KWin_x11 换上i3wm&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/547/&t=优化KDE：嘎掉KWin_x11 换上i3wm"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

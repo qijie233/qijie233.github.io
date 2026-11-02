@@ -9,7 +9,7 @@
     <meta name="description" content="注意本系列文章从最基本的“黑框框”（CLI，命令行）开始，用意是为了先着重基础而不是一上来就整花里胡俏的GUI。 一、部署开发环境安装Debian系的安装命令如下 1sudo apt install gcc g++ make  装完后输入 g++ -v查看是否安装成功  出现类似上图中的输出即为安装成功。 当然，Ubuntu最好也把这个包 build-essential装上。 Win的话实在是不推">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++入门其一：部署环境&#x2F;基本语法&#x2F;变量介绍">
-<meta property="og:url" content="https://qijie233.github.io/archives/537/index.html">
+<meta property="og:url" content="https://meow.qijieya.cn/archives/537/index.html">
 <meta property="og:site_name" content="锦木祈杰のblog">
 <meta property="og:description" content="注意本系列文章从最基本的“黑框框”（CLI，命令行）开始，用意是为了先着重基础而不是一上来就整花里胡俏的GUI。 一、部署开发环境安装Debian系的安装命令如下 1sudo apt install gcc g++ make  装完后输入 g++ -v查看是否安装成功  出现类似上图中的输出即为安装成功。 当然，Ubuntu最好也把这个包 build-essential装上。 Win的话实在是不推">
 <meta property="og:locale" content="zh_CN">
@@ -99,17 +99,17 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/537/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/537/&text=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/537/&is_video=false&description=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=C++入门其一：部署环境/基本语法/变量介绍&body=Check out this article: https://qijie233.github.io/archives/537/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/537/&name=C++入门其一：部署环境/基本语法/变量介绍&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/537/&t=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/537/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/537/&text=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/537/&is_video=false&description=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=C++入门其一：部署环境/基本语法/变量介绍&body=Check out this article: https://meow.qijieya.cn/archives/537/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/537/&name=C++入门其一：部署环境/基本语法/变量介绍&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/537/&t=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -288,17 +288,17 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/537/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/537/&text=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/537/&is_video=false&description=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=C++入门其一：部署环境/基本语法/变量介绍&body=Check out this article: https://qijie233.github.io/archives/537/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/537/&name=C++入门其一：部署环境/基本语法/变量介绍&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/537/&t=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/537/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/537/&text=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/537/&is_video=false&description=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=C++入门其一：部署环境/基本语法/变量介绍&body=Check out this article: https://meow.qijieya.cn/archives/537/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/537/&name=C++入门其一：部署环境/基本语法/变量介绍&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/537/&t=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
