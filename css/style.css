@@ -1095,6 +1095,9 @@ body {
 .project-list .project-item p {
   display: inline;
 }
+#projects {
+  margin-bottom: 3.5rem;
+}
 #friends .friends-intro {
   margin-bottom: 1rem;
   color: #908d8d;
