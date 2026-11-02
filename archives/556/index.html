@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="什么是 tmux ？ tmux 是个在CLI（命令行界面）应用程序，它可以同时跑多个CLI应用，其中的每个应用的终端都会受到 tmux 的管理，可以使用 tmux 访问正在运行的终端，这即为终端多路复用。 tmux 跟 screen（某xxs只会用这个挂py应用，甚至连nohup也不用） 一样可以 deattach 和 attach（人话：挂后台），但与 screen 不同的是 tmux 可以更方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tmux &#x3D; screen Pro Plus Max（bushi">
+<meta property="og:url" content="https://qijie233.github.io/archives/556/index.html">
+<meta property="og:site_name" content="祈杰喵的博客">
+<meta property="og:description" content="什么是 tmux ？ tmux 是个在CLI（命令行界面）应用程序，它可以同时跑多个CLI应用，其中的每个应用的终端都会受到 tmux 的管理，可以使用 tmux 访问正在运行的终端，这即为终端多路复用。 tmux 跟 screen（某xxs只会用这个挂py应用，甚至连nohup也不用） 一样可以 deattach 和 attach（人话：挂后台），但与 screen 不同的是 tmux 可以更方">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723228363254.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723228377490.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723228393155.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723228421607.png">
+<meta property="article:published_time" content="2024-02-03T10:07:07.000Z">
+<meta property="article:modified_time" content="2025-09-28T02:13:29.000Z">
+<meta property="article:author" content="祈杰喵">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="服务器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oss.qijieya.cn/1/1723228363254.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>tmux = screen Pro Plus Max（bushi</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/archives/552/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/archives/551/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/556/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/556/&text=tmux = screen Pro Plus Max（bushi"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/556/&title=tmux = screen Pro Plus Max（bushi"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/556/&is_video=false&description=tmux = screen Pro Plus Max（bushi"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=tmux = screen Pro Plus Max（bushi&body=Check out this article: https://qijie233.github.io/archives/556/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/556/&title=tmux = screen Pro Plus Max（bushi"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/556/&title=tmux = screen Pro Plus Max（bushi"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/556/&title=tmux = screen Pro Plus Max（bushi"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/556/&title=tmux = screen Pro Plus Max（bushi"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/556/&name=tmux = screen Pro Plus Max（bushi&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/556/&t=tmux = screen Pro Plus Max（bushi"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-tmux-%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">什么是 tmux ？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E%E6%89%93%E5%85%A5-tmux-Enter%E5%BC%80%E5%A7%8B"><span class="toc-number">2.</span> <span class="toc-text">从打入 tmux Enter开始</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E6%98%AF%E6%9C%80%E5%BC%80%E5%A7%8B%E7%9C%8B%E5%88%B0%E7%9A%84%E7%94%BB%E9%9D%A2"><span class="toc-number">2.1.</span> <span class="toc-text">这是最开始看到的画面</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%81%9A%E4%BA%9B-tmux-%E7%89%B9%E6%9C%89%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">开始做些 tmux 特有的操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E7%9A%84%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C"><span class="toc-number">4.</span> <span class="toc-text">作者的实际使用体验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E7%94%A8%E6%B3%95%E7%A4%BA%E4%BE%8B"><span class="toc-number">5.</span> <span class="toc-text">实际用法示例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%8C%82%E5%90%8E%E5%8F%B0%E7%9C%8B%E6%97%A5%E5%BF%97%E4%B8%A4%E4%B8%8D%E8%AF%AF"><span class="toc-number">5.1.</span> <span class="toc-text">项目挂后台看日志两不误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0-%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%97%B6%E5%81%9A%E4%B8%80%E4%BA%9B%E5%88%AB%E7%9A%84%E4%BA%8B%E6%83%85"><span class="toc-number">5.2.</span> <span class="toc-text">更新&#x2F;安装软件时做一些别的事情</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E4%B9%8B"><span class="toc-number">6.</span> <span class="toc-text">总之</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        tmux = screen Pro Plus Max（bushi
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">祈杰喵</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-02-03T10:07:07.000Z" class="dt-published" itemprop="datePublished">2024-02-03</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Linux/" rel="tag">Linux</a>, <a class="p-category" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="什么是-tmux-？"><a href="#什么是-tmux-？" class="headerlink" title="什么是 tmux ？"></a>什么是 tmux ？</h1><p><img src="https://oss.qijieya.cn/1/1723228363254.png" alt="示例"></p>
+<p>tmux 是个在CLI（命令行界面）应用程序，它可以同时跑多个CLI应用，其中的每个应用的终端都会受到 tmux 的管理，可以使用 tmux 访问正在运行的终端，这即为终端多路复用。</p>
+<p>tmux 跟 screen（<span class="heimu">某xxs只会用这个挂py应用，甚至连nohup也不用</span>） 一样可以 deattach 和 attach（人话：挂后台），但与 screen 不同的是 tmux 可以更方便直观的创建、查看、访问和退出终端。</p>
+<p>不过 tmux 默认的快捷键可能对新手来说比较反人类。（和Blender的键位风格一样反人类，只符合作者的使用习惯）不过习惯了就好（可以改，如果不能改就没那么多人用了）。</p>
+<h1 id="从打入-tmux-Enter开始"><a href="#从打入-tmux-Enter开始" class="headerlink" title="从打入 tmux Enter开始"></a>从打入 <code>tmux</code> <kbd>Enter</kbd>开始</h1><h2 id="这是最开始看到的画面"><a href="#这是最开始看到的画面" class="headerlink" title="这是最开始看到的画面"></a>这是最开始看到的画面</h2><p><img src="https://oss.qijieya.cn/1/1723228377490.png" alt="~ $ tmux"><br>映入眼帘的是等待你响应的sh，当然细心的家伙会第一时间注意到底下很显眼的类似“任务栏”（官方叫它：status line）的玩意。<br>这个“任务栏”看上去好像可以用鼠标点，事实可以，只是需要改配置文件（建议尽量用键盘，效率高）<br>左下角有 <code>[0]</code>是Session名，默认为0，再开就是1（递增的）当然可以自定义（）;“窗口”，熟悉Win的肯定不陌生，只是这窗口占全终端罢了。</p>
+<p>带   <code>*</code>是当前“窗口”，而带 <code>-</code>是上次访问的“窗口”。<br>右下角有 用双引号括住的 主机名（默认是hostname）以及 日期与时间。</p>
+<h1 id="开始做些-tmux-特有的操作"><a href="#开始做些-tmux-特有的操作" class="headerlink" title="开始做些 tmux 特有的操作"></a>开始做些 tmux 特有的操作</h1><p>以下均为默认键位。</p>
+<p>以<kbd>Ctrl + B</kbd>作为“起手技”（下文以“起手技”替代该组合键），目的就是避免与各种程序的键位冲突。（不过有一部分人认为“起手技”打起来感觉不行）</p>
+<p>在键盘上打出“起手技”后，按<kbd>?</kbd>（这是 <kbd>Shift+/</kbd>）即可显示键位帮助（英文）</p>
+<table>
+<thead>
+<tr>
+<th>常用“连招”</th>
+<th>对应的操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“起手技”+c</td>
+<td>创建新的“窗口”</td>
+</tr>
+<tr>
+<td>“起手技”+d</td>
+<td>deattach（挂后台），使用<code>tmux attach -t </code>以回到前台当然 <code>tmux attach</code>也可以回到最近deattach的session</td>
+</tr>
+<tr>
+<td>“起手技”+[</td>
+<td>可以用方向键&#x2F;PgUp&#x2F;PgDn键控制光标浏览当前终端输出的内容，按 Ctrl + c 回到正常状态</td>
+</tr>
+<tr>
+<td>“起手技”+%</td>
+<td>左右分屏</td>
+</tr>
+<tr>
+<td>“起手技”+”</td>
+<td>上下分屏</td>
+</tr>
+<tr>
+<td>“起手技”+方向键</td>
+<td>切换激活的“屏”</td>
+</tr>
+<tr>
+<td>“起手技”+数字</td>
+<td>切换“窗口”</td>
+</tr>
+<tr>
+<td>“起手技”+x</td>
+<td>不留后台地退出</td>
+</tr>
+<tr>
+<td>“起手技”+q</td>
+<td>显示“屏”的编号</td>
+</tr>
+</tbody></table>
+<p>等等，更多“连招”请参阅官方文档。（<span class="heimu">其实是作者懒得打罢了</span>）</p>
+<h1 id="作者的实际使用体验"><a href="#作者的实际使用体验" class="headerlink" title="作者的实际使用体验"></a>作者的实际使用体验</h1><ul>
+<li>其实 分屏 的机制打破了GUI（X11）的复制逻辑，故在i3wm下尽可能使用创建新的终端而不是使用tmux的分屏。</li>
+<li>一般tmux是用来ssh下进行多任务操作的（个人感觉总之比screen爽）</li>
+</ul>
+<h1 id="实际用法示例"><a href="#实际用法示例" class="headerlink" title="实际用法示例"></a>实际用法示例</h1><h2 id="项目挂后台看日志两不误"><a href="#项目挂后台看日志两不误" class="headerlink" title="项目挂后台看日志两不误"></a>项目挂后台看日志两不误</h2><p><img src="https://oss.qijieya.cn/1/1723228393155.png" alt="挂崽"></p>
+<p>要切到后台只需要“起手技”+d，直接退出ssh连接也不影响项目运行。</p>
+<p>要回来就只需要 <code>tmux attach</code>就好。（这里省略了一些情况）</p>
+<h2 id="更新-安装软件时做一些别的事情"><a href="#更新-安装软件时做一些别的事情" class="headerlink" title="更新&#x2F;安装软件时做一些别的事情"></a>更新&#x2F;安装软件时做一些别的事情</h2><p><img src="https://oss.qijieya.cn/1/1723228421607.png" alt="更新（）"></p>
+<p>据说有一速通Arch Linux安装的家伙也是用tmux做这样的事情。</p>
+<h1 id="总之"><a href="#总之" class="headerlink" title="总之"></a>总之</h1><p>个人感觉tmux的“连招”搓起来比screen的舒服，故</p>
+<blockquote>
+<p>tmux &#x3D; screen Pro Plus Max（bushi</p>
+</blockquote>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-tmux-%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">什么是 tmux ？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E%E6%89%93%E5%85%A5-tmux-Enter%E5%BC%80%E5%A7%8B"><span class="toc-number">2.</span> <span class="toc-text">从打入 tmux Enter开始</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E6%98%AF%E6%9C%80%E5%BC%80%E5%A7%8B%E7%9C%8B%E5%88%B0%E7%9A%84%E7%94%BB%E9%9D%A2"><span class="toc-number">2.1.</span> <span class="toc-text">这是最开始看到的画面</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%81%9A%E4%BA%9B-tmux-%E7%89%B9%E6%9C%89%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">开始做些 tmux 特有的操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E7%9A%84%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C"><span class="toc-number">4.</span> <span class="toc-text">作者的实际使用体验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E7%94%A8%E6%B3%95%E7%A4%BA%E4%BE%8B"><span class="toc-number">5.</span> <span class="toc-text">实际用法示例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%8C%82%E5%90%8E%E5%8F%B0%E7%9C%8B%E6%97%A5%E5%BF%97%E4%B8%A4%E4%B8%8D%E8%AF%AF"><span class="toc-number">5.1.</span> <span class="toc-text">项目挂后台看日志两不误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0-%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%97%B6%E5%81%9A%E4%B8%80%E4%BA%9B%E5%88%AB%E7%9A%84%E4%BA%8B%E6%83%85"><span class="toc-number">5.2.</span> <span class="toc-text">更新&#x2F;安装软件时做一些别的事情</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E4%B9%8B"><span class="toc-number">6.</span> <span class="toc-text">总之</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/556/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/556/&text=tmux = screen Pro Plus Max（bushi"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/556/&title=tmux = screen Pro Plus Max（bushi"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/556/&is_video=false&description=tmux = screen Pro Plus Max（bushi"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=tmux = screen Pro Plus Max（bushi&body=Check out this article: https://qijie233.github.io/archives/556/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/556/&title=tmux = screen Pro Plus Max（bushi"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/556/&title=tmux = screen Pro Plus Max（bushi"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/556/&title=tmux = screen Pro Plus Max（bushi"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/556/&title=tmux = screen Pro Plus Max（bushi"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/556/&name=tmux = screen Pro Plus Max（bushi&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/556/&t=tmux = screen Pro Plus Max（bushi"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2026
+    祈杰喵
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

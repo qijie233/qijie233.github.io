@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="介绍SSTV，全称 Slow-Scan TeleVision（慢扫描电视），常见于业余无线电领域中。这是一种始于20世纪中后期的传输图片的方法，到现在可以使用PC以及对应的软件编解码SSTV音频信号。 常用的调制方法有：Martin 1、Robot系列、PD系列等，不同的调制方法支持的分辨率与颜色不同。  更多有关SSTV的详细信息可以从搜索引擎中获取。 特点 &amp; 特别用法它的缺点就是模糊">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSTV - 一种使用音频传输图片的方法以及特别用法">
+<meta property="og:url" content="https://qijie233.github.io/archives/612/index.html">
+<meta property="og:site_name" content="祈杰喵的博客">
+<meta property="og:description" content="介绍SSTV，全称 Slow-Scan TeleVision（慢扫描电视），常见于业余无线电领域中。这是一种始于20世纪中后期的传输图片的方法，到现在可以使用PC以及对应的软件编解码SSTV音频信号。 常用的调制方法有：Martin 1、Robot系列、PD系列等，不同的调制方法支持的分辨率与颜色不同。  更多有关SSTV的详细信息可以从搜索引擎中获取。 特点 &amp; 特别用法它的缺点就是模糊">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723227144297.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723227171399.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723227214250.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723227245897.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723227279635.png">
+<meta property="article:published_time" content="2024-04-18T09:35:00.000Z">
+<meta property="article:modified_time" content="2024-08-09T18:18:04.000Z">
+<meta property="article:author" content="祈杰喵">
+<meta property="article:tag" content="SSTV">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oss.qijieya.cn/1/1723227144297.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>SSTV - 一种使用音频传输图片的方法以及特别用法</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/archives/678/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/archives/604/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/612/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/612/&text=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/612/&title=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/612/&is_video=false&description=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=SSTV - 一种使用音频传输图片的方法以及特别用法&body=Check out this article: https://qijie233.github.io/archives/612/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/612/&title=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/612/&title=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/612/&title=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/612/&title=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/612/&name=SSTV - 一种使用音频传输图片的方法以及特别用法&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/612/&t=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-%E7%89%B9%E5%88%AB%E7%94%A8%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">特点 &amp; 特别用法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Decode-%E8%A7%A3%E7%A0%81"><span class="toc-number">2.1.</span> <span class="toc-text">Decode 解码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Encode-%E7%BC%96%E7%A0%81"><span class="toc-number">2.2.</span> <span class="toc-text">Encode 编码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5%E4%B8%80%E4%B8%8B-Decode"><span class="toc-number">3.</span> <span class="toc-text">实践一下 Decode</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        SSTV - 一种使用音频传输图片的方法以及特别用法
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">祈杰喵</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-04-18T09:35:00.000Z" class="dt-published" itemprop="datePublished">2024-04-18</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/SSTV/" rel="tag">SSTV</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>SSTV，全称 Slow-Scan TeleVision（慢扫描电视），常见于业余无线电领域中。<br>这是一种始于20世纪中后期的传输图片的方法，到现在可以使用PC以及对应的软件编解码SSTV音频信号。</p>
+<p>常用的调制方法有：Martin 1、Robot系列、PD系列等，不同的调制方法支持的分辨率与颜色不同。</p>
+<p><img src="https://oss.qijieya.cn/1/1723227144297.png" alt="部分调制方法表（来自 wikipedia）"></p>
+<p>更多有关SSTV的详细信息可以从搜索引擎中获取。</p>
+<h2 id="特点-特别用法"><a href="#特点-特别用法" class="headerlink" title="特点 &amp; 特别用法"></a>特点 &amp; 特别用法</h2><p>它的缺点就是模糊（分辨率低）、慢，不过可以将QR Code（二维码）编码为SSTV来无视模糊这一缺点。</p>
+<p>将QR Code编码为SSTV音频信号后，可以以音频的形式发送二维码，</p>
+<p>从而可以实现在某些Q群的Q群管家不允许发送链接和带二维码的图片的情况下发送“二维码”音频。</p>
+<p>当然SSTV有些时候会作为游戏藏彩蛋的方式，例如在《Portal》游戏中，有以SSTV的形式出现的彩蛋（1代为收音机）</p>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>在Linux中，可以使用QSSTV软件进行SSTV音频编解码，安装方法以Debian系为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install qsstv</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://oss.qijieya.cn/1/1723227171399.png" alt="软件截图"></p>
+<p>该软件可以读取或写入音频文件，具体到 Options -&gt; Configuration -&gt; Sound 中可以设置音频输入输出选项。</p>
+<hr>
+<p>当然Windows中也有处理SSTV的软件：MMSSTV，本文不作具体的介绍。</p>
+<h2 id="Decode-解码"><a href="#Decode-解码" class="headerlink" title="Decode 解码"></a>Decode 解码</h2><p>使用 Receive 页，点一下即可读取音频或者监听电脑内播放的声音以读取SSTV音频</p>
+<p>推荐将右边的Sensitivity调到“High”或“DX”。</p>
+<p>可以按下下图按钮清除当前画面</p>
+<p><img src="https://oss.qijieya.cn/1/1723227214250.png" alt="清除"></p>
+<p>在通过声卡设备内录解码的时候听音乐会对解码结果产生轻微的影响（干扰），实际上播放音乐时的共振峰很少覆盖到SSTV所识别的部分，所以影响可以说是有一些些的。（多了些噪点罢了）</p>
+<p>如果实际解码的时候图片出现往一边倒的情况，建议勾选下图红框内的选项。（一般保持勾着就行）</p>
+<p><img src="https://oss.qijieya.cn/1/1723227245897.png" alt="自动修正"></p>
+<h2 id="Encode-编码"><a href="#Encode-编码" class="headerlink" title="Encode 编码"></a>Encode 编码</h2><p>使用 Transmit 页，选择好mode并打开图片文件，设置好图片的填充方式即可点</p>
+<p>编码的时候音箱会发出类似于以前的调制解调器的叫声，可以单独在音量那里调小声音（在输出到文件的时候不影响结果）。</p>
+<p><img src="https://oss.qijieya.cn/1/1723227279635.png" alt="太大会吵死人"></p>
+<p>大部分情况图片不需要太大，图片分辨率在1024x1024以下效果更佳。（大了会自动缩放分辨率以适应）</p>
+<p>一般推荐使用图片填充方式“Fit” 和 使用Mode “PD120&#x2F;180”或者“Martin 1”进行编码</p>
+<h1 id="实践一下-Decode"><a href="#实践一下-Decode" class="headerlink" title="实践一下 Decode"></a>实践一下 Decode</h1><p><a target="_blank" rel="noopener" href="https://share.qijieya.cn/d/%E6%B4%9B%E5%A4%A9%E4%BE%9Dx64/bbs/uploads/SSTV_demo.wav">点我下载测试音频 https://share.qijieya.cn/d/%E6%B4%9B%E5%A4%A9%E4%BE%9Dx64/bbs/uploads/SSTV_demo.wav</a></p>
+<p>该音频中的二维码指向本站。</p>
+<hr>
+<p>当然还可以来<a target="_blank" rel="noopener" href="https://bbs.66ccff.cc/forum-post/6104.html">这里</a>获取另一个音频以供实践。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-%E7%89%B9%E5%88%AB%E7%94%A8%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">特点 &amp; 特别用法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Decode-%E8%A7%A3%E7%A0%81"><span class="toc-number">2.1.</span> <span class="toc-text">Decode 解码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Encode-%E7%BC%96%E7%A0%81"><span class="toc-number">2.2.</span> <span class="toc-text">Encode 编码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5%E4%B8%80%E4%B8%8B-Decode"><span class="toc-number">3.</span> <span class="toc-text">实践一下 Decode</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/612/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/612/&text=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/612/&title=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/612/&is_video=false&description=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=SSTV - 一种使用音频传输图片的方法以及特别用法&body=Check out this article: https://qijie233.github.io/archives/612/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/612/&title=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/612/&title=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/612/&title=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/612/&title=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/612/&name=SSTV - 一种使用音频传输图片的方法以及特别用法&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/612/&t=SSTV - 一种使用音频传输图片的方法以及特别用法"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2026
+    祈杰喵
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

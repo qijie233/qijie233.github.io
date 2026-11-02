@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="前言Miao-Yunzai 简称 喵崽，是 云崽(v3) 的魔改版本。云崽 是QQ G7人，多用于查看原神相关信息。 本文作者只使用Linux，故不提供Windows相关（同理过去就行了） 配置需求   硬件 最低 推荐    OS Linux 或 Windows 10+ Debian系   CPU 1C (无或远程的sign);2C(本地sign) 2C以上   RAM 1GB + 2GB +">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何部署Miao-Yunzai">
+<meta property="og:url" content="https://qijie233.github.io/archives/300/index.html">
+<meta property="og:site_name" content="祈杰喵的博客">
+<meta property="og:description" content="前言Miao-Yunzai 简称 喵崽，是 云崽(v3) 的魔改版本。云崽 是QQ G7人，多用于查看原神相关信息。 本文作者只使用Linux，故不提供Windows相关（同理过去就行了） 配置需求   硬件 最低 推荐    OS Linux 或 Windows 10+ Debian系   CPU 1C (无或远程的sign);2C(本地sign) 2C以上   RAM 1GB + 2GB +">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723230156109.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723230176039.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723230186165.png">
+<meta property="article:published_time" content="2023-08-05T04:34:00.000Z">
+<meta property="article:modified_time" content="2025-10-03T07:13:23.000Z">
+<meta property="article:author" content="祈杰喵">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="云崽">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oss.qijieya.cn/1/1723230156109.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>如何部署Miao-Yunzai</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/archives/334/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/archives/251/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/300/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/300/&text=如何部署Miao-Yunzai"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/300/&title=如何部署Miao-Yunzai"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/300/&is_video=false&description=如何部署Miao-Yunzai"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=如何部署Miao-Yunzai&body=Check out this article: https://qijie233.github.io/archives/300/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/300/&title=如何部署Miao-Yunzai"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/300/&title=如何部署Miao-Yunzai"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/300/&title=如何部署Miao-Yunzai"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/300/&title=如何部署Miao-Yunzai"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/300/&name=如何部署Miao-Yunzai&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/300/&t=如何部署Miao-Yunzai"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%9C%80%E6%B1%82"><span class="toc-number">1.1.</span> <span class="toc-text">配置需求</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2%EF%BC%81"><span class="toc-number">2.</span> <span class="toc-text">开始部署！</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="toc-number">2.1.</span> <span class="toc-text">安装依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.2.</span> <span class="toc-text">克隆项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85nodejs%E4%BE%9D%E8%B5%96"><span class="toc-number">2.3.</span> <span class="toc-text">安装nodejs依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%B2%E5%A4%B1%E6%95%88%EF%BC%8C%E5%BB%BA%E8%AE%AE%E8%B7%B3%E8%BF%87%E6%9C%AC%E8%8A%82-%E5%90%AF%E5%8A%A8%E5%B9%B6%E8%AF%95%E7%99%BB%E5%BD%95%E4%BB%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.4.</span> <span class="toc-text">[已失效，建议跳过本节]启动并试登录以生成配置文件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%96%B5%E5%B4%BD%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%81"><span class="toc-number">3.</span> <span class="toc-text">喵崽，启动！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">错误处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%81%E6%AD%A2%E7%99%BB%E5%BD%95-237"><span class="toc-number">4.1.</span> <span class="toc-text">禁止登录 237</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%81%E6%AD%A2%E7%99%BB%E5%BD%95-45"><span class="toc-number">4.2.</span> <span class="toc-text">禁止登录 45</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E5%8F%91%E9%80%81%E5%A4%B1%E8%B4%A5%EF%BC%8C%E5%8F%AF%E8%83%BD%E8%A2%AB%E9%A3%8E%E6%8E%A7-70-80"><span class="toc-number">4.3.</span> <span class="toc-text">消息发送失败，可能被风控 -70 -80</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#failed-to-send-Group-%E7%BE%A4%E5%8F%B7-undefined-120"><span class="toc-number">4.4.</span> <span class="toc-text">failed to send: [Group: 群号] undefined(120)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%87%E7%BA%A7-Miao-Yunzai%EF%BC%88%E5%AE%8C%E6%95%B4%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">升级 Miao-Yunzai（完整）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%96%B5%E5%B4%BD%E8%A1%A8%E6%83%85%E8%BF%81%E7%A7%BB"><span class="toc-number">5.1.</span> <span class="toc-text">喵崽表情迁移</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A"><span class="toc-number">6.</span> <span class="toc-text">更多</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        如何部署Miao-Yunzai
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">祈杰喵</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-08-05T04:34:00.000Z" class="dt-published" itemprop="datePublished">2023-08-05</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Linux/" rel="tag">Linux</a>, <a class="p-category" href="/tags/%E4%BA%91%E5%B4%BD/" rel="tag">云崽</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Miao-Yunzai 简称 喵崽，是 云崽(v3) 的魔改版本。<br>云崽 是QQ G7人，多用于查看原神相关信息。</p>
+<p>本文作者只使用Linux，故不提供Windows相关（同理过去就行了）</p>
+<h2 id="配置需求"><a href="#配置需求" class="headerlink" title="配置需求"></a>配置需求</h2><table>
+<thead>
+<tr>
+<th>硬件</th>
+<th>最低</th>
+<th>推荐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OS</td>
+<td>Linux 或 Windows 10+</td>
+<td>Debian系</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>1C (无或远程的sign);2C(本地sign)</td>
+<td>2C以上</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>1GB +</td>
+<td>2GB +</td>
+</tr>
+<tr>
+<td>硬盘</td>
+<td>20GB +</td>
+<td>40GB +</td>
+</tr>
+<tr>
+<td>显卡</td>
+<td>不需要</td>
+<td>&lt;_&lt;</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>软件</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nudejs(nodejs)</td>
+<td>v16+</td>
+</tr>
+<tr>
+<td>redis-server</td>
+<td>（直接装）</td>
+</tr>
+<tr>
+<td>git</td>
+<td>^</td>
+</tr>
+<tr>
+<td>python3（现在sqlite3要求必装）</td>
+<td>3.8+</td>
+</tr>
+<tr>
+<td>更多请看下面安装依赖</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h1 id="开始部署！"><a href="#开始部署！" class="headerlink" title="开始部署！"></a>开始部署！</h1><h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>Nodejs从这里下载：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download">https://nodejs.org/zh-cn/download</a></p>
+<p>推荐下Linux二进制包，直接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># tar zxvf [包]</span><br><span class="line"># mv [解包文件名]/* /usr/local/</span><br></pre></td></tr></table></figure>
+
+<p>以上是安装nodejs，安装剩余依赖：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># apt install redis-server git openjdk-17-jre-headless ffmpeg libopencore-amrnb0 libopencore-amrwb0 python3 chromium-browser</span><br></pre></td></tr></table></figure>
+
+<p>jdk17：sign必装</p>
+<p>ffmpeg：发送语音需要</p>
+<h2 id="克隆项目"><a href="#克隆项目" class="headerlink" title="克隆项目"></a>克隆项目</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> --depth=1 https://gitee.com/yoimiya-kokomi/Miao-Yunzai.git</span><br><span class="line">$ <span class="built_in">cd</span> Miao-Yunzai </span><br><span class="line">$ git <span class="built_in">clone</span> --depth=1 https://github.com/yoimiya-kokomi/miao-plugin.git ./plugins/miao-plugin/</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装nodejs依赖"><a href="#安装nodejs依赖" class="headerlink" title="安装nodejs依赖"></a>安装nodejs依赖</h2><p>在喵崽根目录下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install pnpm -g</span><br><span class="line">$ pnpm i -P</span><br></pre></td></tr></table></figure>
+
+<h2 id="已失效，建议跳过本节-启动并试登录以生成配置文件"><a href="#已失效，建议跳过本节-启动并试登录以生成配置文件" class="headerlink" title="[已失效，建议跳过本节]启动并试登录以生成配置文件"></a>[已失效，建议跳过本节]启动并试登录以生成配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nude app</span><br></pre></td></tr></table></figure>
+
+<p>因为我做了：在<del>&#x2F;.bashrc或</del>&#x2F;.zshrc结尾添加了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> nude=<span class="string">&#x27;node&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://oss.qijieya.cn/1/1723230156109.png" alt="地球生物 行为"></p>
+<p>补充：<img src="https://oss.qijieya.cn/1/1723230176039.png" alt="这是Windows下的（）"></p>
+<p>然后就是填写QQ号和密码等相关信息并登进去，协议选安卓手机，</p>
+<p>不出意外的话就会：</p>
+<p><img src="https://oss.qijieya.cn/1/1723230186165.png" alt="禁止登录：45"></p>
+<p>没事，继续做：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ vim config/config/bot.yaml</span><br><span class="line"></span><br><span class="line">翻到最底下，改</span><br><span class="line">sign_api_addr: &quot;[签名地址]&quot;</span><br></pre></td></tr></table></figure>
+
+<p>:wq 后再 nude app 就可以登进去了（如果你号没有被限制登录或永冻）</p>
+<h1 id="喵崽，启动！"><a href="#喵崽，启动！" class="headerlink" title="喵崽，启动！"></a>喵崽，启动！</h1><p>cd 到喵崽根目录 然后 nude app 启动。</p>
+<h1 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h1><h2 id="禁止登录-237"><a href="#禁止登录-237" class="headerlink" title="禁止登录 237"></a>禁止登录 237</h2><p>明天再来</p>
+<h2 id="禁止登录-45"><a href="#禁止登录-45" class="headerlink" title="禁止登录 45"></a>禁止登录 45</h2><p>需要签名<br>（2024-03）现在不推荐签名，直接先看下面的升级Miao-Yunzai，然后<a href="/archives/592">这里走起</a></p>
+<h2 id="消息发送失败，可能被风控-70-80"><a href="#消息发送失败，可能被风控-70-80" class="headerlink" title="消息发送失败，可能被风控 -70 -80"></a>消息发送失败，可能被风控 -70 -80</h2><p>先换签名，没用那就下线，明天再来</p>
+<h2 id="failed-to-send-Group-群号-undefined-120"><a href="#failed-to-send-Group-群号-undefined-120" class="headerlink" title="failed to send: [Group: 群号] undefined(120)"></a><code>failed to send: [Group: 群号] undefined(120)</code></h2><p>你崽被禁言了</p>
+<h1 id="升级-Miao-Yunzai（完整）"><a href="#升级-Miao-Yunzai（完整）" class="headerlink" title="升级 Miao-Yunzai（完整）"></a>升级 Miao-Yunzai（完整）</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nude trss</span><br></pre></td></tr></table></figure>
+
+<p>这个命令可以使所部署的Miao-Yunzai变成功能更加强大的TRSS-Yunzai，脱离了icqq协议实现并成为通用的崽解决方案。（）</p>
+<p>不过通过这个命令升级的崽需要重新配置部分设置如bot.yaml等。</p>
+<p>TRSS崽对Onebot协议的支持比喵崽更佳（）</p>
+<p>你需要 “魔法猫咪” <b style="color:#000;background:#000;">Napcat</b> </p>
+<h2 id="喵崽表情迁移"><a href="#喵崽表情迁移" class="headerlink" title="喵崽表情迁移"></a>喵崽表情迁移</h2><p>自从转了TRSS崽后，原有的喵崽的表情老调不出来，这里放出命令以供转换：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd data/</span><br><span class="line">cp -r textJson/* messageJson/</span><br><span class="line">cd messageJson/</span><br><span class="line">sed -ei &quot;/\&quot;file\&quot;/d;s/\&quot;local\&quot;/\&quot;file\&quot;/g&quot; *</span><br></pre></td></tr></table></figure>
+
+<p>注意：这个sed命令只能运行一遍，否则会损坏相关的json（反复删除file标签导致无法引用文件）</p>
+<p>全局表情需要手动复制一些Json段到global.json。</p>
+<p>然后重启崽即可迁移成功。</p>
+<h1 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h1><p>云崽一本通：<a target="_blank" rel="noopener" href="https://www.wolai.com/oA43vuW71aBnv7UsEysn4T">传送门</a></p>
+<p>插件库：<a target="_blank" rel="noopener" href="https://gitee.com/yhArcadia/Yunzai-Bot-plugins-index">传送门</a></p>
+<p><del>云崽下的sign：加群 140952978 看公告和精华消息</del></p>
+<p>启动sign命令如下：其中 <code>8.9.70</code>是txlib版本，可以更改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/unidbg-fetch-qsign --basePath=txlib/8.9.70</span><br></pre></td></tr></table></figure>
+
+<p>枫林（670979892）的云崽下的sign等综合教程: <a target="_blank" rel="noopener" href="https://gitee.com/lin-zhi-xuan/Yunzai-Bot-guide#%E7%AD%BE%E5%90%8Dapi">传送门</a></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%9C%80%E6%B1%82"><span class="toc-number">1.1.</span> <span class="toc-text">配置需求</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2%EF%BC%81"><span class="toc-number">2.</span> <span class="toc-text">开始部署！</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="toc-number">2.1.</span> <span class="toc-text">安装依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.2.</span> <span class="toc-text">克隆项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85nodejs%E4%BE%9D%E8%B5%96"><span class="toc-number">2.3.</span> <span class="toc-text">安装nodejs依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%B2%E5%A4%B1%E6%95%88%EF%BC%8C%E5%BB%BA%E8%AE%AE%E8%B7%B3%E8%BF%87%E6%9C%AC%E8%8A%82-%E5%90%AF%E5%8A%A8%E5%B9%B6%E8%AF%95%E7%99%BB%E5%BD%95%E4%BB%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.4.</span> <span class="toc-text">[已失效，建议跳过本节]启动并试登录以生成配置文件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%96%B5%E5%B4%BD%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%81"><span class="toc-number">3.</span> <span class="toc-text">喵崽，启动！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">错误处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%81%E6%AD%A2%E7%99%BB%E5%BD%95-237"><span class="toc-number">4.1.</span> <span class="toc-text">禁止登录 237</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%81%E6%AD%A2%E7%99%BB%E5%BD%95-45"><span class="toc-number">4.2.</span> <span class="toc-text">禁止登录 45</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E5%8F%91%E9%80%81%E5%A4%B1%E8%B4%A5%EF%BC%8C%E5%8F%AF%E8%83%BD%E8%A2%AB%E9%A3%8E%E6%8E%A7-70-80"><span class="toc-number">4.3.</span> <span class="toc-text">消息发送失败，可能被风控 -70 -80</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#failed-to-send-Group-%E7%BE%A4%E5%8F%B7-undefined-120"><span class="toc-number">4.4.</span> <span class="toc-text">failed to send: [Group: 群号] undefined(120)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%87%E7%BA%A7-Miao-Yunzai%EF%BC%88%E5%AE%8C%E6%95%B4%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">升级 Miao-Yunzai（完整）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%96%B5%E5%B4%BD%E8%A1%A8%E6%83%85%E8%BF%81%E7%A7%BB"><span class="toc-number">5.1.</span> <span class="toc-text">喵崽表情迁移</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A"><span class="toc-number">6.</span> <span class="toc-text">更多</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/300/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/300/&text=如何部署Miao-Yunzai"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/300/&title=如何部署Miao-Yunzai"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/300/&is_video=false&description=如何部署Miao-Yunzai"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=如何部署Miao-Yunzai&body=Check out this article: https://qijie233.github.io/archives/300/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/300/&title=如何部署Miao-Yunzai"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/300/&title=如何部署Miao-Yunzai"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/300/&title=如何部署Miao-Yunzai"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/300/&title=如何部署Miao-Yunzai"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/300/&name=如何部署Miao-Yunzai&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/300/&t=如何部署Miao-Yunzai"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2026
+    祈杰喵
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

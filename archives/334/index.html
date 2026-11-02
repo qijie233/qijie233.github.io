@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="前言其实我对美化的看法就是：尽可能复古和简朴，毕竟性能优先。 在KDE中，最吃性能的无外乎是kwin_x11的混成器，这一篇文章先讲如何“嘎”掉kwin_x11的混成器，然后来继续分享主题。 “嘎”掉KWin的混成器打开系统设置，如图操作：  把 红3 处的勾去掉，右下角点 应用。 这里选择更不吃性能的混成器：compton 安装命令（以Debian系为例） 1sudo apt install c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分享我对KDE等桌面环境的调整与美化方案">
+<meta property="og:url" content="https://qijie233.github.io/archives/334/index.html">
+<meta property="og:site_name" content="祈杰喵的博客">
+<meta property="og:description" content="前言其实我对美化的看法就是：尽可能复古和简朴，毕竟性能优先。 在KDE中，最吃性能的无外乎是kwin_x11的混成器，这一篇文章先讲如何“嘎”掉kwin_x11的混成器，然后来继续分享主题。 “嘎”掉KWin的混成器打开系统设置，如图操作：  把 红3 处的勾去掉，右下角点 应用。 这里选择更不吃性能的混成器：compton 安装命令（以Debian系为例） 1sudo apt install c">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723229777167.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723229787762.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723229806316.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723229818951.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723229828474.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723229865513.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723229874656.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723229894742.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723229904648.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723229919029.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723229929483.png">
+<meta property="og:image" content="https://qijieya.cn/assets/img/kdei3.png">
+<meta property="article:published_time" content="2023-08-22T05:16:00.000Z">
+<meta property="article:modified_time" content="2024-08-09T18:59:49.000Z">
+<meta property="article:author" content="祈杰喵">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="美化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oss.qijieya.cn/1/1723229777167.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>分享我对KDE等桌面环境的调整与美化方案</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/archives/352/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/archives/300/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/334/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/334/&text=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/334/&title=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/334/&is_video=false&description=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=分享我对KDE等桌面环境的调整与美化方案&body=Check out this article: https://qijie233.github.io/archives/334/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/334/&title=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/334/&title=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/334/&title=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/334/&title=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/334/&name=分享我对KDE等桌面环境的调整与美化方案&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/334/&t=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%80%9C%E5%98%8E%E2%80%9D%E6%8E%89KWin%E7%9A%84%E6%B7%B7%E6%88%90%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">“嘎”掉KWin的混成器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E4%BA%AB%E4%B8%BB%E9%A2%98%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">分享主题与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%BB%A5%E4%B8%8B%E8%B5%84%E6%BA%90"><span class="toc-number">3.1.</span> <span class="toc-text">安装以下资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%9D%A2%E6%9D%BF"><span class="toc-number">4.</span> <span class="toc-text">配置面板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE-%E4%BB%A5%E5%8F%8A-%E7%AA%97%E5%8F%A3%E8%A1%8C%E4%B8%BA"><span class="toc-number">5.</span> <span class="toc-text">快捷键 以及 窗口行为</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%A1%8C%E9%9D%A2"><span class="toc-number">6.</span> <span class="toc-text">虚拟桌面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%88%E6%9E%81%E4%BC%98%E5%8C%96%E7%A7%98%E7%AC%88%EF%BC%9A%E5%BD%BB%E5%BA%95%E5%98%8E%E6%8E%89Kwin-x11%EF%BC%8C%E6%8D%A2%E4%B8%8Ai3wm"><span class="toc-number">7.</span> <span class="toc-text">终极优化秘笈：彻底嘎掉Kwin_x11，换上i3wm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5Kubuntu%E4%B8%BA%E4%BE%8B%EF%BC%8C%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="toc-number">7.1.</span> <span class="toc-text">以Kubuntu为例，安装依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%98%8EKWin-x11%EF%BC%8C%E6%8D%A2%E4%B8%8Ai3wm"><span class="toc-number">7.2.</span> <span class="toc-text">嘎KWin_x11，换上i3wm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-25"><span class="toc-number">7.2.1.</span> <span class="toc-text">&gt;&#x3D; 5.25</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-25-1"><span class="toc-number">7.2.2.</span> <span class="toc-text">&lt; 5.25</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E4%BD%9C%E8%80%85%E9%A2%84%E9%85%8D%E7%BD%AE%E5%A5%BD%E7%9A%84i3wm%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-number">7.3.</span> <span class="toc-text">下载作者预配置好的i3wm配置文件（推荐）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%94%80%E9%87%8D%E8%BF%9B-%E9%80%89%E6%8B%A9i3wm%E4%B8%BA%E9%BB%98%E8%AE%A4Xsession-%E4%BB%A5%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C"><span class="toc-number">7.4.</span> <span class="toc-text">注销重进 | 选择i3wm为默认Xsession 以查看效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%82%E8%B0%88"><span class="toc-number">7.5.</span> <span class="toc-text">杂谈</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C"><span class="toc-number">8.</span> <span class="toc-text">最终效果</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        分享我对KDE等桌面环境的调整与美化方案
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">祈杰喵</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-08-22T05:16:00.000Z" class="dt-published" itemprop="datePublished">2023-08-22</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Linux/" rel="tag">Linux</a>, <a class="p-category" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>其实我对美化的看法就是：尽可能复古和简朴，毕竟性能优先。</p>
+<p>在KDE中，最吃性能的无外乎是kwin_x11的混成器，这一篇文章先讲如何“嘎”掉kwin_x11的混成器，然后来继续分享主题。</p>
+<h1 id="“嘎”掉KWin的混成器"><a href="#“嘎”掉KWin的混成器" class="headerlink" title="“嘎”掉KWin的混成器"></a>“嘎”掉KWin的混成器</h1><p>打开系统设置，如图操作：</p>
+<p><img src="https://oss.qijieya.cn/1/1723229777167.png" alt="嘎混成器"></p>
+<p>把 红3 处的勾去掉，右下角点 应用。</p>
+<p>这里选择更不吃性能的混成器：compton</p>
+<p>安装命令（以Debian系为例）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install compton</span><br></pre></td></tr></table></figure>
+
+<p>然后再如图操作</p>
+<p><img src="https://oss.qijieya.cn/1/1723229787762.png" alt="添加启动"></p>
+<p>选择 添加应用程序</p>
+<p>添加 compton 后 直接如图编辑</p>
+<p>注意：KDE 5.27+ 不能用 compton -b 而只能用 compton 代替。</p>
+<p><img src="https://oss.qijieya.cn/1/1723229806316.png" alt="image.png"></p>
+<p>确定之后 注销重新登录就可以看到吃性能的混成器变成了compton混成器，它没有毛玻璃效果（这玩意吃显卡）等花里胡俏的特性。</p>
+<h1 id="分享主题与配置"><a href="#分享主题与配置" class="headerlink" title="分享主题与配置"></a>分享主题与配置</h1><h2 id="安装以下资源"><a href="#安装以下资源" class="headerlink" title="安装以下资源"></a>安装以下资源</h2><ul>
+<li>GTK主题：<a target="_blank" rel="noopener" href="https://github.com/matthewmx86/Redmond97">https://github.com/matthewmx86/Redmond97</a></li>
+<li>Plasma视觉风格：Breeze （KDE自带）就行了</li>
+<li>窗口装饰元素：<a target="_blank" rel="noopener" href="https://www.pling.com/p/1265970">https://www.pling.com/p/1265970</a></li>
+<li>字体：汉仪文黑（原神字体）</li>
+</ul>
+<p>或者 Win自带的“宋体”（把 抗锯齿 关了效果最好）</p>
+<p>还有 主要是看起来顺眼就好</p>
+<ul>
+<li>图标：<a target="_blank" rel="noopener" href="https://www.pling.com/p/1012430">https://www.pling.com/p/1012430</a></li>
+</ul>
+<p>或者</p>
+<p><a target="_blank" rel="noopener" href="https://www.pling.com/p/1483944">https://www.pling.com/p/1483944</a> 效果更好，但一些图标会“鬼畜”（大小有时会异常）</p>
+<ul>
+<li>光标：<a target="_blank" rel="noopener" href="https://luo7ianyi.lanzout.com/i3vxe0fkry0h">https://luo7ianyi.lanzout.com/i3vxe0fkry0h</a></li>
+<li>Konsole配色方案：<a target="_blank" rel="noopener" href="https://qijieya.cn/archives/258/">https://qijieya.cn/archives/258/</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ohaiibuzzle/Plymouth-SimulatedUniverse/">开机画面：https://github.com/ohaiibuzzle/Plymouth-SimulatedUniverse/</a> （Plymouth）</li>
+</ul>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><img src="https://oss.qijieya.cn/1/1723229818951.png"></p>
+<p>这里重点色选自定义（#66ccff）</p>
+<hr>
+<p><img src="https://oss.qijieya.cn/1/1723229828474.png"></p>
+<p>这里选择Win9x风格（这是Qt默认主题，与gtk无关）</p>
+<p>到 上图红4 处，如图选择 Redmond97 Luna</p>
+<p><img src="https://oss.qijieya.cn/1/1723229865513.png" alt="GTK"></p>
+<p>最后 该 应用 的就 应用 就行了</p>
+<p>接下来是配置 面板（类似于Win的任务栏）</p>
+<h1 id="配置面板"><a href="#配置面板" class="headerlink" title="配置面板"></a>配置面板</h1><p>把面板都向顶部靠齐，然后如图配置：</p>
+<p>左上角一排字的是“虚拟桌面切换器”</p>
+<p><img src="https://oss.qijieya.cn/1/1723229874656.png" alt="这样子"></p>
+<p>自己调到合适就行了</p>
+<h1 id="快捷键-以及-窗口行为"><a href="#快捷键-以及-窗口行为" class="headerlink" title="快捷键 以及 窗口行为"></a>快捷键 以及 窗口行为</h1><p>由于我用习惯i3wm了，为了让以后摸Win时不太难受所以我保留了部分Win的快捷键。</p>
+<p><strong>如果你想要使用真正的i3wm可以跳过这一节。</strong></p>
+<p>Meta 在这里就是 Win 键</p>
+<p>这里我丢到</p>
+<p><a target="_blank" rel="noopener" href="https://share.qijieya.cn/d/%E6%B4%9B%E5%A4%A9%E4%BE%9Dx64/bbs/uploads/i3wm%2BWin.kksrc">https://share.qijieya.cn/d/%E6%B4%9B%E5%A4%A9%E4%BE%9Dx64/bbs/uploads/i3wm%2BWin.kksrc</a></p>
+<p>直接导入就行：</p>
+<p><img src="https://oss.qijieya.cn/1/1723229894742.png"></p>
+<p>还有打开终端：</p>
+<p><img src="https://oss.qijieya.cn/1/1723229904648.png" alt="i3wm也是默认这个快捷键打开终端，保留一个即可（推荐保留i3wm的）"></p>
+<p>再来设置 窗口行为</p>
+<p><img src="https://oss.qijieya.cn/1/1723229919029.png" alt="注：使用i3wm后此处设置将无效"></p>
+<h1 id="虚拟桌面"><a href="#虚拟桌面" class="headerlink" title="虚拟桌面"></a>虚拟桌面</h1><p>[font color&#x3D;”#f00”]注：使用i3wm后此处设置将无效[&#x2F;font]</p>
+<p><img src="https://oss.qijieya.cn/1/1723229929483.png" alt="image.png"></p>
+<p>如图设置即可</p>
+<h1 id="终极优化秘笈：彻底嘎掉Kwin-x11，换上i3wm"><a href="#终极优化秘笈：彻底嘎掉Kwin-x11，换上i3wm" class="headerlink" title="终极优化秘笈：彻底嘎掉Kwin_x11，换上i3wm"></a>终极优化秘笈：彻底嘎掉Kwin_x11，换上i3wm</h1><p>为了压榨KDE桌面环境以及获得使用更为舒适（作者个人认为）的平铺窗口管理器（i3wm），参考了<a target="_blank" rel="noopener" href="https://github.com/heckelson/i3-and-kde-plasma">这篇英文教程</a>。</p>
+<p>本文将结合这英文教程与作者个人尝试来讲解如何“撅”掉KWin_x11，换上i3wm。</p>
+<p>注：KDE依赖Kwin_x11，无法单独卸载</p>
+<h2 id="以Kubuntu为例，安装依赖"><a href="#以Kubuntu为例，安装依赖" class="headerlink" title="以Kubuntu为例，安装依赖"></a>以Kubuntu为例，安装依赖</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install i3-wm</span><br></pre></td></tr></table></figure>
+
+<h2 id="嘎KWin-x11，换上i3wm"><a href="#嘎KWin-x11，换上i3wm" class="headerlink" title="嘎KWin_x11，换上i3wm"></a>嘎KWin_x11，换上i3wm</h2><p>这里以Plasma版本5.25为界限分类讨论。</p>
+<h3 id="5-25"><a href="#5-25" class="headerlink" title="&gt;&#x3D; 5.25"></a>&gt;&#x3D; 5.25</h3><p>可以使用systemctl mask法。首先先建立mask unit：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">vim $HOME/.config/systemd/user/plasma-i3.service</span><br><span class="line">#-- 复制粘帖以下内容</span><br><span class="line">[Unit]</span><br><span class="line">Description=Launch Plasma with i3</span><br><span class="line">Before=plasma-workspace.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/bin/i3</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=plasma-workspace.target</span><br><span class="line">#-- :wq 保存退出，下一句是启用mask</span><br><span class="line">systemctl mask plasma-kwin_x11.service --user</span><br><span class="line"># 启用unit</span><br><span class="line">systemctl enable plasma-kwin_x11.service --user</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-25-1"><a href="#5-25-1" class="headerlink" title="&lt; 5.25"></a>&lt; 5.25</h3><p>如果是Plasma版本 &gt;&#x3D; 5.25，使用传统的环境变量 <code>KDEWM</code>法需要先</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kwriteconfig5 --file startkderc --group General --key systemdBoot false</span><br></pre></td></tr></table></figure>
+
+<p>然后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/share/xsessions/plasma-i3.desktop</span><br><span class="line">#-- 复制粘帖以下内容</span><br><span class="line">[Desktop Entry]</span><br><span class="line">Type=XSession</span><br><span class="line">Exec=env KDEWM=/usr/bin/i3 /usr/bin/startplasma-x11</span><br><span class="line">DesktopNames=KDE</span><br><span class="line">Name=Plasma with i3</span><br><span class="line">Comment=Plasma with i3</span><br><span class="line">#-- :wq 保存退出</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载作者预配置好的i3wm配置文件（推荐）"><a href="#下载作者预配置好的i3wm配置文件（推荐）" class="headerlink" title="下载作者预配置好的i3wm配置文件（推荐）"></a>下载作者预配置好的i3wm配置文件（推荐）</h2><p><a target="_blank" rel="noopener" href="https://qijieya.cn/qijie/config">戳我下载</a></p>
+<p>然后mv到 ~&#x2F;.config&#x2F;i3&#x2F; 里面</p>
+<p>config 内容可以参考i3wm官方文档自行调整</p>
+<h2 id="注销重进-选择i3wm为默认Xsession-以查看效果"><a href="#注销重进-选择i3wm为默认Xsession-以查看效果" class="headerlink" title="注销重进 | 选择i3wm为默认Xsession 以查看效果"></a>注销重进 | 选择i3wm为默认Xsession 以查看效果</h2><p>效果见最后图。</p>
+<h2 id="杂谈"><a href="#杂谈" class="headerlink" title="杂谈"></a>杂谈</h2><p>刚开始用i3wm会很不习惯（尤其是那堆令人头皮发麻的快捷键），然而慢慢用下去（磨合），会发现：这i3wm越用越顺手，窗口会变得更加容易找到而不是像传统的类似于Windows的堆叠窗口管理器一样一个堆在一个上以致于难以找到导致血压升高。</p>
+<p>i3wm 在KDE上的表现比KWin_x11的资源占用少很多，可以在一些游戏中多争取1~14fps。</p>
+<hr>
+<p>啥？你Windows也要这样子的窗口管理器？好吧好吧，其实github有对应的项目，<a target="_blank" rel="noopener" href="https://github.com/glzr-io/glazewm">传送门在此</a>。</p>
+<h1 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h1><img src="https://qijieya.cn/assets/img/kdei3.png">
+
+<p>上图为最终效果</p>
+<p>注：Shell 使用 tmoe 脚本美化的 zsh</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%80%9C%E5%98%8E%E2%80%9D%E6%8E%89KWin%E7%9A%84%E6%B7%B7%E6%88%90%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">“嘎”掉KWin的混成器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E4%BA%AB%E4%B8%BB%E9%A2%98%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">分享主题与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%BB%A5%E4%B8%8B%E8%B5%84%E6%BA%90"><span class="toc-number">3.1.</span> <span class="toc-text">安装以下资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%9D%A2%E6%9D%BF"><span class="toc-number">4.</span> <span class="toc-text">配置面板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE-%E4%BB%A5%E5%8F%8A-%E7%AA%97%E5%8F%A3%E8%A1%8C%E4%B8%BA"><span class="toc-number">5.</span> <span class="toc-text">快捷键 以及 窗口行为</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%A1%8C%E9%9D%A2"><span class="toc-number">6.</span> <span class="toc-text">虚拟桌面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%88%E6%9E%81%E4%BC%98%E5%8C%96%E7%A7%98%E7%AC%88%EF%BC%9A%E5%BD%BB%E5%BA%95%E5%98%8E%E6%8E%89Kwin-x11%EF%BC%8C%E6%8D%A2%E4%B8%8Ai3wm"><span class="toc-number">7.</span> <span class="toc-text">终极优化秘笈：彻底嘎掉Kwin_x11，换上i3wm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5Kubuntu%E4%B8%BA%E4%BE%8B%EF%BC%8C%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="toc-number">7.1.</span> <span class="toc-text">以Kubuntu为例，安装依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%98%8EKWin-x11%EF%BC%8C%E6%8D%A2%E4%B8%8Ai3wm"><span class="toc-number">7.2.</span> <span class="toc-text">嘎KWin_x11，换上i3wm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-25"><span class="toc-number">7.2.1.</span> <span class="toc-text">&gt;&#x3D; 5.25</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-25-1"><span class="toc-number">7.2.2.</span> <span class="toc-text">&lt; 5.25</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E4%BD%9C%E8%80%85%E9%A2%84%E9%85%8D%E7%BD%AE%E5%A5%BD%E7%9A%84i3wm%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-number">7.3.</span> <span class="toc-text">下载作者预配置好的i3wm配置文件（推荐）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%94%80%E9%87%8D%E8%BF%9B-%E9%80%89%E6%8B%A9i3wm%E4%B8%BA%E9%BB%98%E8%AE%A4Xsession-%E4%BB%A5%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C"><span class="toc-number">7.4.</span> <span class="toc-text">注销重进 | 选择i3wm为默认Xsession 以查看效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%82%E8%B0%88"><span class="toc-number">7.5.</span> <span class="toc-text">杂谈</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C"><span class="toc-number">8.</span> <span class="toc-text">最终效果</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/334/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/334/&text=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/334/&title=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/334/&is_video=false&description=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=分享我对KDE等桌面环境的调整与美化方案&body=Check out this article: https://qijie233.github.io/archives/334/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/334/&title=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/334/&title=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/334/&title=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/334/&title=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/334/&name=分享我对KDE等桌面环境的调整与美化方案&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/334/&t=分享我对KDE等桌面环境的调整与美化方案"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2026
+    祈杰喵
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

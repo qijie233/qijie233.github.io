@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="不作死就不会死这句话讲的是没错的昨天晚上，也不知道宝塔抽什么疯，在我装了阿里云OSS插件之后，直接弹出宝塔面板运行出错。我真的会谢，网站一栏加载不出来了，好在文件还是可以访问的，我把网站数据库备份下来，准备重装服务器。这时候我想到了以前看过的1Panel面板，我就寻思着去用试试 [button color&#x3D;”info” icon&#x3D;”” url&#x3D;”https:&#x2F;&#x2F;www">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录一次1Panel的使用（踩坑）经历">
+<meta property="og:url" content="https://qijie233.github.io/archives/165/index.html">
+<meta property="og:site_name" content="祈杰喵的博客">
+<meta property="og:description" content="不作死就不会死这句话讲的是没错的昨天晚上，也不知道宝塔抽什么疯，在我装了阿里云OSS插件之后，直接弹出宝塔面板运行出错。我真的会谢，网站一栏加载不出来了，好在文件还是可以访问的，我把网站数据库备份下来，准备重装服务器。这时候我想到了以前看过的1Panel面板，我就寻思着去用试试 [button color&#x3D;”info” icon&#x3D;”” url&#x3D;”https:&#x2F;&#x2F;www">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723230628369.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723230640541.png">
+<meta property="article:published_time" content="2023-06-14T12:58:00.000Z">
+<meta property="article:modified_time" content="2024-08-09T19:11:02.000Z">
+<meta property="article:author" content="祈杰喵">
+<meta property="article:tag" content="宝塔">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oss.qijieya.cn/1/1723230628369.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>记录一次1Panel的使用（踩坑）经历</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/archives/313/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/archives/@656/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/165/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/165/&text=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/165/&title=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/165/&is_video=false&description=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=记录一次1Panel的使用（踩坑）经历&body=Check out this article: https://qijie233.github.io/archives/165/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/165/&title=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/165/&title=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/165/&title=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/165/&title=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/165/&name=记录一次1Panel的使用（踩坑）经历&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/165/&t=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8D%E4%BD%9C%E6%AD%BB%E5%B0%B1%E4%B8%8D%E4%BC%9A%E6%AD%BB"><span class="toc-number">1.</span> <span class="toc-text">不作死就不会死</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E5%8F%A5%E8%AF%9D%E8%AE%B2%E7%9A%84%E6%98%AF%E6%B2%A1%E9%94%99%E7%9A%84"><span class="toc-number">1.1.</span> <span class="toc-text">这句话讲的是没错的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A3%9F%E7%94%A8%E8%BF%87%E7%A8%8B-%E6%84%9F%E5%8F%97%EF%BC%88%E8%99%BD%E7%84%B6%E5%8F%AA%E6%9C%89%E5%8D%8A%E5%B0%8F%E6%97%B6%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">食用过程+感受（虽然只有半小时）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%A2%E5%9B%9E%E5%AE%9D%E5%A1%94"><span class="toc-number">1.3.</span> <span class="toc-text">换回宝塔</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">2.</span> <span class="toc-text">结语</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        记录一次1Panel的使用（踩坑）经历
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">祈杰喵</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-06-14T12:58:00.000Z" class="dt-published" itemprop="datePublished">2023-06-14</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E5%AE%9D%E5%A1%94/" rel="tag">宝塔</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="不作死就不会死"><a href="#不作死就不会死" class="headerlink" title="不作死就不会死"></a>不作死就不会死</h1><h3 id="这句话讲的是没错的"><a href="#这句话讲的是没错的" class="headerlink" title="这句话讲的是没错的"></a>这句话讲的是没错的</h3><p>昨天晚上，也不知道宝塔抽什么疯，在我装了阿里云OSS插件之后，直接弹出宝塔面板运行出错。我真的会谢，网站一栏加载不出来了，好在文件还是可以访问的，我把网站数据库备份下来，准备重装服务器。这时候我想到了以前看过的1Panel面板，我就寻思着去用试试</p>
+<p>[button color&#x3D;”info” icon&#x3D;”” url&#x3D;”<a target="_blank" rel="noopener" href="https://www.1panel.cn/">https://www.1panel.cn/</a>“ type&#x3D;”round”]1panel官网[&#x2F;button]</p>
+<h2 id="食用过程-感受（虽然只有半小时）"><a href="#食用过程-感受（虽然只有半小时）" class="headerlink" title="食用过程+感受（虽然只有半小时）"></a>食用过程+感受（虽然只有半小时）</h2><p>安装过程经典的一行命令，安装到也挺快的（比宝塔快），进去之后就一个感觉，好看，整体的UI设计比宝塔全是广告的的设计好了不知道多少倍，此时，我心中大喜，难道宝塔可以放弃了吗？！</p>
+<p>随后我就开始环境安装，但是似乎没找到apache，只找到了一个整合包，里面包含了Nginx，安装完之后准备安装PHP，离谱的是，安装PHP要求独立设置一个环境，而不是和宝塔一样当作软件进行安装的，总之配置了一个新的环境，环境安装完之后就开始建站，令我崩溃事情出现了，网站目录不能自己指定，只能使用他默认的，行！我认了，当我把文件迁移到默认目录下的时候，打开网站，他给我显示PHP的页面，我整的服了呀，搞了好长时间也没弄好……..，对我而言，除了ui对我有吸引力，别的我整的没什么可说的了，建站体验还是比较偏差的，同时，对于网站ssl，他不能像宝塔一样一键部署Let’s Encrypt，必须自己手动导入证书，虽然我不用Let’s Encrypt，但就这一点而言会让许多人觉得不方便</p>
+<h2 id="换回宝塔"><a href="#换回宝塔" class="headerlink" title="换回宝塔"></a>换回宝塔</h2><p>重置完服务器后，安分的选择了宝塔，<strong>但是！！！！</strong>，**宝塔，安装完之后，安装MySQL的时候宝塔突然挂了，毫无征兆，命令行重启面板也不行，显示BT-Panal service startup faild（启动失败）</p>
+<p><img src="https://oss.qijieya.cn/1/1723230628369.png" alt="启动失败，垃圾宝塔"></p>
+<p>好好好，无奈的我选择了重启，结果**宝塔告诉我</p>
+<p><img src="https://oss.qijieya.cn/1/1723230640541.png" alt="无语"></p>
+<p>好家伙，没了？！！！</p>
+<p>我真的无语，再次重装系统，祈祷不要出现问题，还好这次一切都比较顺利，没出现什么大问题，看着首页的广告，我也只能无奈的忍着，最后成功地把网站恢复了</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>关于这次事情，我也只能说，**宝塔的锅，从第一次重装服务器，到最后全部恢复，用了我大约4h的时间，其实并没有完全恢复…….Alist（祈杰的小站）忘记备份了，所以只能重新部署，重新部署之后感觉比之前那个稍微美观了一些</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8D%E4%BD%9C%E6%AD%BB%E5%B0%B1%E4%B8%8D%E4%BC%9A%E6%AD%BB"><span class="toc-number">1.</span> <span class="toc-text">不作死就不会死</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E5%8F%A5%E8%AF%9D%E8%AE%B2%E7%9A%84%E6%98%AF%E6%B2%A1%E9%94%99%E7%9A%84"><span class="toc-number">1.1.</span> <span class="toc-text">这句话讲的是没错的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A3%9F%E7%94%A8%E8%BF%87%E7%A8%8B-%E6%84%9F%E5%8F%97%EF%BC%88%E8%99%BD%E7%84%B6%E5%8F%AA%E6%9C%89%E5%8D%8A%E5%B0%8F%E6%97%B6%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">食用过程+感受（虽然只有半小时）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%A2%E5%9B%9E%E5%AE%9D%E5%A1%94"><span class="toc-number">1.3.</span> <span class="toc-text">换回宝塔</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">2.</span> <span class="toc-text">结语</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/165/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/165/&text=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/165/&title=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/165/&is_video=false&description=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=记录一次1Panel的使用（踩坑）经历&body=Check out this article: https://qijie233.github.io/archives/165/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/165/&title=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/165/&title=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/165/&title=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/165/&title=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/165/&name=记录一次1Panel的使用（踩坑）经历&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/165/&t=记录一次1Panel的使用（踩坑）经历"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2026
+    祈杰喵
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

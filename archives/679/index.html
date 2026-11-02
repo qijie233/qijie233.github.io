@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="原因其一：KDE 臃肿吃性能，对自己的老爷机和树莓派等低端设备来说是一个累赘，并且自带的动画效果不符合自己的原则（有拖泥带水的感觉），把kwin_x11替换为i3wm的步骤较为复杂以及KDE的一些组件不能很好的跟i3wm配合甚至无法使用 其二：自己想摆脱Ubuntu（原先使用的发行版）那恶心人的Snap（与Ubuntu高度耦合且镜像服务器只有对国内来说龟速的国外官方服，并且apt安装的一部分东西开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm">
+<meta property="og:url" content="https://qijie233.github.io/archives/679/index.html">
+<meta property="og:site_name" content="祈杰喵的博客">
+<meta property="og:description" content="原因其一：KDE 臃肿吃性能，对自己的老爷机和树莓派等低端设备来说是一个累赘，并且自带的动画效果不符合自己的原则（有拖泥带水的感觉），把kwin_x11替换为i3wm的步骤较为复杂以及KDE的一些组件不能很好的跟i3wm配合甚至无法使用 其二：自己想摆脱Ubuntu（原先使用的发行版）那恶心人的Snap（与Ubuntu高度耦合且镜像服务器只有对国内来说龟速的国外官方服，并且apt安装的一部分东西开">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723226897251.png">
+<meta property="article:published_time" content="2024-06-22T10:23:00.000Z">
+<meta property="article:modified_time" content="2024-12-01T13:08:47.000Z">
+<meta property="article:author" content="祈杰喵">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oss.qijieya.cn/1/1723226897251.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/archives/241007/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/archives/678/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/679/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/679/&text=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/679/&title=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/679/&is_video=false&description=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm&body=Check out this article: https://qijie233.github.io/archives/679/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/679/&title=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/679/&title=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/679/&title=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/679/&title=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/679/&name=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/679/&t=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BA%94%E5%AF%B9"><span class="toc-number">2.</span> <span class="toc-text">应对</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8A%BF"><span class="toc-number">2.1.</span> <span class="toc-text">优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">2.2.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yay"><span class="toc-number">2.3.</span> <span class="toc-text">yay</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.4.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#N%E5%8D%A1%E9%A9%B1%E5%8A%A8"><span class="toc-number">2.5.</span> <span class="toc-text">N卡驱动</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E7%9A%84%E6%9B%B4%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%96%EF%BC%88%E7%BA%AFi3wm%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">个人的更改与美化（纯i3wm）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8C%85"><span class="toc-number">3.1.</span> <span class="toc-text">安装日常使用的包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%B0%83%E6%95%B4%E4%B8%8E%E7%BE%8E%E5%8C%96"><span class="toc-number">3.2.</span> <span class="toc-text">基本调整与美化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%EF%BC%9A"><span class="toc-number">3.2.1.</span> <span class="toc-text">效果：</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">祈杰喵</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-06-22T10:23:00.000Z" class="dt-published" itemprop="datePublished">2024-06-22</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Linux/" rel="tag">Linux</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>其一：KDE 臃肿吃性能，对自己的老爷机和树莓派等低端设备来说是一个累赘，并且自带的动画效果不符合自己的原则（有拖泥带水的感觉），把kwin_x11替换为i3wm的步骤较为复杂以及KDE的一些组件不能很好的跟i3wm配合甚至无法使用</p>
+<p>其二：自己想摆脱Ubuntu（原先使用的发行版）那恶心人的Snap（与Ubuntu高度耦合且镜像服务器只有对国内来说龟速的国外官方服，并且apt安装的一部分东西开始交给Snap了，例如chromium），所以说Snap什么时候死啊（恼）</p>
+<p>其三：apt 如果使用用户构建的第三方包，就要通过添加PPA源的方式（官方源软件版本可能较为老旧或者不提供自己想要的软件包），那么会引入一系列的兼容以及依赖问题，甚至PPA源还会干涉系统更新，这一点对于系统稳定性来说是最为致命的（手撕依赖两天半，搞不好数据凉拌）</p>
+<p>其四：如果自己选用Arch Linux的话，那么一切从零开始配置是一个很吃时间的大事。另外，每天一遍的 <code>sudo pacman -Syu</code>只能中午做，因为早晚会滚挂(doge)</p>
+<p>其五：Kali Linux 中apt源自带的N卡驱动不兼容较老的显卡，并且系统更新可能会牵一发而动全身，波及内核与驱动，而这一点可能对老旧设备来说是极其致命的（分辨率不正常甚至黑屏警告）</p>
+<p>其六：Ubuntu等发行版的源的wine等软件的更新较为滞后，对于急切追求需要的新功能的自己来说可能不适应（不想等）</p>
+<h1 id="应对"><a href="#应对" class="headerlink" title="应对"></a>应对</h1><blockquote>
+<p>你说得对，但是Manjaro是基于Arch Linux的<del>开放世界冒险游戏</del>Linux发行版，游戏发生在一个被称作“桌面环境”的幻想世界，在这里，被 pacman 选中的人将被授予 yay，导引 AUR 之力。你将扮演一位名为 [你的用户名] 的神秘角色，在 &#x2F; 中邂逅类型各异、特性不同的文件们，和它们一起击败Panic，找回失散的Config——同时，逐步发掘“滚挂”的真相。</p>
+</blockquote>
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><p>桌面环境可以预选i3wm、KDE、Gnome等常见的DE&#x2F;WM</p>
+<p>更新风格十分甚至九分的<em>墨清弦</em>（慢半拍，为了稳定）</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>Manjaro源不能擅自换为Arch源，否则有100%固定概率滚挂。</p>
+<h2 id="yay"><a href="#yay" class="headerlink" title="yay"></a>yay</h2><p>这个玩意我可以称之为神器，当Manjaro&#x2F;Arch官方源没有自己想要的软件包时，可以找一找AUR（用户第三方包源），例如 linuxqq 这个包，tx没有对Arch系发行版进行官方支持，其他用户就拆解deb包等重新封包为适用于Arch系的pkg格式并丢进AUR方便其他用户安装（或者是通过PKGBUILD手动构建包）</p>
+<p>实际上只有pacman下不到的时候才用到它，不推荐也不用加sudo（安装时会自动加，不需要你自己操心）</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a target="_blank" rel="noopener" href="https://manjaro.org/download/">Manjaro Downloads</a></p>
+<p>推荐 i3wm（不适合刚使用Linux的新手）</p>
+<h2 id="N卡驱动"><a href="#N卡驱动" class="headerlink" title="N卡驱动"></a>N卡驱动</h2><p>显示问题千千万，N卡问题占一半</p>
+<p>一般用 <code>nvidia-dkms</code> 就行，不要忘记安装对应内核版本的 <code>linux-headers</code></p>
+<blockquote>
+<p><del>So Nvidia f**k you ——Linus Torvalds</del></p>
+</blockquote>
+<h1 id="个人的更改与美化（纯i3wm）"><a href="#个人的更改与美化（纯i3wm）" class="headerlink" title="个人的更改与美化（纯i3wm）"></a>个人的更改与美化（纯i3wm）</h1><h2 id="安装日常使用的包"><a href="#安装日常使用的包" class="headerlink" title="安装日常使用的包"></a>安装日常使用的包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">install_pulse</span><br><span class="line"><span class="built_in">sudo</span> pacman -S steam remmina freerdp chromium flameshot fcitx5 fcitx5-chinese-addons fcitx5-configtool fcitx5-pinyin-zhwiki wine lib32-libpulse neofetch proxychains</span><br><span class="line">yay -S linuxqq microsoft-edge-dev-bin pa-applet-git winegame</span><br></pre></td></tr></table></figure>
+
+<p>可能要注意的：install_pulse 之后如果报错找不到 pa-applet 就需要先 <code>vim /usr/bin/install_pulse</code>手动删除pacman后面的 pa-applet，否则pacman会提示找不到包（实测）</p>
+<h2 id="基本调整与美化"><a href="#基本调整与美化" class="headerlink" title="基本调整与美化"></a>基本调整与美化</h2><p><a target="_blank" rel="noopener" href="https://share.qijieya.cn/d/%E6%B4%9B%E5%A4%A9%E4%BE%9Dx64/Download/Linux.tar.zst">戳我下载，把压缩包的home里面所有的东西cp到~（&#x2F;home&#x2F;你的用户名）提示覆盖那就覆盖</a></p>
+<p>字体可能难以看清（可以手动更换），不含壁纸（）</p>
+<p>自己习惯没有“- 口 X”与标题栏的窗口了</p>
+<p>按住 Super（Win）键显示顶部状态栏</p>
+<h3 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h3><p><img src="https://oss.qijieya.cn/1/1723226897251.png"></p>
+<p>不得不说把窗口全屏起来用是真的爽。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BA%94%E5%AF%B9"><span class="toc-number">2.</span> <span class="toc-text">应对</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8A%BF"><span class="toc-number">2.1.</span> <span class="toc-text">优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">2.2.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yay"><span class="toc-number">2.3.</span> <span class="toc-text">yay</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.4.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#N%E5%8D%A1%E9%A9%B1%E5%8A%A8"><span class="toc-number">2.5.</span> <span class="toc-text">N卡驱动</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E7%9A%84%E6%9B%B4%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%96%EF%BC%88%E7%BA%AFi3wm%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">个人的更改与美化（纯i3wm）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8C%85"><span class="toc-number">3.1.</span> <span class="toc-text">安装日常使用的包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%B0%83%E6%95%B4%E4%B8%8E%E7%BE%8E%E5%8C%96"><span class="toc-number">3.2.</span> <span class="toc-text">基本调整与美化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%EF%BC%9A"><span class="toc-number">3.2.1.</span> <span class="toc-text">效果：</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/679/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/679/&text=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/679/&title=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/679/&is_video=false&description=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm&body=Check out this article: https://qijie233.github.io/archives/679/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/679/&title=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/679/&title=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/679/&title=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/679/&title=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/679/&name=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/679/&t=为什么我放弃了Ubuntu+KDE+i3wm而选择了Manjaro+i3wm"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2026
+    祈杰喵
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

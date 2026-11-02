@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="写在前面之所以选择一加 Ace5 来作为我的新手机，主要原因也就三个解BL锁更加方便，没有难度更加开放的内核源码价格不算太贵ACE 5 Pro 虽然是骁龙8至尊版，但是价格我有点吃不消了，3299+了方案市面上主流的就面具（Magisk）和 KernelSU先说结论吧，我肯定是追逐新玩法的，KSU之前也用过，我是比较喜欢的，但是毕竟是新框架嘛，多多少少有点BUG，同时我ACE 5 PRO第一次刷的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一加 ace5 root 笔记">
+<meta property="og:url" content="https://qijie233.github.io/archives/ace5root/index.html">
+<meta property="og:site_name" content="祈杰喵的博客">
+<meta property="og:description" content="写在前面之所以选择一加 Ace5 来作为我的新手机，主要原因也就三个解BL锁更加方便，没有难度更加开放的内核源码价格不算太贵ACE 5 Pro 虽然是骁龙8至尊版，但是价格我有点吃不消了，3299+了方案市面上主流的就面具（Magisk）和 KernelSU先说结论吧，我肯定是追逐新玩法的，KSU之前也用过，我是比较喜欢的，但是毕竟是新框架嘛，多多少少有点BUG，同时我ACE 5 PRO第一次刷的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-26T15:41:41.000Z">
+<meta property="article:modified_time" content="2025-02-26T15:54:33.000Z">
+<meta property="article:author" content="祈杰喵">
+<meta property="article:tag" content="刷机">
+<meta property="article:tag" content="安卓">
+<meta property="article:tag" content="手机">
+<meta property="article:tag" content="无聊的日常">
+<meta property="article:tag" content="评测">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>一加 ace5 root 笔记</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/archives/service/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/archives/241230/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/ace5root/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/ace5root/&text=一加 ace5 root 笔记"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/ace5root/&title=一加 ace5 root 笔记"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/ace5root/&is_video=false&description=一加 ace5 root 笔记"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=一加 ace5 root 笔记&body=Check out this article: https://qijie233.github.io/archives/ace5root/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/ace5root/&title=一加 ace5 root 笔记"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/ace5root/&title=一加 ace5 root 笔记"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/ace5root/&title=一加 ace5 root 笔记"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/ace5root/&title=一加 ace5 root 笔记"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/ace5root/&name=一加 ace5 root 笔记&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/ace5root/&t=一加 ace5 root 笔记"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E5%2586%2599%25E5%259C%25A8%25E5%2589%258D%25E9%259D%25A2"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E6%2596%25B9%25E6%25A1%2588"><span class="toc-number">2.</span> <span class="toc-text">方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E8%25A7%25A3bl"><span class="toc-number">2.1.</span> <span class="toc-text">解BL</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">ROOT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E5%2585%25B3%25E4%25BA%258E%25E7%258E%25AF%25E5%25A2%2583%25E9%259A%2590%25E8%2597%258F"><span class="toc-number">3.1.</span> <span class="toc-text">关于环境隐藏</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E7%25B3%25BB%25E7%25BB%259F%25E4%25BC%2598%25E5%258C%2596"><span class="toc-number">4.</span> <span class="toc-text">系统优化</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        一加 ace5 root 笔记
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">祈杰喵</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-02-26T15:41:41.000Z" class="dt-published" itemprop="datePublished">2025-02-26</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> › <a class="category-link" href="/categories/%E7%94%9F%E6%B4%BB%E6%9D%82%E8%B0%88/">生活杂谈</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E5%88%B7%E6%9C%BA/" rel="tag">刷机</a>, <a class="p-category" href="/tags/%E5%AE%89%E5%8D%93/" rel="tag">安卓</a>, <a class="p-category" href="/tags/%E6%89%8B%E6%9C%BA/" rel="tag">手机</a>, <a class="p-category" href="/tags/%E6%97%A0%E8%81%8A%E7%9A%84%E6%97%A5%E5%B8%B8/" rel="tag">无聊的日常</a>, <a class="p-category" href="/tags/%E8%AF%84%E6%B5%8B/" rel="tag">评测</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 style="" id="%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2">写在前面</h1><p style="">之所以选择一加 Ace5 来作为我的新手机，主要原因也就三个</p><ul><li><p style="">解BL锁更加方便，没有难度</p></li><li><p style="">更加开放的内核源码</p></li><li><p style="">价格不算太贵</p></li></ul><p style="">ACE 5 Pro 虽然是骁龙8至尊版，但是价格我有点吃不消了，3299+了</p><h1 style="" id="%E6%96%B9%E6%A1%88">方案</h1><p style="">市面上主流的就面具（<a target="_blank" rel="noopener" href="https://github.com/topjohnwu/Magisk">Magisk</a>）和 <a target="_blank" rel="noopener" href="https://github.com/tiann/KernelSU">KernelSU</a></p><p style="">先说结论吧，我肯定是追逐新玩法的，KSU之前也用过，我是比较喜欢的，但是毕竟是新框架嘛，多多少少有点BUG，同时我ACE 5 PRO第一次刷的就是KSU，最大的BUG就是，存储空间显示错误</p><p style="">我买的是512G的手机，刷完之后过了一会就变成了1T，这..........虽然不影响使用，但是我看的不舒服，具体原因就是稀疏文件导致的系统无法识别</p><p style="">最新好像有办法解决了？</p><p style="">然后就选择了面具</p><blockquote><p style=""><span style="font-size: 20px; color: rgba(52, 73, 94, 0.8)"><strong>不懂命令，不懂工具下载请去使用 </strong></span><a href="https://optool.daxiaamu.com/optool/" target="_blank"><span style="font-size: 20px"><strong>一加全能工具箱</strong></span></a></p></blockquote><p style="">你说得对，一加全能工具箱是由<a href="https://www.daxiaamu.com/" target="_blank"><strong><u>大侠阿木</u></strong></a>自主开发的一款一加手机工具箱。工具箱用于被称作「一加手机」的OPPO子品牌，在这里，被一加手机工具箱调教的一加手机将可以「更轻松的ROOT」，导引刷机之力。你将扮演「刷机糕手」的角色，在刷机过程中破解难关，一起击败变砖，卡LOGO，无限重启，系统文件损坏无法开机，找回你自己想要的手机形态———同时，你将逐步发掘「刷机」的真相。</p><p style=""></p><h2 style="" id="%E8%A7%A3bl">解BL</h2><p style="">解锁 BL 会丢失所有数据，如果想要解锁建议在一买来就直接解锁</p><p style="">到手必须进入系统开启开发者模式，去开启<code>OEM 解锁</code>和<code>USB 调试</code> </p><p style="">顺便说个事一加手机插入 usb 时不是有 USB 用于选择弹框，如果你选择了仅充电会自动把<code>OEM 解锁</code>和<code>USB 调试</code>关掉..........</p><p style="">用大侠阿木工具箱就可以直接实现，好了结束，<a href="https://optool.daxiaamu.com/wiki_pctool" target="_blank">戳我！</a></p><h1 style="" id="">ROOT</h1><p style="">具体root过程就不介绍了，具体请看 <a href="https://magiskcn.com/" target="_blank">Magisk中文网</a></p><p style=""><span style="font-size: 16px; color: rgb(52, 73, 94)"> </span><span style="font-size: 14px">关于</span><code>boot.img</code><span style="font-size: 14px">和 </span><code>init_boot.img</code> 怎么选择这种问题，最简单的就是新手机用<code>init_boot.img</code> 旧手机用<code>boot.img</code></p><h2 style="" id="%E5%85%B3%E4%BA%8E%E7%8E%AF%E5%A2%83%E9%9A%90%E8%97%8F">关于环境隐藏</h2><p style="">KSU是有可以隐藏BL锁和TEE假死的模块的，但是Magisk就没有这种模块，TEE假死会导致支付指纹无法使用，但是这个用lsp模块就好了，微信支付指纹一样用，原理就是模块验证你的指纹之后然后自动给你输入密码（好朴素的自动化）</p><p style="">然后目前还发现的一个问题就是，电子税务局这个软件无法使用指纹登录</p><p style="">国吉铁讯是小布助手生活服务一部分，解BL之后无法正常使用（绑定），具体解决办法酷安有相关教程</p><h1 style="" id="%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96">系统优化</h1><p style="">一下只针对一加ACE 5 </p><p style="">模块不多，温控模块主要是解放充电速率。</p><p style="">然后是墓碑NoActive Pro这个挺好用的，一杯奶茶钱，建议用。主要是让后台的软件CPU为0来达到一点省电效果。 如果不想用，我也打包了一个coloros系统补全墓碑的模块，在链接里面。</p><p style="">调度使用Scene8 ，用HP模式挺好用的。当然也可以用慕容大佬的官改调度，我个人是不太喜欢的（只支持8g3 &amp; 8e）</p><p style="">OK讲完模块，然后就是精简，没什么好精简的，这些只是占内存，基本不耗电，只不过我不用这些功能，所以精简掉了，有需求的在酷安里面搜精简列表或者模块。</p><p style="">后台优化，这个非常建议装，装上也不用设置，如果自己想折腾里面有说明书。基本上都不会杀后台很好用。</p><p style="">lucky tool 作者忆清鸣大佬，酷安自行搜索即可。</p><p style="">然后就是灭霸（thanox），主要用的是情景模式，例如压制QQ微信抖音b站等软件，有需求自己设置其他东西。我打包好了，恢复即可使用。</p><p style="">QQ推荐版本8.8.50，9.0（NT）版本耗电都是大户，平均都要2.5W+</p><p style=""><a href="https://www.123pan.com/s/XkylVv-u1Nj.html" target="_blank">资源链接</a> ，提取码zOTE</p><p style=""><span style="font-size: 17px; color: rgb(249, 250, 251)">你说的对，但是《原神》是由米哈游自主研发的一款全新开放世界冒险游戏。游戏发生在一个被称作「提瓦特」的幻想世界，在这里，被神选中的人将被授予「神之眼」，导引元素之力。你将扮演一位名为「旅行者」的神秘角色，在自由的旅行中邂逅性格各异、能力独特的同伴们，和他们一起击败强敌，找回失散的亲人——同时，逐步发掘「原神」的真相。</span></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E5%2586%2599%25E5%259C%25A8%25E5%2589%258D%25E9%259D%25A2"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E6%2596%25B9%25E6%25A1%2588"><span class="toc-number">2.</span> <span class="toc-text">方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E8%25A7%25A3bl"><span class="toc-number">2.1.</span> <span class="toc-text">解BL</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">ROOT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E5%2585%25B3%25E4%25BA%258E%25E7%258E%25AF%25E5%25A2%2583%25E9%259A%2590%25E8%2597%258F"><span class="toc-number">3.1.</span> <span class="toc-text">关于环境隐藏</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E7%25B3%25BB%25E7%25BB%259F%25E4%25BC%2598%25E5%258C%2596"><span class="toc-number">4.</span> <span class="toc-text">系统优化</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qijie233.github.io/archives/ace5root/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qijie233.github.io/archives/ace5root/&text=一加 ace5 root 笔记"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qijie233.github.io/archives/ace5root/&title=一加 ace5 root 笔记"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qijie233.github.io/archives/ace5root/&is_video=false&description=一加 ace5 root 笔记"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=一加 ace5 root 笔记&body=Check out this article: https://qijie233.github.io/archives/ace5root/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qijie233.github.io/archives/ace5root/&title=一加 ace5 root 笔记"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qijie233.github.io/archives/ace5root/&title=一加 ace5 root 笔记"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qijie233.github.io/archives/ace5root/&title=一加 ace5 root 笔记"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qijie233.github.io/archives/ace5root/&title=一加 ace5 root 笔记"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qijie233.github.io/archives/ace5root/&name=一加 ace5 root 笔记&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qijie233.github.io/archives/ace5root/&t=一加 ace5 root 笔记"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2026
+    祈杰喵
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
