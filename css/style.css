@@ -1095,6 +1095,115 @@ body {
 .project-list .project-item p {
   display: inline;
 }
+#friends .friends-intro {
+  margin-bottom: 1rem;
+  color: #908d8d;
+}
+#friends .friend-group {
+  margin-top: 2rem;
+}
+#friends .friend-group-title {
+  margin: 0 0 0.25rem;
+  color: #eee;
+  letter-spacing: 0;
+  font-weight: bold;
+  font-size: 1rem;
+}
+#friends .friend-group-desc {
+  margin: 0 0 0.75rem;
+  color: #908d8d;
+  font-size: 0.8rem;
+}
+#friends .friend-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#friends .friend-item {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#friends .friend-card {
+  display: flex;
+  align-items: center;
+  padding: 0.55rem 0.7rem;
+  border: 1px dotted #908d8d;
+  border-radius: 6px;
+  background: none;
+  color: #c9cacc;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+#friends .friend-card:hover {
+  border-color: #2bbc8a;
+  background-image: none;
+}
+#friends .friend-avatar {
+  flex: 0 0 36px;
+  margin: 0 0.6rem 0 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #212326;
+}
+#friends .friend-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+#friends .friend-name {
+  display: block;
+  overflow: hidden;
+  color: #c9cacc;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#friends .friend-desc {
+  display: block;
+  overflow: hidden;
+  color: #908d8d;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#friends .friend-self {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px dotted #908d8d;
+}
+#friends .friend-info {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#friends .friend-info li {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0.35rem;
+  list-style: none;
+}
+#friends .friend-info .k {
+  flex: 0 0 3.5rem;
+  color: #908d8d;
+  font-size: 0.8rem;
+}
+#friends .friend-info code {
+  padding: 0 5px;
+  border: 1px dotted #908d8d;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  word-break: break-all;
+}
+#page-index .friends-intro {
+  margin-bottom: 1rem;
+  color: #908d8d;
+}
 article header .posttitle {
   margin-top: 0;
   margin-bottom: 0;
