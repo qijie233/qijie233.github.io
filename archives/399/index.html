@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang=zh>
+<html lang=en>
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="了解 CS2 的弹道机制CS2 的弹道与 CS 1.6 的弹道的差距真是天壤之别！CS2 目前手感跟1.6相差不大，并且CS2的更新频率非常高。 与CS1.6比较 以下为个人感觉：CS1.6 的武器后坐力 比 CS2 的要小很多。 CS1.6 的弹道有多种随机模板： 例如 AK 有大概四种弹道散布图： 红圈代表 不动准星 沙鹰的后坐力明显比 2 的 小很多了。 而到了 CS2 后，AK 的弹道固定">
+    <meta name="description" content="Understanding CS2’s Bullet Trajectory MechanicsThe gap between CS2’s bullet trajectories and CS 1.6’s is like night and day!Right now CS2 feels not far off from 1.6, and CS2 gets updated very frequent">
 <meta property="og:type" content="article">
-<meta property="og:title" content="刚开始玩CS2为什么会打不准">
+<meta property="og:title" content="Why You Can&#39;t Aim When You First Start Playing CS2">
 <meta property="og:url" content="https://meow.qijieya.cn/archives/399/index.html">
-<meta property="og:site_name" content="锦木祈杰のblog">
-<meta property="og:description" content="了解 CS2 的弹道机制CS2 的弹道与 CS 1.6 的弹道的差距真是天壤之别！CS2 目前手感跟1.6相差不大，并且CS2的更新频率非常高。 与CS1.6比较 以下为个人感觉：CS1.6 的武器后坐力 比 CS2 的要小很多。 CS1.6 的弹道有多种随机模板： 例如 AK 有大概四种弹道散布图： 红圈代表 不动准星 沙鹰的后坐力明显比 2 的 小很多了。 而到了 CS2 后，AK 的弹道固定">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Jinmu Qijie&#39;s Blog">
+<meta property="og:description" content="Understanding CS2’s Bullet Trajectory MechanicsThe gap between CS2’s bullet trajectories and CS 1.6’s is like night and day!Right now CS2 feels not far off from 1.6, and CS2 gets updated very frequent">
+<meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-16T16:06:00.000Z">
 <meta property="article:modified_time" content="2024-08-09T19:01:01.000Z">
-<meta property="article:author" content="祈杰喵">
+<meta property="article:author" content="Qijie">
 <meta property="article:tag" content="CSGO">
 <meta name="twitter:card" content="summary">
     
     
       
-      <meta name="keywords" content="祈杰博客,祈杰的博客,归离原网络科技（镇江）有限公司,原神,Linux,归离原网络科技,BG4VW,南梁软件开发工作室" />
+      <meta name="keywords" content="Qijie Blog,Jinmu Qijie,Guiliyuan Network Technology (Zhenjiang) Co., Ltd.,Genshin Impact,Linux,BG4VW,Nanliang Software Development Studio" />
     
     
       
@@ -33,7 +33,7 @@
       
     
     <!-- title -->
-    <title>刚开始玩CS2为什么会打不准</title>
+    <title>Why You Can&#39;t Aim When You First Start Playing CS2</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -57,22 +57,22 @@
 <body class="max-width mx-auto px3 ltr">
     
       <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
   <span id="menu">
     <span id="nav">
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </span>
@@ -80,40 +80,40 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/archives/405/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/archives/405/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/archives/@653/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/archives/@653/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
-        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/399/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/399/&text=刚开始玩CS2为什么会打不准"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/399/&title=刚开始玩CS2为什么会打不准"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/399/&is_video=false&description=刚开始玩CS2为什么会打不准"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=刚开始玩CS2为什么会打不准&body=Check out this article: https://meow.qijieya.cn/archives/399/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/399/&title=刚开始玩CS2为什么会打不准"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/399/&title=刚开始玩CS2为什么会打不准"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/399/&title=刚开始玩CS2为什么会打不准"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/399/&title=刚开始玩CS2为什么会打不准"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/399/&name=刚开始玩CS2为什么会打不准&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/399/&t=刚开始玩CS2为什么会打不准"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/399/&text=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/399/&title=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/399/&is_video=false&description=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Why You Can&#39;t Aim When You First Start Playing CS2&body=Check out this article: https://meow.qijieya.cn/archives/399/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/399/&title=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/399/&title=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/399/&title=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/399/&title=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/399/&name=Why You Can&#39;t Aim When You First Start Playing CS2&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/399/&t=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3-CS2-%E7%9A%84%E5%BC%B9%E9%81%93%E6%9C%BA%E5%88%B6"><span class="toc-number">1.</span> <span class="toc-text">了解 CS2 的弹道机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8ECS1-6%E6%AF%94%E8%BE%83-%E4%BB%A5%E4%B8%8B%E4%B8%BA%E4%B8%AA%E4%BA%BA%E6%84%9F%E8%A7%89%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">与CS1.6比较 以下为个人感觉：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9ECS1-6%E4%B9%9F%E6%B2%A1%E7%8E%A9%E7%9A%84-%E8%AF%B7%E7%9C%8B%E8%BF%99%E9%87%8C"><span class="toc-number">1.2.</span> <span class="toc-text">连CS1.6也没玩的 请看这里</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%8A%E8%96%9B%E5%AE%9A%E8%B0%94%E7%9A%84%E5%AD%90%E5%BC%B9%E3%80%8B%EF%BC%88%E9%9B%BE%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">《薛定谔的子弹》（雾）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#XM1014"><span class="toc-number">2.1.</span> <span class="toc-text">XM1014</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P90"><span class="toc-number">2.2.</span> <span class="toc-text">P90</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E6%A0%BC%E5%A4%AB"><span class="toc-number">2.3.</span> <span class="toc-text">内格夫</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">练习方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E8%A8%80"><span class="toc-number">4.</span> <span class="toc-text">后言</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Understanding-CS2%E2%80%99s-Bullet-Trajectory-Mechanics"><span class="toc-number">1.</span> <span class="toc-text">Understanding CS2’s Bullet Trajectory Mechanics</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Compared-with-CS1-6-%E2%80%94-the-following-is-just-my-personal-feeling"><span class="toc-number">1.1.</span> <span class="toc-text">Compared with CS1.6 — the following is just my personal feeling:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Never-Even-Played-CS1-6-Look-Here"><span class="toc-number">1.2.</span> <span class="toc-text">Never Even Played CS1.6? Look Here</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%80%9CSchrodinger%E2%80%99s-Bullet%E2%80%9D-fog"><span class="toc-number">2.</span> <span class="toc-text">“Schrödinger’s Bullet” (fog)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#XM1014"><span class="toc-number">2.1.</span> <span class="toc-text">XM1014</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P90"><span class="toc-number">2.2.</span> <span class="toc-text">P90</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Negev"><span class="toc-number">2.3.</span> <span class="toc-text">Negev</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Practice-Methods"><span class="toc-number">3.</span> <span class="toc-text">Practice Methods</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Afterword"><span class="toc-number">4.</span> <span class="toc-text">Afterword</span></a></li></ol>
       </div>
     
   </span>
@@ -122,18 +122,21 @@
     
     <div class="content index py4 ">
         
+<a id="lang-switch" href="/zh/archives/399/" hreflang="zh-CN" title="切换到中文" lang="zh-CN">中文</a>
+
+        
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
     
     <h1 class="posttitle p-name" itemprop="name headline">
-        刚开始玩CS2为什么会打不准
+        Why You Can&#39;t Aim When You First Start Playing CS2
     </h1>
 
 
 
     <div class="meta">
       <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">祈杰喵</span>
+        <span class="p-name" itemprop="name">Qijie</span>
       </span>
       
     <div class="postdate">
@@ -158,48 +161,48 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1 id="了解-CS2-的弹道机制"><a href="#了解-CS2-的弹道机制" class="headerlink" title="了解 CS2 的弹道机制"></a>了解 CS2 的弹道机制</h1><p><del>CS2 的弹道与 CS 1.6 的弹道的差距真是天壤之别！</del><br>CS2 目前手感跟1.6相差不大，并且CS2的更新频率非常高。</p>
-<h2 id="与CS1-6比较-以下为个人感觉："><a href="#与CS1-6比较-以下为个人感觉：" class="headerlink" title="与CS1.6比较 以下为个人感觉："></a>与CS1.6比较 以下为个人感觉：</h2><p>CS1.6 的武器后坐力 比 CS2 的要小很多。</p>
-<p>CS1.6 的弹道有多种随机模板：</p>
-<p>例如 AK 有大概四种弹道散布图：</p>
-<p>红圈代表 不动准星</p>
-<p>沙鹰的后坐力明显比 2 的 小很多了。</p>
-<p>而到了 CS2 后，AK 的弹道固定为上图第二个，并且后坐力加大（大概是1.6的2倍）。</p>
-<p>同样，CS2 的沙鹰后坐力真的除了贴脸外泼水都能飘上天的，对 急停 的要求比1.6略严。</p>
-<h2 id="连CS1-6也没玩的-请看这里"><a href="#连CS1-6也没玩的-请看这里" class="headerlink" title="连CS1.6也没玩的 请看这里"></a>连CS1.6也没玩的 请看这里</h2><p>作者从周边的人了解到：有些人敌我不分。（雾）我建议让他们知道，队友头上有“倒三角”标识（默认打开）。</p>
-<p>在 CS2 中，你把准星对准敌人的头时，急停稳的时候按下鼠标左键时是 99.99% 准中的。</p>
-<p>然而当你跑打（甚至跳着打）的时候，AKM4等长枪明显更飘了。刚开始来玩CS2的时候，别急着练AKM4，先把基础的瞄准定位练好 再来进阶。</p>
-<h1 id="《薛定谔的子弹》（雾）"><a href="#《薛定谔的子弹》（雾）" class="headerlink" title="《薛定谔的子弹》（雾）"></a>《薛定谔的子弹》（雾）</h1><p>当你瞄准敌人按下鼠标左键的时候，子弹在这时会处于 打中 与 打不中 的“叠加态”，</p>
-<p>此时，命中 便有了概率。所以，打不准 就要多打！以数量压倒概率！！（雾）</p>
-<p>从子弹多的开始，这里推荐从 XM1014（连喷）、P90 、内格夫 等开始练：</p>
-<h2 id="XM1014"><a href="#XM1014" class="headerlink" title="XM1014"></a>XM1014</h2><p>有7&#x2F;32（当前&#x2F;备用）载弹量，近中程“神器”。因为是 喷子，所以一枪能打出大于10颗的子弹（单颗伤害低）。喷一个 +900&dollar; ，喷三个就 +2700&dollar;再加上胜利奖励就足以买AWP大狙和全甲了。</p>
-<p>这枪可以跑打，甚至跳着打。</p>
-<p>贴脸一枪头，近身两枪身体，中程打消耗（磨对面血）。</p>
-<p>利用好掩体可以达到惊人的效果。</p>
-<p>但需要掌握好节奏。</p>
-<p>实战演示：</p>
+    <h1 id="Understanding-CS2’s-Bullet-Trajectory-Mechanics"><a href="#Understanding-CS2’s-Bullet-Trajectory-Mechanics" class="headerlink" title="Understanding CS2’s Bullet Trajectory Mechanics"></a>Understanding CS2’s Bullet Trajectory Mechanics</h1><p><del>The gap between CS2’s bullet trajectories and CS 1.6’s is like night and day!</del><br>Right now CS2 feels not far off from 1.6, and CS2 gets updated very frequently.</p>
+<h2 id="Compared-with-CS1-6-—-the-following-is-just-my-personal-feeling"><a href="#Compared-with-CS1-6-—-the-following-is-just-my-personal-feeling" class="headerlink" title="Compared with CS1.6 — the following is just my personal feeling:"></a>Compared with CS1.6 — the following is just my personal feeling:</h2><p>CS1.6’s weapon recoil is much smaller than CS2’s.</p>
+<p>CS1.6’s bullet trajectories had several random templates:</p>
+<p>For example, the AK had roughly four spray patterns:</p>
+<p>The red circle means keeping the crosshair still</p>
+<p>The Desert Eagle’s recoil is clearly much smaller than in 2.</p>
+<p>But by CS2, the AK’s trajectory is fixed to the second one in the picture above, and the recoil is increased (about twice that of 1.6).</p>
+<p>Likewise, in CS2 the Desert Eagle’s recoil is such that, apart from point-blank range, spraying really does send your aim up into the sky, and the demand for counter-strafing is slightly stricter than in 1.6.</p>
+<h2 id="Never-Even-Played-CS1-6-Look-Here"><a href="#Never-Even-Played-CS1-6-Look-Here" class="headerlink" title="Never Even Played CS1.6? Look Here"></a>Never Even Played CS1.6? Look Here</h2><p>The author has learned from the people around him that some people can’t tell friend from foe. (fog) I suggest letting them know that teammates have an “inverted triangle” marker above their heads (on by default).</p>
+<p>In CS2, when you put your crosshair on the enemy’s head and press the left mouse button while properly counter-strafed, you hit 99.99% of the time.</p>
+<p>Yet when you run and gun (or even jump and shoot), rifles like the AK and M4 drift noticeably more. When you first start playing CS2, don’t rush into practicing the AK and M4 — get your basic aiming and positioning down first, then move on to the advanced stuff.</p>
+<h1 id="“Schrodinger’s-Bullet”-fog"><a href="#“Schrodinger’s-Bullet”-fog" class="headerlink" title="“Schrödinger’s Bullet” (fog)"></a>“Schrödinger’s Bullet” (fog)</h1><p>When you aim at the enemy and press the left mouse button, at that moment the bullet is in a “superposition” of hitting and missing,</p>
+<p>and at that point, hitting becomes a matter of probability. So if you can’t aim, just shoot more! Overwhelm probability with quantity!! (fog)</p>
+<p>Start with the ones that have plenty of bullets. Here I recommend starting out with the XM1014 (auto-shotgun), P90, Negev and the like:</p>
+<h2 id="XM1014"><a href="#XM1014" class="headerlink" title="XM1014"></a>XM1014</h2><p>7&#x2F;32 (current&#x2F;spare) ammo capacity, a “god-tier weapon” at close to mid range. Because it’s a shotgun, one shot fires more than 10 pellets (each pellet does low damage). Shotgun one guy down and that’s +900&dollar; , three and that’s +2700&dollar;, plus the round-win bonus, which is enough to buy an AWP and full armor.</p>
+<p>This gun can be used while running, and even while jumping.</p>
+<p>Point-blank: one shot to the head. Up close: two shots to the body. Mid range: play for chip damage (grind down the enemy’s health).</p>
+<p>Making good use of cover can achieve astonishing results.</p>
+<p>But you need to have the rhythm down.</p>
+<p>Gameplay demo:</p>
 <p>[vplayer url&#x3D;”<a target="_blank" rel="noopener" href="https://qijieya.cn/usr/uploads/2023/09/3383433468.mp4">https://qijieya.cn/usr/uploads/2023/09/3383433468.mp4</a>“ pic&#x3D;”” &#x2F;]</p>
-<h2 id="P90"><a href="#P90" class="headerlink" title="P90"></a>P90</h2><p>50&#x2F;100 载弹量，是特别的冲锋枪。扫一个才300&dollar;。一定要跑打！</p>
-<p>一般而言，P90，Rush B，瞄胸不瞄头，一回生，二回熟，三回四回大地球！（额）</p>
-<p>这把枪有些考验跟枪能力（基本功，问就多练）。</p>
-<p>实战演示：</p>
+<h2 id="P90"><a href="#P90" class="headerlink" title="P90"></a>P90</h2><p>50&#x2F;100 ammo capacity, a rather special SMG. Spraying down one enemy only earns 300&dollar;. You absolutely must run and gun!</p>
+<p>Generally speaking, P90, Rush B, aim at the chest not the head — first time awkward, second time smooth, third and fourth time you’re Global Elite! (uh)</p>
+<p>This gun somewhat tests your tracking ability (a basic skill; if you ask, the answer is practice more).</p>
+<p>Gameplay demo:</p>
 <p>[vplayer url&#x3D;”<a target="_blank" rel="noopener" href="https://qijieya.cn/usr/uploads/2023/09/892590488.mp4">https://qijieya.cn/usr/uploads/2023/09/892590488.mp4</a>“ pic&#x3D;”” &#x2F;]</p>
-<h2 id="内格夫"><a href="#内格夫" class="headerlink" title="内格夫"></a>内格夫</h2><p>150&#x2F;300 载弹量，从第10发起弹道是几乎是在一个点上。这把枪不能跑打，蹲下后弹道更稳。</p>
-<p>只要架第二枪位（不会第一时间遇到敌人的位置）就基本“无敌”（AK可以一枪把你头点掉……）</p>
-<p>这把枪很考验扫射转移（一样是基本功）。</p>
-<p>实战演示：</p>
+<h2 id="Negev"><a href="#Negev" class="headerlink" title="Negev"></a>Negev</h2><p>150&#x2F;300 ammo capacity, and from the 10th bullet onward the spray is almost on a single point. This gun can’t be used while running; after you crouch the spray is even steadier.</p>
+<p>As long as you hold the second angle (a position where you won’t meet the enemy right away) you’re basically “invincible” (an AK can still one-tap your head, though…)</p>
+<p>This gun really tests spray transfer (also a basic skill).</p>
+<p>Gameplay demo:</p>
 <p>[vplayer url&#x3D;”<a target="_blank" rel="noopener" href="https://qijieya.cn/usr/uploads/2023/09/2378270777.mp4">https://qijieya.cn/usr/uploads/2023/09/2378270777.mp4</a>“ pic&#x3D;”” &#x2F;]</p>
-<h1 id="练习方法"><a href="#练习方法" class="headerlink" title="练习方法"></a>练习方法</h1><p>对于萌新而言，先在 “机器人练习赛” 开始熟悉这些枪的手感。找到至少两把趁手的手枪以及两把趁手的除手枪外的枪的手感后就可以去 官方匹配 的 休闲模式 试试手。</p>
-<p style="color:#e00;font-size:150%">注意：新手不要碰 沙鹰 和 鸟狙！否则你怎么打都打不中，要么打中了对面没寄然后你被一枪头了。<br>视频中的CS内名称 Vsinger_洛天依 与官方无关，即稔官方不在Steam平台上，纯属整活！</p>
+<h1 id="Practice-Methods"><a href="#Practice-Methods" class="headerlink" title="Practice Methods"></a>Practice Methods</h1><p>For newbies, start getting a feel for these guns in “Practice with Bots”. Once you’ve found at least two pistols and two non-pistol weapons that feel comfortable in your hands, you can go try your hand in Casual mode in official matchmaking.</p>
+<p style="color:#e00;font-size:150%">Note: newbies, don't touch the Desert Eagle or the SSG 08 (bird sniper)! Otherwise no matter how you shoot you won't hit anything, or if you do hit them, they don't die and then you get one-tapped in the head.<br>The in-CS name Vsinger_Luo Tianyi in the video has nothing to do with the official side — that is, the Henian official isn't on the Steam platform — it's purely a joke!</p>
 
-<p>啥？你想打沙鹰？好好好，Nova（新星）1050块，花350块给 沙鹰 升级成 点头手感更好并且拥有更多的子弹但是特远处的敌人将点不到，不香吗？便宜没好货（</p>
+<p>Huh? You want to play the Desert Eagle? Okay okay, the Nova costs 1050, so why not spend 350 to upgrade the Desert Eagle into one with a better one-tap feel and more bullets, though you won’t be able to tap enemies very far away? Doesn’t that sound great? Cheap goods are never good (</p>
 <hr>
-<p>对于有FPS基础的来说，应该练习找到 急停的节奏 和 点射AKM4 的手感，可以去Aimbotz找找看。</p>
-<p>找到手感的话就要加强对这枪的理解，那就得多打打看。</p>
+<p>For those with an FPS background, you should practice finding the rhythm of counter-strafing and the feel of tapping with the AK and M4; you can go look for it in Aimbotz.</p>
+<p>Once you’ve found the feel, you need to deepen your understanding of the gun, which means playing more.</p>
 <hr>
-<p>除了 枪法 之外，还要对地图有所理解，利用掩体，创造优势。</p>
-<h1 id="后言"><a href="#后言" class="headerlink" title="后言"></a>后言</h1><p>练枪非一日之功，是个循序渐进的过程。</p>
-<p>记住：你的双手是为你的一生服务的，而不是CS2。</p>
+<p>Besides aim, you also need to have an understanding of the map, use cover, and create advantages.</p>
+<h1 id="Afterword"><a href="#Afterword" class="headerlink" title="Afterword"></a>Afterword</h1><p>Practicing your aim is not the work of a single day; it’s a gradual process.</p>
+<p>Remember: your two hands are there to serve you for your whole life, not for CS2.</p>
 
   </div>
 </article>
@@ -213,15 +216,15 @@
     <div id="nav-footer" style="display: none">
       <ul>
         
-          <li><a href="/">首页</a></li>
+          <li><a href="/">Home</a></li>
         
-          <li><a href="/about/">关于</a></li>
+          <li><a href="/about/">About</a></li>
         
-          <li><a href="/archives/">归档</a></li>
+          <li><a href="/archives/">Writing</a></li>
         
-          <li><a href="/pages/">页面</a></li>
+          <li><a href="/pages/">Pages</a></li>
         
-          <li><a href="/friends/">友链</a></li>
+          <li><a href="/friends/">Friends</a></li>
         
       </ul>
     </div>
@@ -229,34 +232,34 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3-CS2-%E7%9A%84%E5%BC%B9%E9%81%93%E6%9C%BA%E5%88%B6"><span class="toc-number">1.</span> <span class="toc-text">了解 CS2 的弹道机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8ECS1-6%E6%AF%94%E8%BE%83-%E4%BB%A5%E4%B8%8B%E4%B8%BA%E4%B8%AA%E4%BA%BA%E6%84%9F%E8%A7%89%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">与CS1.6比较 以下为个人感觉：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9ECS1-6%E4%B9%9F%E6%B2%A1%E7%8E%A9%E7%9A%84-%E8%AF%B7%E7%9C%8B%E8%BF%99%E9%87%8C"><span class="toc-number">1.2.</span> <span class="toc-text">连CS1.6也没玩的 请看这里</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%8A%E8%96%9B%E5%AE%9A%E8%B0%94%E7%9A%84%E5%AD%90%E5%BC%B9%E3%80%8B%EF%BC%88%E9%9B%BE%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">《薛定谔的子弹》（雾）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#XM1014"><span class="toc-number">2.1.</span> <span class="toc-text">XM1014</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P90"><span class="toc-number">2.2.</span> <span class="toc-text">P90</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E6%A0%BC%E5%A4%AB"><span class="toc-number">2.3.</span> <span class="toc-text">内格夫</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">练习方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E8%A8%80"><span class="toc-number">4.</span> <span class="toc-text">后言</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Understanding-CS2%E2%80%99s-Bullet-Trajectory-Mechanics"><span class="toc-number">1.</span> <span class="toc-text">Understanding CS2’s Bullet Trajectory Mechanics</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Compared-with-CS1-6-%E2%80%94-the-following-is-just-my-personal-feeling"><span class="toc-number">1.1.</span> <span class="toc-text">Compared with CS1.6 — the following is just my personal feeling:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Never-Even-Played-CS1-6-Look-Here"><span class="toc-number">1.2.</span> <span class="toc-text">Never Even Played CS1.6? Look Here</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%80%9CSchrodinger%E2%80%99s-Bullet%E2%80%9D-fog"><span class="toc-number">2.</span> <span class="toc-text">“Schrödinger’s Bullet” (fog)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#XM1014"><span class="toc-number">2.1.</span> <span class="toc-text">XM1014</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P90"><span class="toc-number">2.2.</span> <span class="toc-text">P90</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Negev"><span class="toc-number">2.3.</span> <span class="toc-text">Negev</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Practice-Methods"><span class="toc-number">3.</span> <span class="toc-text">Practice Methods</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Afterword"><span class="toc-number">4.</span> <span class="toc-text">Afterword</span></a></li></ol>
       </div>
     
 
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/399/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/399/&text=刚开始玩CS2为什么会打不准"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/399/&title=刚开始玩CS2为什么会打不准"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/399/&is_video=false&description=刚开始玩CS2为什么会打不准"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=刚开始玩CS2为什么会打不准&body=Check out this article: https://meow.qijieya.cn/archives/399/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/399/&title=刚开始玩CS2为什么会打不准"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/399/&title=刚开始玩CS2为什么会打不准"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/399/&title=刚开始玩CS2为什么会打不准"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/399/&title=刚开始玩CS2为什么会打不准"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/399/&name=刚开始玩CS2为什么会打不准&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/399/&t=刚开始玩CS2为什么会打不准"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/399/&text=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/399/&title=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/399/&is_video=false&description=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Why You Can&#39;t Aim When You First Start Playing CS2&body=Check out this article: https://meow.qijieya.cn/archives/399/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/399/&title=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/399/&title=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/399/&title=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/399/&title=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/399/&name=Why You Can&#39;t Aim When You First Start Playing CS2&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/399/&t=Why You Can&#39;t Aim When You First Start Playing CS2"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
 
     <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
         
-          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
         
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
@@ -270,21 +273,21 @@
     
     2026
     
-    锦木祈杰のblog
+    Jinmu Qijie&#39;s Blog
   </div>
   <div class="footer-right">
     <nav>
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </nav>
@@ -341,7 +344,7 @@
   <script type="text/javascript">
   $(function() {
     // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
     btn += '<i class="fa-regular fa-clone"></i>';
     btn += '</span>';
     // mount it!
@@ -352,7 +355,7 @@
       }
     });
     clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.trigger.setAttribute('aria-label', "Copied!");
       e.clearSelection();
     })
   })

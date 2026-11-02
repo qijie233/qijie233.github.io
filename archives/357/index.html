@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html lang=zh>
+<html lang=en>
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="安装Java Runtime Environment以Debian系为例： 1$ sudo apt install openjdk-11-jre openjfx openjdk-17-jre openjdk-8-jre  安装OpenJDK与OpenJFX（图形部分） 然后 1$ java -version  显示有openjdk字样就好了  下载 HMCL传送门 HMCL，启动！1$ java">
+    <meta name="description" content="Installing the Java Runtime EnvironmentTake Debian-based systems as an example: 1$ sudo apt install openjdk-11-jre openjfx openjdk-17-jre openjdk-8-jre  Install OpenJDK and OpenJFX (the graphics part)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Linux中玩Minecraft">
+<meta property="og:title" content="Playing Minecraft on Linux">
 <meta property="og:url" content="https://meow.qijieya.cn/archives/357/index.html">
-<meta property="og:site_name" content="锦木祈杰のblog">
-<meta property="og:description" content="安装Java Runtime Environment以Debian系为例： 1$ sudo apt install openjdk-11-jre openjfx openjdk-17-jre openjdk-8-jre  安装OpenJDK与OpenJFX（图形部分） 然后 1$ java -version  显示有openjdk字样就好了  下载 HMCL传送门 HMCL，启动！1$ java">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Jinmu Qijie&#39;s Blog">
+<meta property="og:description" content="Installing the Java Runtime EnvironmentTake Debian-based systems as an example: 1$ sudo apt install openjdk-11-jre openjfx openjdk-17-jre openjdk-8-jre  Install OpenJDK and OpenJFX (the graphics part)">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://oss.qijieya.cn/1/1723229670993.png">
 <meta property="og:image" content="https://oss.qijieya.cn/1/1723229686559.png">
 <meta property="article:published_time" content="2023-08-26T05:16:42.000Z">
 <meta property="article:modified_time" content="2024-08-09T19:01:53.000Z">
-<meta property="article:author" content="祈杰喵">
+<meta property="article:author" content="Qijie">
 <meta property="article:tag" content="Linux">
-<meta property="article:tag" content="MC">
+<meta property="article:tag" content="Minecraft">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://oss.qijieya.cn/1/1723229670993.png">
     
     
       
-      <meta name="keywords" content="祈杰博客,祈杰的博客,归离原网络科技（镇江）有限公司,原神,Linux,归离原网络科技,BG4VW,南梁软件开发工作室" />
+      <meta name="keywords" content="Qijie Blog,Jinmu Qijie,Guiliyuan Network Technology (Zhenjiang) Co., Ltd.,Genshin Impact,Linux,BG4VW,Nanliang Software Development Studio" />
     
     
       
@@ -37,7 +37,7 @@
       
     
     <!-- title -->
-    <title>在Linux中玩Minecraft</title>
+    <title>Playing Minecraft on Linux</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -61,22 +61,22 @@
 <body class="max-width mx-auto px3 ltr">
     
       <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
   <span id="menu">
     <span id="nav">
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </span>
@@ -84,40 +84,40 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/archives/361/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/archives/361/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/archives/352/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/archives/352/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
-        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/357/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/357/&text=在Linux中玩Minecraft"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/357/&title=在Linux中玩Minecraft"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/357/&is_video=false&description=在Linux中玩Minecraft"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=在Linux中玩Minecraft&body=Check out this article: https://meow.qijieya.cn/archives/357/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/357/&title=在Linux中玩Minecraft"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/357/&title=在Linux中玩Minecraft"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/357/&title=在Linux中玩Minecraft"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/357/&title=在Linux中玩Minecraft"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/357/&name=在Linux中玩Minecraft&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/357/&t=在Linux中玩Minecraft"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/357/&text=Playing Minecraft on Linux"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/357/&title=Playing Minecraft on Linux"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/357/&is_video=false&description=Playing Minecraft on Linux"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Playing Minecraft on Linux&body=Check out this article: https://meow.qijieya.cn/archives/357/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/357/&title=Playing Minecraft on Linux"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/357/&title=Playing Minecraft on Linux"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/357/&title=Playing Minecraft on Linux"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/357/&title=Playing Minecraft on Linux"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/357/&name=Playing Minecraft on Linux&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/357/&t=Playing Minecraft on Linux"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Java-Runtime-Environment"><span class="toc-number">1.</span> <span class="toc-text">安装Java Runtime Environment</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD-HMCL"><span class="toc-number">2.</span> <span class="toc-text">下载 HMCL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HMCL%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%81"><span class="toc-number">3.</span> <span class="toc-text">HMCL，启动！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%EF%BC%9AMC%E7%89%88%E6%9C%AC%E4%B8%8EJRE%E7%89%88%E6%9C%AC%E5%AF%B9%E5%BA%94%E8%A1%A8"><span class="toc-number">4.</span> <span class="toc-text">附：MC版本与JRE版本对应表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%B6%E4%BA%8B"><span class="toc-number">5.</span> <span class="toc-text">轶事</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E8%8D%90"><span class="toc-number">6.</span> <span class="toc-text">服务器推荐</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Installing-the-Java-Runtime-Environment"><span class="toc-number">1.</span> <span class="toc-text">Installing the Java Runtime Environment</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Downloading-HMCL"><span class="toc-number">2.</span> <span class="toc-text">Downloading HMCL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HMCL-launch"><span class="toc-number">3.</span> <span class="toc-text">HMCL, launch!</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Appendix-MC-Version-JRE-Version-Mapping-Table"><span class="toc-number">4.</span> <span class="toc-text">Appendix: MC Version &#x2F; JRE Version Mapping Table</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Anecdote"><span class="toc-number">5.</span> <span class="toc-text">Anecdote</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Server-Recommendation"><span class="toc-number">6.</span> <span class="toc-text">Server Recommendation</span></a></li></ol>
       </div>
     
   </span>
@@ -126,18 +126,21 @@
     
     <div class="content index py4 ">
         
+<a id="lang-switch" href="/zh/archives/357/" hreflang="zh-CN" title="切换到中文" lang="zh-CN">中文</a>
+
+        
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
     
     <h1 class="posttitle p-name" itemprop="name headline">
-        在Linux中玩Minecraft
+        Playing Minecraft on Linux
     </h1>
 
 
 
     <div class="meta">
       <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">祈杰喵</span>
+        <span class="p-name" itemprop="name">Qijie</span>
       </span>
       
     <div class="postdate">
@@ -151,14 +154,14 @@
       
     <div class="article-category">
         <i class="fa-solid fa-archive"></i>
-        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+        <a class="category-link" href="/categories/Tech-Notes/">Tech Notes</a>
     </div>
 
 
       
     <div class="article-tag">
         <i class="fa-solid fa-tag"></i>
-        <a class="p-category" href="/tags/Linux/" rel="tag">Linux</a>, <a class="p-category" href="/tags/MC/" rel="tag">MC</a>
+        <a class="p-category" href="/tags/Linux/" rel="tag">Linux</a>, <a class="p-category" href="/tags/Minecraft/" rel="tag">Minecraft</a>
     </div>
 
 
@@ -167,22 +170,22 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1 id="安装Java-Runtime-Environment"><a href="#安装Java-Runtime-Environment" class="headerlink" title="安装Java Runtime Environment"></a>安装Java Runtime Environment</h1><p>以Debian系为例：</p>
+    <h1 id="Installing-the-Java-Runtime-Environment"><a href="#Installing-the-Java-Runtime-Environment" class="headerlink" title="Installing the Java Runtime Environment"></a>Installing the Java Runtime Environment</h1><p>Take Debian-based systems as an example:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> apt install openjdk-11-jre openjfx openjdk-17-jre openjdk-8-jre</span><br></pre></td></tr></table></figure>
 
-<p>安装OpenJDK与OpenJFX（图形部分）</p>
-<p>然后</p>
+<p>Install OpenJDK and OpenJFX (the graphics part).</p>
+<p>Then</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -version</span><br></pre></td></tr></table></figure>
 
-<p>显示有openjdk字样就好了</p>
+<p>As long as it shows “openjdk”, you’re fine.</p>
 <p><img src="https://oss.qijieya.cn/1/1723229670993.png" alt="image.png"></p>
-<h1 id="下载-HMCL"><a href="#下载-HMCL" class="headerlink" title="下载 HMCL"></a>下载 HMCL</h1><p><a target="_blank" rel="noopener" href="https://github.com/huanghongxun/HMCL/releases">传送门</a></p>
-<h1 id="HMCL，启动！"><a href="#HMCL，启动！" class="headerlink" title="HMCL，启动！"></a>HMCL，启动！</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -jar HMCL.jar</span><br></pre></td></tr></table></figure>
+<h1 id="Downloading-HMCL"><a href="#Downloading-HMCL" class="headerlink" title="Downloading HMCL"></a>Downloading HMCL</h1><p><a target="_blank" rel="noopener" href="https://github.com/huanghongxun/HMCL/releases">Portal</a></p>
+<h1 id="HMCL-launch"><a href="#HMCL-launch" class="headerlink" title="HMCL, launch!"></a>HMCL, launch!</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -jar HMCL.jar</span><br></pre></td></tr></table></figure>
 
-<p>注：这里的HMCL.jar请换成实际的文件名</p>
-<p>剩下的 安装与启动MC 就和Win没有差别（除了路径）了</p>
+<p>Note: replace HMCL.jar here with the actual file name.</p>
+<p>The rest — installing and launching MC — is no different from Windows (except for the paths).</p>
 <p><img src="https://oss.qijieya.cn/1/1723229686559.png" alt="HMCL"></p>
-<h1 id="附：MC版本与JRE版本对应表"><a href="#附：MC版本与JRE版本对应表" class="headerlink" title="附：MC版本与JRE版本对应表"></a>附：MC版本与JRE版本对应表</h1><table>
+<h1 id="Appendix-MC-Version-JRE-Version-Mapping-Table"><a href="#Appendix-MC-Version-JRE-Version-Mapping-Table" class="headerlink" title="Appendix: MC Version &#x2F; JRE Version Mapping Table"></a>Appendix: MC Version &#x2F; JRE Version Mapping Table</h1><table>
 <thead>
 <tr>
 <th>MC</th>
@@ -202,10 +205,10 @@
 <td>17</td>
 </tr>
 </tbody></table>
-<p>这里对应表只针对带mod的情况</p>
-<p>如果是原版无mod的话，能最新就最新。</p>
-<h1 id="轶事"><a href="#轶事" class="headerlink" title="轶事"></a>轶事</h1><p>你知道吗？统一通行证 由于不兼容HMCL 从而导致一部分Linux玩家被迫转向不稳定的ColorMC。</p>
-<h1 id="服务器推荐"><a href="#服务器推荐" class="headerlink" title="服务器推荐"></a>服务器推荐</h1><p><a target="_blank" rel="noopener" href="https://qijieya.cn/archives/174/">1.20.1 纯净生存服 传送门</a></p>
+<p>This table only applies to setups with mods.</p>
+<p>If it’s vanilla with no mods, use the newest one you can.</p>
+<h1 id="Anecdote"><a href="#Anecdote" class="headerlink" title="Anecdote"></a>Anecdote</h1><p>Did you know? Because Unified Pass is incompatible with HMCL, some Linux players were forced to switch to the unstable ColorMC.</p>
+<h1 id="Server-Recommendation"><a href="#Server-Recommendation" class="headerlink" title="Server Recommendation"></a>Server Recommendation</h1><p><a target="_blank" rel="noopener" href="https://qijieya.cn/archives/174/">1.20.1 Vanilla Survival Server Portal</a></p>
 
   </div>
 </article>
@@ -219,15 +222,15 @@
     <div id="nav-footer" style="display: none">
       <ul>
         
-          <li><a href="/">首页</a></li>
+          <li><a href="/">Home</a></li>
         
-          <li><a href="/about/">关于</a></li>
+          <li><a href="/about/">About</a></li>
         
-          <li><a href="/archives/">归档</a></li>
+          <li><a href="/archives/">Writing</a></li>
         
-          <li><a href="/pages/">页面</a></li>
+          <li><a href="/pages/">Pages</a></li>
         
-          <li><a href="/friends/">友链</a></li>
+          <li><a href="/friends/">Friends</a></li>
         
       </ul>
     </div>
@@ -235,34 +238,34 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Java-Runtime-Environment"><span class="toc-number">1.</span> <span class="toc-text">安装Java Runtime Environment</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD-HMCL"><span class="toc-number">2.</span> <span class="toc-text">下载 HMCL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HMCL%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%81"><span class="toc-number">3.</span> <span class="toc-text">HMCL，启动！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%EF%BC%9AMC%E7%89%88%E6%9C%AC%E4%B8%8EJRE%E7%89%88%E6%9C%AC%E5%AF%B9%E5%BA%94%E8%A1%A8"><span class="toc-number">4.</span> <span class="toc-text">附：MC版本与JRE版本对应表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%B6%E4%BA%8B"><span class="toc-number">5.</span> <span class="toc-text">轶事</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E8%8D%90"><span class="toc-number">6.</span> <span class="toc-text">服务器推荐</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Installing-the-Java-Runtime-Environment"><span class="toc-number">1.</span> <span class="toc-text">Installing the Java Runtime Environment</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Downloading-HMCL"><span class="toc-number">2.</span> <span class="toc-text">Downloading HMCL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HMCL-launch"><span class="toc-number">3.</span> <span class="toc-text">HMCL, launch!</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Appendix-MC-Version-JRE-Version-Mapping-Table"><span class="toc-number">4.</span> <span class="toc-text">Appendix: MC Version &#x2F; JRE Version Mapping Table</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Anecdote"><span class="toc-number">5.</span> <span class="toc-text">Anecdote</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Server-Recommendation"><span class="toc-number">6.</span> <span class="toc-text">Server Recommendation</span></a></li></ol>
       </div>
     
 
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/357/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/357/&text=在Linux中玩Minecraft"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/357/&title=在Linux中玩Minecraft"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/357/&is_video=false&description=在Linux中玩Minecraft"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=在Linux中玩Minecraft&body=Check out this article: https://meow.qijieya.cn/archives/357/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/357/&title=在Linux中玩Minecraft"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/357/&title=在Linux中玩Minecraft"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/357/&title=在Linux中玩Minecraft"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/357/&title=在Linux中玩Minecraft"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/357/&name=在Linux中玩Minecraft&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/357/&t=在Linux中玩Minecraft"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/357/&text=Playing Minecraft on Linux"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/357/&title=Playing Minecraft on Linux"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/357/&is_video=false&description=Playing Minecraft on Linux"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Playing Minecraft on Linux&body=Check out this article: https://meow.qijieya.cn/archives/357/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/357/&title=Playing Minecraft on Linux"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/357/&title=Playing Minecraft on Linux"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/357/&title=Playing Minecraft on Linux"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/357/&title=Playing Minecraft on Linux"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/357/&name=Playing Minecraft on Linux&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/357/&t=Playing Minecraft on Linux"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
 
     <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
         
-          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
         
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
@@ -276,21 +279,21 @@
     
     2026
     
-    锦木祈杰のblog
+    Jinmu Qijie&#39;s Blog
   </div>
   <div class="footer-right">
     <nav>
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </nav>
@@ -347,7 +350,7 @@
   <script type="text/javascript">
   $(function() {
     // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
     btn += '<i class="fa-regular fa-clone"></i>';
     btn += '</span>';
     // mount it!
@@ -358,7 +361,7 @@
       }
     });
     clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.trigger.setAttribute('aria-label', "Copied!");
       e.clearSelection();
     })
   })

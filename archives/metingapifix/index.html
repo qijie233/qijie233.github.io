@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang=zh>
+<html lang=en>
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="书接上回自建meting-api（带网易云VIP） | 锦木祈杰のblog这次主要是折腾了一下获取专辑图片模糊的问题，还增加了一个调用次数获取欢迎使用~专辑图片获取项目默认获取图片大小是90*90的，这就导致在播放器页面看到的专辑图是糊掉的在 src&#x2F;Meting.php 文件中，pic 方法用于获取专辑图片，它接受一个 $size 参数（默认值为90）：public function pic($">
+    <meta name="description" content="Picking Up Where We Left OffSelf-hosted meting-api (with NetEase Cloud Music VIP) | Jinmu Qijie&#39;s blogThis time I mainly fiddled with the blurry album art problem, and also added call-count retrievalE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MetingApi一些小改动">
+<meta property="og:title" content="A Few Small Tweaks to MetingAPI">
 <meta property="og:url" content="https://meow.qijieya.cn/archives/metingapifix/index.html">
-<meta property="og:site_name" content="锦木祈杰のblog">
-<meta property="og:description" content="书接上回自建meting-api（带网易云VIP） | 锦木祈杰のblog这次主要是折腾了一下获取专辑图片模糊的问题，还增加了一个调用次数获取欢迎使用~专辑图片获取项目默认获取图片大小是90*90的，这就导致在播放器页面看到的专辑图是糊掉的在 src&#x2F;Meting.php 文件中，pic 方法用于获取专辑图片，它接受一个 $size 参数（默认值为90）：public function pic($">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Jinmu Qijie&#39;s Blog">
+<meta property="og:description" content="Picking Up Where We Left OffSelf-hosted meting-api (with NetEase Cloud Music VIP) | Jinmu Qijie&#39;s blogThis time I mainly fiddled with the blurry album art problem, and also added call-count retrievalE">
+<meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-10-30T02:46:00.000Z">
 <meta property="article:modified_time" content="2025-10-30T02:49:13.000Z">
-<meta property="article:author" content="祈杰喵">
+<meta property="article:author" content="Qijie">
 <meta property="article:tag" content="API">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="Developer">
+<meta property="article:tag" content="Frontend">
 <meta property="article:tag" content="HTML">
-<meta property="article:tag" content="MetingApi">
-<meta property="article:tag" content="css">
-<meta property="article:tag" content="前端">
-<meta property="article:tag" content="开发者">
-<meta property="article:tag" content="编程">
-<meta property="article:tag" content="网站">
+<meta property="article:tag" content="MetingAPI">
+<meta property="article:tag" content="Programming">
+<meta property="article:tag" content="Website">
 <meta name="twitter:card" content="summary">
     
     
       
-      <meta name="keywords" content="祈杰博客,祈杰的博客,归离原网络科技（镇江）有限公司,原神,Linux,归离原网络科技,BG4VW,南梁软件开发工作室" />
+      <meta name="keywords" content="Qijie Blog,Jinmu Qijie,Guiliyuan Network Technology (Zhenjiang) Co., Ltd.,Genshin Impact,Linux,BG4VW,Nanliang Software Development Studio" />
     
     
       
@@ -40,7 +40,7 @@
       
     
     <!-- title -->
-    <title>MetingApi一些小改动</title>
+    <title>A Few Small Tweaks to MetingAPI</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -64,22 +64,22 @@
 <body class="max-width mx-auto px3 ltr">
     
       <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
   <span id="menu">
     <span id="nav">
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </span>
@@ -87,40 +87,40 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/archives/qijieesim/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/archives/qijieesim/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/archives/googleio2025/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/archives/googleio2025/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
-        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/metingapifix/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/metingapifix/&text=MetingApi一些小改动"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/metingapifix/&is_video=false&description=MetingApi一些小改动"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=MetingApi一些小改动&body=Check out this article: https://meow.qijieya.cn/archives/metingapifix/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/metingapifix/&name=MetingApi一些小改动&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/metingapifix/&t=MetingApi一些小改动"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/metingapifix/&text=A Few Small Tweaks to MetingAPI"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/metingapifix/&title=A Few Small Tweaks to MetingAPI"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/metingapifix/&is_video=false&description=A Few Small Tweaks to MetingAPI"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=A Few Small Tweaks to MetingAPI&body=Check out this article: https://meow.qijieya.cn/archives/metingapifix/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/metingapifix/&title=A Few Small Tweaks to MetingAPI"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=A Few Small Tweaks to MetingAPI"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=A Few Small Tweaks to MetingAPI"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=A Few Small Tweaks to MetingAPI"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/metingapifix/&name=A Few Small Tweaks to MetingAPI&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/metingapifix/&t=A Few Small Tweaks to MetingAPI"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E4%25B9%25A6%25E6%258E%25A5%25E4%25B8%258A%25E5%259B%259E"><span class="toc-number">1.</span> <span class="toc-text">书接上回</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E4%25B8%2593%25E8%25BE%2591%25E5%259B%25BE%25E7%2589%2587%25E8%258E%25B7%25E5%258F%2596"><span class="toc-number">2.</span> <span class="toc-text">专辑图片获取</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E8%25B0%2583%25E7%2594%25A8%25E6%25AC%25A1%25E6%2595%25B0%25E8%258E%25B7%25E5%258F%2596"><span class="toc-number">3.</span> <span class="toc-text">调用次数获取</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E5%259C%25A8-index.php-%25E6%2596%2587%25E4%25BB%25B6%25E4%25B8%25AD%25E6%25B7%25BB%25E5%258A%25A0%25E7%259A%2584%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.1.</span> <span class="toc-text">在 index.php 文件中添加的代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E5%259C%25A8%25E6%2596%2587%25E4%25BB%25B6%25E5%25BC%2580%25E5%25A4%25B4%25E6%25B7%25BB%25E5%258A%25A0%25E4%25BA%2586-update_api_stats()-%25E5%2587%25BD%25E6%2595%25B0%25EF%25BC%259A"><span class="toc-number">3.1.1.</span> <span class="toc-text">在文件开头添加了 update_api_stats() 函数：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E8%25B0%2583%25E7%2594%25A8%25E7%25BB%259F%25E8%25AE%25A1%25E5%2587%25BD%25E6%2595%25B0%25E7%259A%2584%25E4%25BD%258D%25E7%25BD%25AE"><span class="toc-number">3.1.2.</span> <span class="toc-text"> 调用统计函数的位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E5%259C%25A8-public%252Findex.php-%25E6%2596%2587%25E4%25BB%25B6%25E4%25B8%25AD%25E6%25B7%25BB%25E5%258A%25A0%25E7%259A%2584%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.2.</span> <span class="toc-text">在 public&#x2F;index.php 文件中添加的代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E7%25BB%259F%25E8%25AE%25A1%25E6%2595%25B0%25E6%258D%25AE%25E8%25AF%25BB%25E5%258F%2596%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.2.1.</span> <span class="toc-text">统计数据读取代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E7%25BB%259F%25E8%25AE%25A1%25E6%2595%25B0%25E6%258D%25AE%25E6%2598%25BE%25E7%25A4%25BA%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.2.2.</span> <span class="toc-text">统计数据显示代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E6%2595%25B0%25E6%258D%25AE%25E5%25AD%2598%25E5%2582%25A8"><span class="toc-number">3.3.</span> <span class="toc-text">数据存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E5%2585%25B3%25E4%25BA%258E%25E8%25B0%2583%25E7%2594%25A8%25E6%25AC%25A1%25E6%2595%25B0%25E7%259A%2584%25E6%2580%25BB%25E7%25BB%2593"><span class="toc-number">3.4.</span> <span class="toc-text">关于调用次数的总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E6%2594%25B6%25E5%25B7%25A5"><span class="toc-number">4.</span> <span class="toc-text">收工</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E4%25B9%25A6%25E6%258E%25A5%25E4%25B8%258A%25E5%259B%259E"><span class="toc-number">1.</span> <span class="toc-text">Picking Up Where We Left Off</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E4%25B8%2593%25E8%25BE%2591%25E5%259B%25BE%25E7%2589%2587%25E8%258E%25B7%25E5%258F%2596"><span class="toc-number">2.</span> <span class="toc-text">Fetching the Album Art</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E8%25B0%2583%25E7%2594%25A8%25E6%25AC%25A1%25E6%2595%25B0%25E8%258E%25B7%25E5%258F%2596"><span class="toc-number">3.</span> <span class="toc-text">Fetching the Call Count</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E5%259C%25A8-index.php-%25E6%2596%2587%25E4%25BB%25B6%25E4%25B8%25AD%25E6%25B7%25BB%25E5%258A%25A0%25E7%259A%2584%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.1.</span> <span class="toc-text">Code added in the index.php file</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E5%259C%25A8%25E6%2596%2587%25E4%25BB%25B6%25E5%25BC%2580%25E5%25A4%25B4%25E6%25B7%25BB%25E5%258A%25A0%25E4%25BA%2586-update_api_stats()-%25E5%2587%25BD%25E6%2595%25B0%25EF%25BC%259A"><span class="toc-number">3.1.1.</span> <span class="toc-text">Added the update_api_stats() function at the beginning of the file:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E8%25B0%2583%25E7%2594%25A8%25E7%25BB%259F%25E8%25AE%25A1%25E5%2587%25BD%25E6%2595%25B0%25E7%259A%2584%25E4%25BD%258D%25E7%25BD%25AE"><span class="toc-number">3.1.2.</span> <span class="toc-text"> Where to put the stats function call</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E5%259C%25A8-public%252Findex.php-%25E6%2596%2587%25E4%25BB%25B6%25E4%25B8%25AD%25E6%25B7%25BB%25E5%258A%25A0%25E7%259A%2584%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.2.</span> <span class="toc-text">Code added in the public&#x2F;index.php file</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E7%25BB%259F%25E8%25AE%25A1%25E6%2595%25B0%25E6%258D%25AE%25E8%25AF%25BB%25E5%258F%2596%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.2.1.</span> <span class="toc-text">Code that reads the stats data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E7%25BB%259F%25E8%25AE%25A1%25E6%2595%25B0%25E6%258D%25AE%25E6%2598%25BE%25E7%25A4%25BA%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.2.2.</span> <span class="toc-text">Code that displays the stats</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E6%2595%25B0%25E6%258D%25AE%25E5%25AD%2598%25E5%2582%25A8"><span class="toc-number">3.3.</span> <span class="toc-text">Data Storage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E5%2585%25B3%25E4%25BA%258E%25E8%25B0%2583%25E7%2594%25A8%25E6%25AC%25A1%25E6%2595%25B0%25E7%259A%2584%25E6%2580%25BB%25E7%25BB%2593"><span class="toc-number">3.4.</span> <span class="toc-text">Summary of the Call Counting</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E6%2594%25B6%25E5%25B7%25A5"><span class="toc-number">4.</span> <span class="toc-text">Wrapping Up</span></a></li></ol>
       </div>
     
   </span>
@@ -129,18 +129,21 @@
     
     <div class="content index py4 ">
         
+<a id="lang-switch" href="/zh/archives/metingapifix/" hreflang="zh-CN" title="切换到中文" lang="zh-CN">中文</a>
+
+        
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
     
     <h1 class="posttitle p-name" itemprop="name headline">
-        MetingApi一些小改动
+        A Few Small Tweaks to MetingAPI
     </h1>
 
 
 
     <div class="meta">
       <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">祈杰喵</span>
+        <span class="p-name" itemprop="name">Qijie</span>
       </span>
       
     <div class="postdate">
@@ -154,14 +157,14 @@
       
     <div class="article-category">
         <i class="fa-solid fa-archive"></i>
-        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+        <a class="category-link" href="/categories/Tech-Notes/">Tech Notes</a>
     </div>
 
 
       
     <div class="article-tag">
         <i class="fa-solid fa-tag"></i>
-        <a class="p-category" href="/tags/API/" rel="tag">API</a>, <a class="p-category" href="/tags/HTML/" rel="tag">HTML</a>, <a class="p-category" href="/tags/MetingApi/" rel="tag">MetingApi</a>, <a class="p-category" href="/tags/css/" rel="tag">css</a>, <a class="p-category" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>, <a class="p-category" href="/tags/%E5%BC%80%E5%8F%91%E8%80%85/" rel="tag">开发者</a>, <a class="p-category" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>, <a class="p-category" href="/tags/%E7%BD%91%E7%AB%99/" rel="tag">网站</a>
+        <a class="p-category" href="/tags/API/" rel="tag">API</a>, <a class="p-category" href="/tags/CSS/" rel="tag">CSS</a>, <a class="p-category" href="/tags/Developer/" rel="tag">Developer</a>, <a class="p-category" href="/tags/Frontend/" rel="tag">Frontend</a>, <a class="p-category" href="/tags/HTML/" rel="tag">HTML</a>, <a class="p-category" href="/tags/MetingAPI/" rel="tag">MetingAPI</a>, <a class="p-category" href="/tags/Programming/" rel="tag">Programming</a>, <a class="p-category" href="/tags/Website/" rel="tag">Website</a>
     </div>
 
 
@@ -170,10 +173,10 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1 style="" id="%E4%B9%A6%E6%8E%A5%E4%B8%8A%E5%9B%9E">书接上回</h1><blockquote><p style=""><a href="/archives/700">自建meting-api（带网易云VIP） | 锦木祈杰のblog</a></p></blockquote><p style="">这次主要是折腾了一下获取专辑图片模糊的问题，还增加了一个调用次数获取</p><p style="">欢迎使用~</p><h1 style="" id="%E4%B8%93%E8%BE%91%E5%9B%BE%E7%89%87%E8%8E%B7%E5%8F%96">专辑图片获取</h1><p style="">项目默认获取图片大小是90*90的，这就导致在播放器页面看到的专辑图是糊掉的</p><p style="">在 <code>src/Meting.php</code> 文件中，<code>pic</code> 方法用于获取专辑图片，它接受一个 <code>$size</code> 参数（默认值为90）：</p><pre><code>public function pic($id, $size = 90)
-</code></pre><p style="">在 <code>index.php</code> 文件中，<code>song2data</code> 函数处理图片请求时调用了这个方法：</p><pre><code>case 'pic':
+    <h1 style="" id="%E4%B9%A6%E6%8E%A5%E4%B8%8A%E5%9B%9E">Picking Up Where We Left Off</h1><blockquote><p style=""><a href="/archives/700">Self-hosted meting-api (with NetEase Cloud Music VIP) | Jinmu Qijie's blog</a></p></blockquote><p style="">This time I mainly fiddled with the blurry album art problem, and also added call-count retrieval</p><p style="">Enjoy~</p><h1 style="" id="%E4%B8%93%E8%BE%91%E5%9B%BE%E7%89%87%E8%8E%B7%E5%8F%96">Fetching the Album Art</h1><p style="">The project fetches images at 90*90 by default, which is why the album art you see on the player page is blurry</p><p style="">In the <code>src/Meting.php</code> file, the <code>pic</code> method is used to fetch album art, and it accepts a <code>$size</code> parameter (default value 90):</p><pre><code>public function pic($id, $size = 90)
+</code></pre><p style="">In the <code>index.php</code> file, the <code>song2data</code> function calls this method when handling image requests:</p><pre><code>case 'pic':
     $data = json_decode($api-&gt;pic($id, 90))-&gt;url;
-    break;</code></pre><p style="">可以看到，目前图片大小被设置为90。如果您想要更改专辑图片的大小，需要修改 <code>index.php</code> 文件中的这一行。</p><p style="">以下是修改方法：</p><ol><li><p style="">打开 <code>index.php</code> 文件</p></li><li><p style="">找到 <code>song2data</code> 函数中的 <code>case 'pic':</code> 部分</p></li><li><p style="">修改 <code>$data = json_decode($api-&gt;pic($id, 90))-&gt;url;</code> 这一行，将 <code>90</code> 更改为想要的尺寸</p></li></ol><h1 style="" id="%E8%B0%83%E7%94%A8%E6%AC%A1%E6%95%B0%E8%8E%B7%E5%8F%96">调用次数获取</h1><p style="">关于这个加起来比较复杂</p><h2 style="" id="%E5%9C%A8-index.php-%E6%96%87%E4%BB%B6%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%9A%84%E4%BB%A3%E7%A0%81"><strong>在 </strong><code>index.php</code><strong> 文件中添加的代码</strong></h2><h3 style="" id="%E5%9C%A8%E6%96%87%E4%BB%B6%E5%BC%80%E5%A4%B4%E6%B7%BB%E5%8A%A0%E4%BA%86-update_api_stats()-%E5%87%BD%E6%95%B0%EF%BC%9A">在文件开头添加了<span style="font-size: 13px; color: rgb(204, 204, 204)"> </span><code>update_api_stats()</code><span style="font-size: 13px; color: rgb(204, 204, 204)"> </span>函数：</h3><pre><code>// API调用统计功能
+    break;</code></pre><p style="">As you can see, the image size is currently set to 90. If you want to change the album art size, you need to modify this line in the <code>index.php</code> file.</p><p style="">Here's how to modify it:</p><ol><li><p style="">Open the <code>index.php</code> file</p></li><li><p style="">Find the <code>case 'pic':</code> part in the <code>song2data</code> function</p></li><li><p style="">Modify the <code>$data = json_decode($api-&gt;pic($id, 90))-&gt;url;</code> line, changing <code>90</code> to the size you want</p></li></ol><h1 style="" id="%E8%B0%83%E7%94%A8%E6%AC%A1%E6%95%B0%E8%8E%B7%E5%8F%96">Fetching the Call Count</h1><p style="">This one is a bit more involved to add</p><h2 style="" id="%E5%9C%A8-index.php-%E6%96%87%E4%BB%B6%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%9A%84%E4%BB%A3%E7%A0%81"><strong>Code added in the </strong><code>index.php</code><strong> file</strong></h2><h3 style="" id="%E5%9C%A8%E6%96%87%E4%BB%B6%E5%BC%80%E5%A4%B4%E6%B7%BB%E5%8A%A0%E4%BA%86-update_api_stats()-%E5%87%BD%E6%95%B0%EF%BC%9A">Added the<span style="font-size: 13px; color: rgb(204, 204, 204)"> </span><code>update_api_stats()</code><span style="font-size: 13px; color: rgb(204, 204, 204)"> </span>function at the beginning of the file:</h3><pre><code>// API调用统计功能
 function update_api_stats() {
     $stats_file = __DIR__ . '/cache/stats.json';
     
@@ -205,8 +208,8 @@ $stats[&#39;today_calls&#39;]++;
 // 保存统计数据
 file_put_contents($stats_file, json_encode($stats));
 </code></pre>
-<p>}</code></pre><h3 style="" id="%E8%B0%83%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%8D%E7%BD%AE"><strong> 调用统计函数的位置</strong></h3><p style="">将统计函数调用放在参数验证之后，确保只有API调用才会触发统计：</p><pre><code>if (!isset($_GET[&#39;type&#39;]) || !isset($_GET[&#39;id&#39;])) {<br>    include <strong>DIR</strong> . &#39;/public/index.php&#39;;<br>    exit;<br>}</p>
-<p>// 只有在API调用时才更新统计<br>update_api_stats();</code></pre><h2 style="" id="%E5%9C%A8-public%2Findex.php-%E6%96%87%E4%BB%B6%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%9A%84%E4%BB%A3%E7%A0%81"><strong>在 </strong><code>public/index.php</code><strong> 文件中添加的代码</strong></h2><h3 style="" id="%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96%E4%BB%A3%E7%A0%81"><strong>统计数据读取代码</strong></h3><p style="">在HTML内容中添加了PHP代码来读取统计数据：</p><pre><code>&lt;?php<br>// 读取API调用统计信息<br>$stats_file = <strong>DIR</strong> . &#39;/../cache/stats.json&#39;;<br>$total_calls = 0;<br>$today_calls = 0;</p>
+<p>}</code></pre><h3 style="" id="%E8%B0%83%E7%94%A8%E7%BB%9F%E8%AE%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%8D%E7%BD%AE"><strong> Where to put the stats function call</strong></h3><p style="">Put the stats function call after parameter validation, to make sure only API calls trigger the counting:</p><pre><code>if (!isset($_GET[&#39;type&#39;]) || !isset($_GET[&#39;id&#39;])) {<br>    include <strong>DIR</strong> . &#39;/public/index.php&#39;;<br>    exit;<br>}</p>
+<p>// 只有在API调用时才更新统计<br>update_api_stats();</code></pre><h2 style="" id="%E5%9C%A8-public%2Findex.php-%E6%96%87%E4%BB%B6%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%9A%84%E4%BB%A3%E7%A0%81"><strong>Code added in the </strong><code>public/index.php</code><strong> file</strong></h2><h3 style="" id="%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96%E4%BB%A3%E7%A0%81"><strong>Code that reads the stats data</strong></h3><p style="">Added PHP code in the HTML content to read the stats data:</p><pre><code>&lt;?php<br>// 读取API调用统计信息<br>$stats_file = <strong>DIR</strong> . &#39;/../cache/stats.json&#39;;<br>$total_calls = 0;<br>$today_calls = 0;</p>
 <p>if (file_exists($stats_file)) {<br>    $stats_data = json_decode(file_get_contents($stats_file), true);<br>    if ($stats_data) {<br>        $total_calls = isset($stats_data[&#39;total_calls&#39;]) ? $stats_data[&#39;total_calls&#39;] : 0;<br>        $today_calls = isset($stats_data[&#39;today_calls&#39;]) ? $stats_data[&#39;today_calls&#39;] : 0;</p>
 <pre><code>    // 检查是否是新的一天
     if (isset($stats_data[&#39;last_call_date&#39;]) &amp;amp;&amp;amp; $stats_data[&#39;last_call_date&#39;] != date(&#39;Y-m-d&#39;)) {
@@ -214,7 +217,7 @@ file_put_contents($stats_file, json_encode($stats));
     }
 }
 </code></pre>
-<p>}<br>?&gt;</code></pre><h3 style="" id="%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E6%98%BE%E7%A4%BA%E4%BB%A3%E7%A0%81"><strong>统计数据显示代码</strong></h3><p style="">添加了HTML和CSS代码来显示统计信息：</p><pre><code>&lt;div style=&quot;background-color: #f0f8ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; font-size: 14px; width: 300px;&quot;&gt;<br>    &lt;h4 style=&quot;margin: 0 0 5px 0;&quot;&gt;API调用统计&lt;/h4&gt;<br>    &lt;p style=&quot;margin: 3px 0;&quot;&gt;累计调用: &lt;strong&gt;&lt;?php echo $total_calls; ?&gt;&lt;/strong&gt;&lt;/p&gt;<br>    &lt;p style=&quot;margin: 3px 0;&quot;&gt;今日调用: &lt;strong&gt;&lt;?php echo $today_calls; ?&gt;&lt;/strong&gt;&lt;/p&gt;<br>&lt;/div&gt;</code></pre><h2 style="" id="%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8">数据存储</h2><p style="">统计数据存储在 <code>cache/stats.json</code> 文件中，包含以下信息：</p><ul><li><p style=""><code>total_calls</code>: 累计调用次数</p></li><li><p style=""><code>today_calls</code>: 今日调用次数</p></li><li><p style=""><code>last_call_date</code>: 最后调用日期</p></li></ul><h2 style="" id="%E5%85%B3%E4%BA%8E%E8%B0%83%E7%94%A8%E6%AC%A1%E6%95%B0%E7%9A%84%E6%80%BB%E7%BB%93">关于调用次数的总结</h2><p style="">实现API调用次数统计功能主要涉及以下改动：</p><ol><li><p style="">在 <code>index.php</code> 中添加统计函数和调用逻辑</p></li><li><p style="">在 <code>public/index.php</code> 中添加统计数据读取和显示代码</p></li><li><p style="">使用 <code>cache/stats.json</code> 文件存储统计数据</p></li></ol><p style="">这些改动确保了：</p><ul><li><p style="">只有API调用会被统计，访问首页不会计入</p></li><li><p style="">统计数据显示在网站首页</p></li><li><p style="">数据持久化存储在缓存目录中</p></li><li><p style="">每日统计数据会自动重置</p></li></ul><h1 style="" id="%E6%94%B6%E5%B7%A5">收工</h1><p style="">关于MetingApi的修改就结束了，我晚点会上传到github，我当前项目是修改于<a target="_blank" rel="noopener" href="https://github.com/injahow/meting-api">injahow&#x2F;meting-api: Meting API for APlayer</a></p><p style="">该项目基于<a target="_blank" rel="noopener" href="https://github.com/metowolf/Meting">metowolf&#x2F;Meting: :cake: Wow, such a powerful music API framework</a>构建的</p><p style="">又水了一篇文章~，吃饭去了</p><p style=""></p><p style=""></p><p style=""></p><p style=""></p><p style=""></p><p style=""></p><p style=""></p><p style=""></p><p style=""></p><p style=""></p><p style=""></p></p>
+<p>}<br>?&gt;</code></pre><h3 style="" id="%E7%BB%9F%E8%AE%A1%E6%95%B0%E6%8D%AE%E6%98%BE%E7%A4%BA%E4%BB%A3%E7%A0%81"><strong>Code that displays the stats</strong></h3><p style="">Added HTML and CSS code to display the stats:</p><pre><code>&lt;div style=&quot;background-color: #f0f8ff; padding: 10px; border-radius: 5px; margin-bottom: 20px; font-size: 14px; width: 300px;&quot;&gt;<br>    &lt;h4 style=&quot;margin: 0 0 5px 0;&quot;&gt;API调用统计&lt;/h4&gt;<br>    &lt;p style=&quot;margin: 3px 0;&quot;&gt;累计调用: &lt;strong&gt;&lt;?php echo $total_calls; ?&gt;&lt;/strong&gt;&lt;/p&gt;<br>    &lt;p style=&quot;margin: 3px 0;&quot;&gt;今日调用: &lt;strong&gt;&lt;?php echo $today_calls; ?&gt;&lt;/strong&gt;&lt;/p&gt;<br>&lt;/div&gt;</code></pre><h2 style="" id="%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8">Data Storage</h2><p style="">The stats are stored in the <code>cache/stats.json</code> file and contain the following information:</p><ul><li><p style=""><code>total_calls</code>: total number of calls</p></li><li><p style=""><code>today_calls</code>: number of calls today</p></li><li><p style=""><code>last_call_date</code>: date of the last call</p></li></ul><h2 style="" id="%E5%85%B3%E4%BA%8E%E8%B0%83%E7%94%A8%E6%AC%A1%E6%95%B0%E7%9A%84%E6%80%BB%E7%BB%93">Summary of the Call Counting</h2><p style="">Implementing API call counting mainly involves the following changes:</p><ol><li><p style="">Add the stats function and the call logic in <code>index.php</code></p></li><li><p style="">Add the stats reading and display code in <code>public/index.php</code></p></li><li><p style="">Use the <code>cache/stats.json</code> file to store the stats</p></li></ol><p style="">These changes ensure that:</p><ul><li><p style="">Only API calls get counted; visiting the homepage doesn’t count</p></li><li><p style="">The stats are displayed on the site’s homepage</p></li><li><p style="">The data is stored persistently in the cache directory</p></li><li><p style="">The daily stats reset automatically</p></li></ul><h1 style="" id="%E6%94%B6%E5%B7%A5">Wrapping Up</h1><p style="">That’s the end of the MetingAPI changes. I’ll upload them to GitHub later; my current project is modified from <a target="_blank" rel="noopener" href="https://github.com/injahow/meting-api">injahow&#x2F;meting-api: Meting API for APlayer</a></p><p style="">That project is built on <a target="_blank" rel="noopener" href="https://github.com/metowolf/Meting">metowolf&#x2F;Meting: :cake: Wow, such a powerful music API framework</a></p><p style="">Another filler post~, off to eat</p><p style=""></p><p style=""></p><p style=""></p><p style=""></p><p style=""></p><p style=""></p><p style=""></p><p style=""></p><p style=""></p><p style=""></p><p style=""></p></p>
 
   </div>
 </article>
@@ -228,15 +231,15 @@ file_put_contents($stats_file, json_encode($stats));
     <div id="nav-footer" style="display: none">
       <ul>
         
-          <li><a href="/">首页</a></li>
+          <li><a href="/">Home</a></li>
         
-          <li><a href="/about/">关于</a></li>
+          <li><a href="/about/">About</a></li>
         
-          <li><a href="/archives/">归档</a></li>
+          <li><a href="/archives/">Writing</a></li>
         
-          <li><a href="/pages/">页面</a></li>
+          <li><a href="/pages/">Pages</a></li>
         
-          <li><a href="/friends/">友链</a></li>
+          <li><a href="/friends/">Friends</a></li>
         
       </ul>
     </div>
@@ -244,34 +247,34 @@ file_put_contents($stats_file, json_encode($stats));
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E4%25B9%25A6%25E6%258E%25A5%25E4%25B8%258A%25E5%259B%259E"><span class="toc-number">1.</span> <span class="toc-text">书接上回</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E4%25B8%2593%25E8%25BE%2591%25E5%259B%25BE%25E7%2589%2587%25E8%258E%25B7%25E5%258F%2596"><span class="toc-number">2.</span> <span class="toc-text">专辑图片获取</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E8%25B0%2583%25E7%2594%25A8%25E6%25AC%25A1%25E6%2595%25B0%25E8%258E%25B7%25E5%258F%2596"><span class="toc-number">3.</span> <span class="toc-text">调用次数获取</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E5%259C%25A8-index.php-%25E6%2596%2587%25E4%25BB%25B6%25E4%25B8%25AD%25E6%25B7%25BB%25E5%258A%25A0%25E7%259A%2584%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.1.</span> <span class="toc-text">在 index.php 文件中添加的代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E5%259C%25A8%25E6%2596%2587%25E4%25BB%25B6%25E5%25BC%2580%25E5%25A4%25B4%25E6%25B7%25BB%25E5%258A%25A0%25E4%25BA%2586-update_api_stats()-%25E5%2587%25BD%25E6%2595%25B0%25EF%25BC%259A"><span class="toc-number">3.1.1.</span> <span class="toc-text">在文件开头添加了 update_api_stats() 函数：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E8%25B0%2583%25E7%2594%25A8%25E7%25BB%259F%25E8%25AE%25A1%25E5%2587%25BD%25E6%2595%25B0%25E7%259A%2584%25E4%25BD%258D%25E7%25BD%25AE"><span class="toc-number">3.1.2.</span> <span class="toc-text"> 调用统计函数的位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E5%259C%25A8-public%252Findex.php-%25E6%2596%2587%25E4%25BB%25B6%25E4%25B8%25AD%25E6%25B7%25BB%25E5%258A%25A0%25E7%259A%2584%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.2.</span> <span class="toc-text">在 public&#x2F;index.php 文件中添加的代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E7%25BB%259F%25E8%25AE%25A1%25E6%2595%25B0%25E6%258D%25AE%25E8%25AF%25BB%25E5%258F%2596%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.2.1.</span> <span class="toc-text">统计数据读取代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E7%25BB%259F%25E8%25AE%25A1%25E6%2595%25B0%25E6%258D%25AE%25E6%2598%25BE%25E7%25A4%25BA%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.2.2.</span> <span class="toc-text">统计数据显示代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E6%2595%25B0%25E6%258D%25AE%25E5%25AD%2598%25E5%2582%25A8"><span class="toc-number">3.3.</span> <span class="toc-text">数据存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E5%2585%25B3%25E4%25BA%258E%25E8%25B0%2583%25E7%2594%25A8%25E6%25AC%25A1%25E6%2595%25B0%25E7%259A%2584%25E6%2580%25BB%25E7%25BB%2593"><span class="toc-number">3.4.</span> <span class="toc-text">关于调用次数的总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E6%2594%25B6%25E5%25B7%25A5"><span class="toc-number">4.</span> <span class="toc-text">收工</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E4%25B9%25A6%25E6%258E%25A5%25E4%25B8%258A%25E5%259B%259E"><span class="toc-number">1.</span> <span class="toc-text">Picking Up Where We Left Off</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E4%25B8%2593%25E8%25BE%2591%25E5%259B%25BE%25E7%2589%2587%25E8%258E%25B7%25E5%258F%2596"><span class="toc-number">2.</span> <span class="toc-text">Fetching the Album Art</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E8%25B0%2583%25E7%2594%25A8%25E6%25AC%25A1%25E6%2595%25B0%25E8%258E%25B7%25E5%258F%2596"><span class="toc-number">3.</span> <span class="toc-text">Fetching the Call Count</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E5%259C%25A8-index.php-%25E6%2596%2587%25E4%25BB%25B6%25E4%25B8%25AD%25E6%25B7%25BB%25E5%258A%25A0%25E7%259A%2584%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.1.</span> <span class="toc-text">Code added in the index.php file</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E5%259C%25A8%25E6%2596%2587%25E4%25BB%25B6%25E5%25BC%2580%25E5%25A4%25B4%25E6%25B7%25BB%25E5%258A%25A0%25E4%25BA%2586-update_api_stats()-%25E5%2587%25BD%25E6%2595%25B0%25EF%25BC%259A"><span class="toc-number">3.1.1.</span> <span class="toc-text">Added the update_api_stats() function at the beginning of the file:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E8%25B0%2583%25E7%2594%25A8%25E7%25BB%259F%25E8%25AE%25A1%25E5%2587%25BD%25E6%2595%25B0%25E7%259A%2584%25E4%25BD%258D%25E7%25BD%25AE"><span class="toc-number">3.1.2.</span> <span class="toc-text"> Where to put the stats function call</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E5%259C%25A8-public%252Findex.php-%25E6%2596%2587%25E4%25BB%25B6%25E4%25B8%25AD%25E6%25B7%25BB%25E5%258A%25A0%25E7%259A%2584%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.2.</span> <span class="toc-text">Code added in the public&#x2F;index.php file</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E7%25BB%259F%25E8%25AE%25A1%25E6%2595%25B0%25E6%258D%25AE%25E8%25AF%25BB%25E5%258F%2596%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.2.1.</span> <span class="toc-text">Code that reads the stats data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%25E7%25BB%259F%25E8%25AE%25A1%25E6%2595%25B0%25E6%258D%25AE%25E6%2598%25BE%25E7%25A4%25BA%25E4%25BB%25A3%25E7%25A0%2581"><span class="toc-number">3.2.2.</span> <span class="toc-text">Code that displays the stats</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E6%2595%25B0%25E6%258D%25AE%25E5%25AD%2598%25E5%2582%25A8"><span class="toc-number">3.3.</span> <span class="toc-text">Data Storage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%25E5%2585%25B3%25E4%25BA%258E%25E8%25B0%2583%25E7%2594%25A8%25E6%25AC%25A1%25E6%2595%25B0%25E7%259A%2584%25E6%2580%25BB%25E7%25BB%2593"><span class="toc-number">3.4.</span> <span class="toc-text">Summary of the Call Counting</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%25E6%2594%25B6%25E5%25B7%25A5"><span class="toc-number">4.</span> <span class="toc-text">Wrapping Up</span></a></li></ol>
       </div>
     
 
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/metingapifix/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/metingapifix/&text=MetingApi一些小改动"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/metingapifix/&is_video=false&description=MetingApi一些小改动"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=MetingApi一些小改动&body=Check out this article: https://meow.qijieya.cn/archives/metingapifix/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=MetingApi一些小改动"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/metingapifix/&name=MetingApi一些小改动&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/metingapifix/&t=MetingApi一些小改动"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/metingapifix/&text=A Few Small Tweaks to MetingAPI"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/metingapifix/&title=A Few Small Tweaks to MetingAPI"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/metingapifix/&is_video=false&description=A Few Small Tweaks to MetingAPI"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=A Few Small Tweaks to MetingAPI&body=Check out this article: https://meow.qijieya.cn/archives/metingapifix/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/metingapifix/&title=A Few Small Tweaks to MetingAPI"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=A Few Small Tweaks to MetingAPI"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=A Few Small Tweaks to MetingAPI"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/metingapifix/&title=A Few Small Tweaks to MetingAPI"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/metingapifix/&name=A Few Small Tweaks to MetingAPI&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/metingapifix/&t=A Few Small Tweaks to MetingAPI"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
 
     <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
         
-          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
         
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
@@ -285,21 +288,21 @@ file_put_contents($stats_file, json_encode($stats));
     
     2026
     
-    锦木祈杰のblog
+    Jinmu Qijie&#39;s Blog
   </div>
   <div class="footer-right">
     <nav>
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </nav>
@@ -356,7 +359,7 @@ file_put_contents($stats_file, json_encode($stats));
   <script type="text/javascript">
   $(function() {
     // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
     btn += '<i class="fa-regular fa-clone"></i>';
     btn += '</span>';
     // mount it!
@@ -367,7 +370,7 @@ file_put_contents($stats_file, json_encode($stats));
       }
     });
     clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.trigger.setAttribute('aria-label', "Copied!");
       e.clearSelection();
     })
   })

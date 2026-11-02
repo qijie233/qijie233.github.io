@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang=zh>
+<html lang=en>
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="事实表明  完全没用！ 原因  屏蔽单个IP 只能对只有一个IP的用户有效，对于有代理甚至有Tor代理的用户来说是一种摆设。 当然重启光猫（调制解调器）也可以更换IP。 怎么真正屏蔽？   看UA 看浏览器指纹 看Cookies 还有更多表示用户特征的信息……  总之，不要想着尝试屏蔽某个用户，有时候Ta急了会想出N种方法对待你。 屏蔽是一种下下策，不到不得已不用（如被DDoS等）。 当然被DD">
+    <meta name="description" content="The facts show  It’s completely useless! Why  Blocking a single IP only works on users who have exactly one IP; for anyone behind a proxy — or even a Tor proxy — it’s just decoration. Of course, rebo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="改Nginx配置文件屏蔽IP有用吗？">
+<meta property="og:title" content="Is Blocking IPs in the Nginx Config Any Use?">
 <meta property="og:url" content="https://meow.qijieya.cn/archives/186/index.html">
-<meta property="og:site_name" content="锦木祈杰のblog">
-<meta property="og:description" content="事实表明  完全没用！ 原因  屏蔽单个IP 只能对只有一个IP的用户有效，对于有代理甚至有Tor代理的用户来说是一种摆设。 当然重启光猫（调制解调器）也可以更换IP。 怎么真正屏蔽？   看UA 看浏览器指纹 看Cookies 还有更多表示用户特征的信息……  总之，不要想着尝试屏蔽某个用户，有时候Ta急了会想出N种方法对待你。 屏蔽是一种下下策，不到不得已不用（如被DDoS等）。 当然被DD">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Jinmu Qijie&#39;s Blog">
+<meta property="og:description" content="The facts show  It’s completely useless! Why  Blocking a single IP only works on users who have exactly one IP; for anyone behind a proxy — or even a Tor proxy — it’s just decoration. Of course, rebo">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://oss.qijieya.cn/1/1723230583037.png">
 <meta property="article:published_time" content="2023-07-08T08:58:00.000Z">
 <meta property="article:modified_time" content="2024-08-09T19:09:58.000Z">
-<meta property="article:author" content="祈杰喵">
-<meta property="article:tag" content="服务器">
-<meta property="article:tag" content="网站">
+<meta property="article:author" content="Qijie">
+<meta property="article:tag" content="Server">
+<meta property="article:tag" content="Website">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://oss.qijieya.cn/1/1723230583037.png">
     
     
       
-      <meta name="keywords" content="祈杰博客,祈杰的博客,归离原网络科技（镇江）有限公司,原神,Linux,归离原网络科技,BG4VW,南梁软件开发工作室" />
+      <meta name="keywords" content="Qijie Blog,Jinmu Qijie,Guiliyuan Network Technology (Zhenjiang) Co., Ltd.,Genshin Impact,Linux,BG4VW,Nanliang Software Development Studio" />
     
     
       
@@ -36,7 +36,7 @@
       
     
     <!-- title -->
-    <title>改Nginx配置文件屏蔽IP有用吗？</title>
+    <title>Is Blocking IPs in the Nginx Config Any Use?</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -60,22 +60,22 @@
 <body class="max-width mx-auto px3 ltr">
     
       <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
   <span id="menu">
     <span id="nav">
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </span>
@@ -83,40 +83,40 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/archives/188/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/archives/188/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/archives/175/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/archives/175/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
-        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/186/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/186/&text=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/186/&title=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/186/&is_video=false&description=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=改Nginx配置文件屏蔽IP有用吗？&body=Check out this article: https://meow.qijieya.cn/archives/186/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/186/&title=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/186/&title=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/186/&title=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/186/&title=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/186/&name=改Nginx配置文件屏蔽IP有用吗？&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/186/&t=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/186/&text=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/186/&title=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/186/&is_video=false&description=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Is Blocking IPs in the Nginx Config Any Use?&body=Check out this article: https://meow.qijieya.cn/archives/186/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/186/&title=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/186/&title=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/186/&title=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/186/&title=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/186/&name=Is Blocking IPs in the Nginx Config Any Use?&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/186/&t=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">事实表明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">怎么真正屏蔽？</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">The facts show</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">Why</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">How do you actually block someone?</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -125,18 +125,21 @@
     
     <div class="content index py4 ">
         
+<a id="lang-switch" href="/zh/archives/186/" hreflang="zh-CN" title="切换到中文" lang="zh-CN">中文</a>
+
+        
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
     
     <h1 class="posttitle p-name" itemprop="name headline">
-        改Nginx配置文件屏蔽IP有用吗？
+        Is Blocking IPs in the Nginx Config Any Use?
     </h1>
 
 
 
     <div class="meta">
       <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">祈杰喵</span>
+        <span class="p-name" itemprop="name">Qijie</span>
       </span>
       
     <div class="postdate">
@@ -150,14 +153,14 @@
       
     <div class="article-category">
         <i class="fa-solid fa-archive"></i>
-        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+        <a class="category-link" href="/categories/Tech-Notes/">Tech Notes</a>
     </div>
 
 
       
     <div class="article-tag">
         <i class="fa-solid fa-tag"></i>
-        <a class="p-category" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a>, <a class="p-category" href="/tags/%E7%BD%91%E7%AB%99/" rel="tag">网站</a>
+        <a class="p-category" href="/tags/Server/" rel="tag">Server</a>, <a class="p-category" href="/tags/Website/" rel="tag">Website</a>
     </div>
 
 
@@ -166,25 +169,25 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p><img src="https://oss.qijieya.cn/1/1723230583037.png" alt="有一人前来改Nginx配置文件屏蔽IP"></p>
-<h1>事实表明</h1>
+    <p><img src="https://oss.qijieya.cn/1/1723230583037.png" alt="Someone showing up to block an IP by editing the Nginx config"></p>
+<h1>The facts show</h1>
 
-<p>完全没用！</p>
-<h2>原因</h2>
+<p>It’s completely useless!</p>
+<h2>Why</h2>
 
-<p>屏蔽单个IP 只能对只有一个IP的用户有效，对于有代理甚至有Tor代理的用户来说是一种摆设。</p>
-<p>当然重启光猫（调制解调器）也可以更换IP。</p>
-<h2>怎么真正屏蔽？</h2>
+<p>Blocking a single IP only works on users who have exactly one IP; for anyone behind a proxy — or even a Tor proxy — it’s just decoration.</p>
+<p>Of course, rebooting the optical modem (the modem) also changes your IP.</p>
+<h2>How do you actually block someone?</h2>
 
 <ul>
-<li>看UA</li>
-<li>看浏览器指纹</li>
-<li>看Cookies</li>
-<li>还有更多表示用户特征的信息……</li>
+<li>Look at the UA</li>
+<li>Look at the browser fingerprint</li>
+<li>Look at Cookies</li>
+<li>And plenty more information that characterizes a user…</li>
 </ul>
-<p>总之，不要想着尝试屏蔽某个用户，有时候Ta急了会想出N种方法对待你。</p>
-<p>屏蔽是一种下下策，不到不得已不用（如被DDoS等）。</p>
-<p>当然被DDoS时有CDN节点（如果有钱上的话）或 黑洞（没钱只能这样了）来挡，关Nginx什么事！</p>
+<p>In short, don’t bother trying to block a particular user. Sometimes when they get mad they’ll come up with N ways to deal with you.</p>
+<p>Blocking is the worst possible move; don’t use it unless you have absolutely no choice (e.g. when you’re being DDoSed).</p>
+<p>And anyway, when you’re DDoSed it’s CDN nodes (if you can afford them) or a blackhole (if you can’t, that’s all you’ve got) that take the hits — what does Nginx have to do with it!</p>
 
   </div>
 </article>
@@ -198,15 +201,15 @@
     <div id="nav-footer" style="display: none">
       <ul>
         
-          <li><a href="/">首页</a></li>
+          <li><a href="/">Home</a></li>
         
-          <li><a href="/about/">关于</a></li>
+          <li><a href="/about/">About</a></li>
         
-          <li><a href="/archives/">归档</a></li>
+          <li><a href="/archives/">Writing</a></li>
         
-          <li><a href="/pages/">页面</a></li>
+          <li><a href="/pages/">Pages</a></li>
         
-          <li><a href="/friends/">友链</a></li>
+          <li><a href="/friends/">Friends</a></li>
         
       </ul>
     </div>
@@ -214,34 +217,34 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">事实表明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">怎么真正屏蔽？</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">The facts show</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">Why</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">How do you actually block someone?</span></a></li></ol></li></ol>
       </div>
     
 
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/186/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/186/&text=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/186/&title=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/186/&is_video=false&description=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=改Nginx配置文件屏蔽IP有用吗？&body=Check out this article: https://meow.qijieya.cn/archives/186/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/186/&title=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/186/&title=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/186/&title=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/186/&title=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/186/&name=改Nginx配置文件屏蔽IP有用吗？&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/186/&t=改Nginx配置文件屏蔽IP有用吗？"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/186/&text=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/186/&title=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/186/&is_video=false&description=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Is Blocking IPs in the Nginx Config Any Use?&body=Check out this article: https://meow.qijieya.cn/archives/186/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/186/&title=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/186/&title=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/186/&title=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/186/&title=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/186/&name=Is Blocking IPs in the Nginx Config Any Use?&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/186/&t=Is Blocking IPs in the Nginx Config Any Use?"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
 
     <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
         
-          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
         
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
@@ -255,21 +258,21 @@
     
     2026
     
-    锦木祈杰のblog
+    Jinmu Qijie&#39;s Blog
   </div>
   <div class="footer-right">
     <nav>
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </nav>
@@ -326,7 +329,7 @@
   <script type="text/javascript">
   $(function() {
     // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
     btn += '<i class="fa-regular fa-clone"></i>';
     btn += '</span>';
     // mount it!
@@ -337,7 +340,7 @@
       }
     });
     clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.trigger.setAttribute('aria-label', "Copied!");
       e.clearSelection();
     })
   })

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="介绍RVC 全称 Retrieval-based-Voice-Conversion ，是一个基于VITS的变声器，常配合UVR使用（翻唱）。 配置要求与 SoVITS 类似，但对渣机更加友好（1650还是没法玩），甚至用服务器CPU“2690v2”（两枚）或者“2650v4”也可以花费大概两天半的时间训练一个模型。 推理最少4GB VRAM（实际上4GB显存太过于坐牢） 炼丹最少6GB VRAM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RVC部署与推理训练">
+<meta property="og:url" content="https://meow.qijieya.cn/zh/archives/604/index.html">
+<meta property="og:site_name" content="锦木祈杰のblog">
+<meta property="og:description" content="介绍RVC 全称 Retrieval-based-Voice-Conversion ，是一个基于VITS的变声器，常配合UVR使用（翻唱）。 配置要求与 SoVITS 类似，但对渣机更加友好（1650还是没法玩），甚至用服务器CPU“2690v2”（两枚）或者“2650v4”也可以花费大概两天半的时间训练一个模型。 推理最少4GB VRAM（实际上4GB显存太过于坐牢） 炼丹最少6GB VRAM">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qijieya.cn/usr/uploads/2024/04/4077588671.png">
+<meta property="article:published_time" content="2024-04-12T07:43:00.000Z">
+<meta property="article:modified_time" content="2025-09-28T02:13:39.000Z">
+<meta property="article:author" content="祈杰喵">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="深度学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qijieya.cn/usr/uploads/2024/04/4077588671.png">
+    
+    
+      
+      <meta name="keywords" content="祈杰博客,祈杰的博客,归离原网络科技（镇江）有限公司,原神,Linux,归离原网络科技,BG4VW,南梁软件开发工作室" />
+    
+    
+      
+        
+          <link rel="shortcut icon" href="https://oss.qijieya.cn/1/aili.gif">
+        
+      
+      
+      
+    
+    <!-- title -->
+    <title>RVC部署与推理训练</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/zh/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/zh/">首页</a></li><!--
+     --><!--
+       --><li><a href="/zh/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/zh/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/zh/pages/">页面</a></li><!--
+     --><!--
+       --><li><a href="/zh/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/zh/archives/612/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/zh/archives/598/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/zh/archives/604/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/zh/archives/604/&text=RVC部署与推理训练"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/zh/archives/604/&title=RVC部署与推理训练"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/zh/archives/604/&is_video=false&description=RVC部署与推理训练"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=RVC部署与推理训练&body=Check out this article: https://meow.qijieya.cn/zh/archives/604/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/zh/archives/604/&title=RVC部署与推理训练"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/zh/archives/604/&title=RVC部署与推理训练"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/zh/archives/604/&title=RVC部署与推理训练"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/zh/archives/604/&title=RVC部署与推理训练"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/zh/archives/604/&name=RVC部署与推理训练&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/zh/archives/604/&t=RVC部署与推理训练"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%A6%81%E6%B1%82"><span class="toc-number">2.</span> <span class="toc-text">配置要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%86%E8%8A%82"><span class="toc-number">3.</span> <span class="toc-text">细节</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%EF%BC%88Linux-Windows%E9%80%9A%E7%94%A8%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">部署（Linux&#x2F;Windows通用）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%EF%BC%81"><span class="toc-number">5.</span> <span class="toc-text">启动！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A8%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">推理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%82%BC%E4%B8%B9"><span class="toc-number">7.</span> <span class="toc-text">炼丹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9D%82%E9%A1%B9"><span class="toc-number">8.</span> <span class="toc-text">杂项</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+<a id="lang-switch" href="/archives/604/" hreflang="en" title="Switch to English" lang="en">EN</a>
+
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        RVC部署与推理训练
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">祈杰喵</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-04-12T07:43:00.000Z" class="dt-published" itemprop="datePublished">2024-04-12</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/zh/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/zh/tags/Linux/" rel="tag">Linux</a>, <a class="p-category" href="/zh/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>RVC 全称 Retrieval-based-Voice-Conversion ，是一个基于VITS的变声器，常配合UVR使用（翻唱）。</p>
+<h1 id="配置要求"><a href="#配置要求" class="headerlink" title="配置要求"></a>配置要求</h1><p>与 SoVITS 类似，但对渣机更加友好（1650还是没法玩），甚至用服务器CPU“2690v2”（两枚）或者“2650v4”也可以花费大概两天半的时间训练一个模型。</p>
+<p>推理最少4GB VRAM（实际上4GB显存太过于坐牢）</p>
+<p>炼丹最少6GB VRAM</p>
+<p>没有显卡可以用CPU龟速炼丹（下下策）</p>
+<h1 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h1><p>影响炼丹&#x2F;推理速度的因素有：</p>
+<ul>
+<li>CPU主频（如果使用CPU的话）</li>
+<li>CPU核心&#x2F;线程数（如果使用CPU的话）（影响幅度较小）</li>
+<li>内存频率（如果使用CPU的话）（影响幅度较大）</li>
+<li>显卡CUDA核心个数（影响幅度最大）</li>
+<li>显存频率（影响幅度中等）</li>
+<li>显存大小（影响幅度最大，可以调整batch_size以加快（？）炼丹速度）</li>
+</ul>
+<h1 id="部署（Linux-Windows通用）"><a href="#部署（Linux-Windows通用）" class="headerlink" title="部署（Linux&#x2F;Windows通用）"></a>部署（Linux&#x2F;Windows通用）</h1><p>最好使用conda来管理py环境，这里我假设你成功安装了conda，以下是需要运行的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">conda create -n=rvc python=3.10</span><br><span class="line">conda activate rvc</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI</span><br><span class="line">pip install -r requirements.txt</span><br><span class="line"><span class="built_in">cd</span> tools/</span><br><span class="line"><span class="built_in">export</span> all_proxy=http://&lt;代理地址&gt;:&lt;端口&gt;</span><br><span class="line">./dlmodels.sh <span class="comment">#下载预处理模型</span></span><br><span class="line"><span class="built_in">cp</span> -r assets/* ../assets/</span><br><span class="line"><span class="built_in">cd</span> ..</span><br></pre></td></tr></table></figure>
+
+<p>自此即为部署成功</p>
+<h1 id="启动！"><a href="#启动！" class="headerlink" title="启动！"></a>启动！</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python infer-web.py</span><br></pre></td></tr></table></figure>
+
+<p>稍后即可在浏览器看到以下页面：（自动打开）</p>
+<p>![例子](<a target="_blank" rel="noopener" href="https://oss.qijieya.cn/1/1723227646570.png">https://oss.qijieya.cn/1/1723227646570.png</a></p>
+<h1 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h1><p><img src="https://qijieya.cn/usr/uploads/2024/04/4077588671.png"></p>
+<ol>
+<li>重采样，这个选项一般不管，保持0即可</li>
+<li>无脑拉1</li>
+<li>一般保持默认0.33即可，拉太小会糊</li>
+<li>仅havest有效，一般不管</li>
+<li>看模型质量，模型好可以拉大些0.8～0.98，模型不行可以拉0.4～0.7，一般给出的0.75也是可以尝试的</li>
+<li>男转女调12，女转男调-12，同性保持0即可</li>
+</ol>
+<h1 id="炼丹"><a href="#炼丹" class="headerlink" title="炼丹"></a>炼丹</h1><ol>
+<li>有显卡就选rmvpe_gpu，没有显卡那就选rmvpe</li>
+<li>保存频率应该是总训练轮数的因数</li>
+<li>这个看数据集长短，(5,10]min 推荐[300,500]轮，&gt;10min 推荐[50,300)。如果实在不知道训多少轮，那就250吧</li>
+<li>CPU炼丹的话起码8，GPU炼丹看显存；这个决定吃VRAM&#x2F;RAM的程度</li>
+</ol>
+<p>整个页面都很写得很清楚了，本文无需多讲</p>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><p>wav和flac比较占空间，mp3比较吃时间</p>
+<p>如果跑一下不行，那么可以改一改参数再跑一下</p>
+<p>原音频和模型质量决定最终输出上限</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/zh/">首页</a></li>
+        
+          <li><a href="/zh/about/">关于</a></li>
+        
+          <li><a href="/zh/archives/">归档</a></li>
+        
+          <li><a href="/zh/pages/">页面</a></li>
+        
+          <li><a href="/zh/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%A6%81%E6%B1%82"><span class="toc-number">2.</span> <span class="toc-text">配置要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%86%E8%8A%82"><span class="toc-number">3.</span> <span class="toc-text">细节</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%EF%BC%88Linux-Windows%E9%80%9A%E7%94%A8%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">部署（Linux&#x2F;Windows通用）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%EF%BC%81"><span class="toc-number">5.</span> <span class="toc-text">启动！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A8%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">推理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%82%BC%E4%B8%B9"><span class="toc-number">7.</span> <span class="toc-text">炼丹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9D%82%E9%A1%B9"><span class="toc-number">8.</span> <span class="toc-text">杂项</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/zh/archives/604/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/zh/archives/604/&text=RVC部署与推理训练"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/zh/archives/604/&title=RVC部署与推理训练"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/zh/archives/604/&is_video=false&description=RVC部署与推理训练"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=RVC部署与推理训练&body=Check out this article: https://meow.qijieya.cn/zh/archives/604/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/zh/archives/604/&title=RVC部署与推理训练"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/zh/archives/604/&title=RVC部署与推理训练"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/zh/archives/604/&title=RVC部署与推理训练"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/zh/archives/604/&title=RVC部署与推理训练"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/zh/archives/604/&name=RVC部署与推理训练&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/zh/archives/604/&t=RVC部署与推理训练"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2026
+    
+    锦木祈杰のblog
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/zh/">首页</a></li><!--
+     --><!--
+       --><li><a href="/zh/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/zh/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/zh/pages/">页面</a></li><!--
+     --><!--
+       --><li><a href="/zh/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+  
+  <div class="footer-beian">
+    
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">苏ICP备2025160197号</a>
+    
+    
+      <span class="footer-sep">|</span>
+    
+    
+      <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="noopener">苏公网安备32118302000607号</a>
+    
+  </div>
+  
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+ 
+  <link
+    rel="preload"
+    href="/zh/lib/font-awesome/css/all.min.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="/zh/lib/font-awesome/css/all.min.css"
+  /></noscript>
+
+
+    <!-- jquery -->
+
+  
+<script src="/zh/lib/jquery/jquery.min.js"></script>
+
+
+
+
+
+<!-- clipboard -->
+
+  
+    
+<script src="/zh/lib/clipboard/clipboard.min.js"></script>
+
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/zh/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

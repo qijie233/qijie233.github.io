@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang=zh>
+<html lang=en>
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="要是随机读写都比普通的硬盘快的内存拿来像硬盘一样放东西会怎样？ 以Linux为例，作者将自己物理机上的一部分内存挂载到 ~&#x2F;ramdisk，然后用aria2等下载工具将视频啊文档啊等文件放进去，看看实际效果会怎样。 在Linux中，tmpfs 就是将内存中的一部分当作硬盘的文件系统，在取消挂载以及重启断电的情况下，其中的数据会永久地消失不见（真的很久！）。（毕竟内存嘛） 开整！1、挂载目录12mk">
+    <meta name="description" content="What would happen if you took memory, whose random read&#x2F;write is faster than an ordinary hard drive, and used it to store things like a hard drive? Taking Linux as an example, the author mounted">
 <meta property="og:type" content="article">
-<meta property="og:title" content="内存奇怪的玩法：变成硬盘吧！">
+<meta property="og:title" content="A Weird Way to Use RAM: Turn It Into a Hard Drive!">
 <meta property="og:url" content="https://meow.qijieya.cn/archives/551/index.html">
-<meta property="og:site_name" content="锦木祈杰のblog">
-<meta property="og:description" content="要是随机读写都比普通的硬盘快的内存拿来像硬盘一样放东西会怎样？ 以Linux为例，作者将自己物理机上的一部分内存挂载到 ~&#x2F;ramdisk，然后用aria2等下载工具将视频啊文档啊等文件放进去，看看实际效果会怎样。 在Linux中，tmpfs 就是将内存中的一部分当作硬盘的文件系统，在取消挂载以及重启断电的情况下，其中的数据会永久地消失不见（真的很久！）。（毕竟内存嘛） 开整！1、挂载目录12mk">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Jinmu Qijie&#39;s Blog">
+<meta property="og:description" content="What would happen if you took memory, whose random read&#x2F;write is faster than an ordinary hard drive, and used it to store things like a hard drive? Taking Linux as an example, the author mounted">
+<meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-01T08:50:28.000Z">
 <meta property="article:modified_time" content="2024-08-09T18:36:43.000Z">
-<meta property="article:author" content="祈杰喵">
+<meta property="article:author" content="Qijie">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="RAM">
 <meta name="twitter:card" content="summary">
     
     
       
-      <meta name="keywords" content="祈杰博客,祈杰的博客,归离原网络科技（镇江）有限公司,原神,Linux,归离原网络科技,BG4VW,南梁软件开发工作室" />
+      <meta name="keywords" content="Qijie Blog,Jinmu Qijie,Guiliyuan Network Technology (Zhenjiang) Co., Ltd.,Genshin Impact,Linux,BG4VW,Nanliang Software Development Studio" />
     
     
       
@@ -34,7 +34,7 @@
       
     
     <!-- title -->
-    <title>内存奇怪的玩法：变成硬盘吧！</title>
+    <title>A Weird Way to Use RAM: Turn It Into a Hard Drive!</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -58,22 +58,22 @@
 <body class="max-width mx-auto px3 ltr">
     
       <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
   <span id="menu">
     <span id="nav">
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </span>
@@ -81,40 +81,40 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/archives/556/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/archives/556/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/archives/547/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/archives/547/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
-        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/551/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/551/&text=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/551/&title=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/551/&is_video=false&description=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=内存奇怪的玩法：变成硬盘吧！&body=Check out this article: https://meow.qijieya.cn/archives/551/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/551/&title=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/551/&title=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/551/&title=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/551/&title=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/551/&name=内存奇怪的玩法：变成硬盘吧！&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/551/&t=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/551/&text=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/551/&title=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/551/&is_video=false&description=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=A Weird Way to Use RAM: Turn It Into a Hard Drive!&body=Check out this article: https://meow.qijieya.cn/archives/551/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/551/&title=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/551/&title=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/551/&title=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/551/&title=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/551/&name=A Weird Way to Use RAM: Turn It Into a Hard Drive!&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/551/&t=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E6%95%B4%EF%BC%81"><span class="toc-number">1.</span> <span class="toc-text">开整！</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E6%8C%82%E8%BD%BD%E7%9B%AE%E5%BD%95"><span class="toc-number">1.1.</span> <span class="toc-text">1、挂载目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E7%9C%8B%E7%9C%8B%E6%95%88%E6%9E%9C"><span class="toc-number">1.2.</span> <span class="toc-text">2、看看效果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E7%9A%84%E7%8E%A9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">具体的玩法</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Let%E2%80%99s-Go"><span class="toc-number">1.</span> <span class="toc-text">Let’s Go!</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Mount-the-Directory"><span class="toc-number">1.1.</span> <span class="toc-text">1. Mount the Directory</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Let%E2%80%99s-See-the-Effect"><span class="toc-number">1.2.</span> <span class="toc-text">2. Let’s See the Effect</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Specific-Use-Cases"><span class="toc-number">2.</span> <span class="toc-text">Specific Use Cases</span></a></li></ol>
       </div>
     
   </span>
@@ -123,18 +123,21 @@
     
     <div class="content index py4 ">
         
+<a id="lang-switch" href="/zh/archives/551/" hreflang="zh-CN" title="切换到中文" lang="zh-CN">中文</a>
+
+        
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
     
     <h1 class="posttitle p-name" itemprop="name headline">
-        内存奇怪的玩法：变成硬盘吧！
+        A Weird Way to Use RAM: Turn It Into a Hard Drive!
     </h1>
 
 
 
     <div class="meta">
       <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">祈杰喵</span>
+        <span class="p-name" itemprop="name">Qijie</span>
       </span>
       
     <div class="postdate">
@@ -148,7 +151,7 @@
       
     <div class="article-category">
         <i class="fa-solid fa-archive"></i>
-        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+        <a class="category-link" href="/categories/Tech-Notes/">Tech Notes</a>
     </div>
 
 
@@ -164,21 +167,21 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p>要是随机读写都比普通的硬盘快的内存拿来像硬盘一样放东西会怎样？</p>
-<p>以Linux为例，作者将自己物理机上的一部分内存挂载到 <code>~/ramdisk</code>，然后用aria2等下载工具将视频啊文档啊等文件放进去，看看实际效果会怎样。</p>
-<p>在Linux中，tmpfs 就是将内存中的一部分当作硬盘的文件系统，在<strong>取消挂载以及重启断电</strong>的情况下，其中的数据会<strong>永久地消失不见（真的很久！）</strong>。（毕竟内存嘛）</p>
-<h1 id="开整！"><a href="#开整！" class="headerlink" title="开整！"></a>开整！</h1><h2 id="1、挂载目录"><a href="#1、挂载目录" class="headerlink" title="1、挂载目录"></a>1、挂载目录</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/ramdisk</span><br><span class="line">sudo mount -t tmpfs -o uid=(你的用户名) -o=大小 tmpfs ~/ramdisk</span><br></pre></td></tr></table></figure>
+    <p>What would happen if you took memory, whose random read&#x2F;write is faster than an ordinary hard drive, and used it to store things like a hard drive?</p>
+<p>Taking Linux as an example, the author mounted part of the memory on his physical machine at <code>~/ramdisk</code>, then used download tools like aria2 to drop videos, documents and other files in there, to see how it would actually turn out.</p>
+<p>In Linux, tmpfs is a filesystem that treats part of the memory as a hard drive. In the case of <strong>unmounting it or rebooting and cutting the power</strong>, the data inside will <strong>disappear permanently (for a really long time!)</strong>. (It’s memory after all)</p>
+<h1 id="Let’s-Go"><a href="#Let’s-Go" class="headerlink" title="Let’s Go!"></a>Let’s Go!</h1><h2 id="1-Mount-the-Directory"><a href="#1-Mount-the-Directory" class="headerlink" title="1. Mount the Directory"></a>1. Mount the Directory</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/ramdisk</span><br><span class="line">sudo mount -t tmpfs -o uid=(你的用户名) -o=大小 tmpfs ~/ramdisk</span><br></pre></td></tr></table></figure>
 
-<p>然后可以cd进去，下下视频，看到内存占用上涨了就意味着视频被丢到了内存里。</p>
-<h2 id="2、看看效果"><a href="#2、看看效果" class="headerlink" title="2、看看效果"></a>2、看看效果</h2><p>用vlc&#x2F;mplayer打开视频文件，打开速度比SSD上的视频快了一大截，观看过程完全没有卡顿。</p>
-<h1 id="具体的玩法"><a href="#具体的玩法" class="headerlink" title="具体的玩法"></a>具体的玩法</h1><p>例如：</p>
+<p>Then you can cd into it and download some videos. When you see memory usage go up, that means the videos have been thrown into memory.</p>
+<h2 id="2-Let’s-See-the-Effect"><a href="#2-Let’s-See-the-Effect" class="headerlink" title="2. Let’s See the Effect"></a>2. Let’s See the Effect</h2><p>Opening a video file with vlc&#x2F;mplayer, it opens a whole lot faster than a video on an SSD, and there’s absolutely no stuttering while watching.</p>
+<h1 id="Specific-Use-Cases"><a href="#Specific-Use-Cases" class="headerlink" title="Specific Use Cases"></a>Specific Use Cases</h1><p>For example:</p>
 <ul>
-<li>可以作为 <code>/tmp</code> 以提高系统运行效率</li>
-<li>将频繁读写的文件放到内存以提高实际运行效率</li>
-<li>要是内存够大，操作系统也可以放进去（Linux Live CD、WinPE等，甚至是完整的OS），进系统秒进，开应用秒开</li>
-<li>已经有内存数据库的存在了，如redis（Yunzai等项目所使用的数据库）</li>
+<li>Can be used as <code>/tmp</code> to improve system performance</li>
+<li>Put frequently read and written files into memory to improve actual runtime efficiency</li>
+<li>If you have enough memory, the operating system can go in there too (Linux Live CD, WinPE, etc., or even a complete OS) — into the system in a second, apps open in a second</li>
+<li>In-memory databases already exist, such as redis (the database used by projects like Yunzai)</li>
 </ul>
-<p>还有很多玩法等你来发现。</p>
+<p>There are plenty more uses waiting for you to discover.</p>
 
   </div>
 </article>
@@ -192,15 +195,15 @@
     <div id="nav-footer" style="display: none">
       <ul>
         
-          <li><a href="/">首页</a></li>
+          <li><a href="/">Home</a></li>
         
-          <li><a href="/about/">关于</a></li>
+          <li><a href="/about/">About</a></li>
         
-          <li><a href="/archives/">归档</a></li>
+          <li><a href="/archives/">Writing</a></li>
         
-          <li><a href="/pages/">页面</a></li>
+          <li><a href="/pages/">Pages</a></li>
         
-          <li><a href="/friends/">友链</a></li>
+          <li><a href="/friends/">Friends</a></li>
         
       </ul>
     </div>
@@ -208,34 +211,34 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E6%95%B4%EF%BC%81"><span class="toc-number">1.</span> <span class="toc-text">开整！</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E6%8C%82%E8%BD%BD%E7%9B%AE%E5%BD%95"><span class="toc-number">1.1.</span> <span class="toc-text">1、挂载目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E7%9C%8B%E7%9C%8B%E6%95%88%E6%9E%9C"><span class="toc-number">1.2.</span> <span class="toc-text">2、看看效果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E7%9A%84%E7%8E%A9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">具体的玩法</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Let%E2%80%99s-Go"><span class="toc-number">1.</span> <span class="toc-text">Let’s Go!</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Mount-the-Directory"><span class="toc-number">1.1.</span> <span class="toc-text">1. Mount the Directory</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Let%E2%80%99s-See-the-Effect"><span class="toc-number">1.2.</span> <span class="toc-text">2. Let’s See the Effect</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Specific-Use-Cases"><span class="toc-number">2.</span> <span class="toc-text">Specific Use Cases</span></a></li></ol>
       </div>
     
 
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/551/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/551/&text=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/551/&title=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/551/&is_video=false&description=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=内存奇怪的玩法：变成硬盘吧！&body=Check out this article: https://meow.qijieya.cn/archives/551/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/551/&title=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/551/&title=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/551/&title=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/551/&title=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/551/&name=内存奇怪的玩法：变成硬盘吧！&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/551/&t=内存奇怪的玩法：变成硬盘吧！"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/551/&text=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/551/&title=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/551/&is_video=false&description=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=A Weird Way to Use RAM: Turn It Into a Hard Drive!&body=Check out this article: https://meow.qijieya.cn/archives/551/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/551/&title=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/551/&title=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/551/&title=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/551/&title=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/551/&name=A Weird Way to Use RAM: Turn It Into a Hard Drive!&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/551/&t=A Weird Way to Use RAM: Turn It Into a Hard Drive!"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
 
     <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
         
-          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
         
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
@@ -249,21 +252,21 @@
     
     2026
     
-    锦木祈杰のblog
+    Jinmu Qijie&#39;s Blog
   </div>
   <div class="footer-right">
     <nav>
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </nav>
@@ -320,7 +323,7 @@
   <script type="text/javascript">
   $(function() {
     // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
     btn += '<i class="fa-regular fa-clone"></i>';
     btn += '</span>';
     // mount it!
@@ -331,7 +334,7 @@
       }
     });
     clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.trigger.setAttribute('aria-label', "Copied!");
       e.clearSelection();
     })
   })

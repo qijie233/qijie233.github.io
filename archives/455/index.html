@@ -1,32 +1,32 @@
 <!DOCTYPE html>
-<html lang=zh>
+<html lang=en>
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="前言你知道吗？下载&#x2F;上传速度慢除了宽带带宽小（只能氪金解决）外还受到丢包、设备转发延迟以及网卡带宽等的影响。这篇文章主要是有一定幅度解决有关丢包等因素对下载&#x2F;上传速度的影响。 BBR是什么？ BarBaRa（芭芭拉），闪耀登场！ 其实是一种由Google开发的TCP阻塞控制算法。传统的TCP阻塞控制算法 Cubic 是不受当前网络情况控制的，只会无脑发包，包丢了就重发的。这极大">
+    <meta name="description" content="PrefaceDid you know that slow download&#x2F;upload speeds aren’t just about low broadband bandwidth (which you can only fix by throwing money at it)? Packet loss, device forwarding latency, and NIC ba">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TCP，加速！BBR，启动！">
+<meta property="og:title" content="TCP, Accelerate! BBR, Launch!">
 <meta property="og:url" content="https://meow.qijieya.cn/archives/455/index.html">
-<meta property="og:site_name" content="锦木祈杰のblog">
-<meta property="og:description" content="前言你知道吗？下载&#x2F;上传速度慢除了宽带带宽小（只能氪金解决）外还受到丢包、设备转发延迟以及网卡带宽等的影响。这篇文章主要是有一定幅度解决有关丢包等因素对下载&#x2F;上传速度的影响。 BBR是什么？ BarBaRa（芭芭拉），闪耀登场！ 其实是一种由Google开发的TCP阻塞控制算法。传统的TCP阻塞控制算法 Cubic 是不受当前网络情况控制的，只会无脑发包，包丢了就重发的。这极大">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Jinmu Qijie&#39;s Blog">
+<meta property="og:description" content="PrefaceDid you know that slow download&#x2F;upload speeds aren’t just about low broadband bandwidth (which you can only fix by throwing money at it)? Packet loss, device forwarding latency, and NIC ba">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://oss.qijieya.cn/1/1723229182474.png">
 <meta property="og:image" content="https://oss.qijieya.cn/1/1723229196122.png">
 <meta property="article:published_time" content="2023-10-21T09:57:00.000Z">
 <meta property="article:modified_time" content="2026-08-20T15:11:54.000Z">
-<meta property="article:author" content="祈杰喵">
+<meta property="article:author" content="Qijie">
 <meta property="article:tag" content="Linux">
-<meta property="article:tag" content="服务器">
-<meta property="article:tag" content="网络">
+<meta property="article:tag" content="Networking">
+<meta property="article:tag" content="Server">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://oss.qijieya.cn/1/1723229182474.png">
     
     
       
-      <meta name="keywords" content="祈杰博客,祈杰的博客,归离原网络科技（镇江）有限公司,原神,Linux,归离原网络科技,BG4VW,南梁软件开发工作室" />
+      <meta name="keywords" content="Qijie Blog,Jinmu Qijie,Guiliyuan Network Technology (Zhenjiang) Co., Ltd.,Genshin Impact,Linux,BG4VW,Nanliang Software Development Studio" />
     
     
       
@@ -38,7 +38,7 @@
       
     
     <!-- title -->
-    <title>TCP，加速！BBR，启动！</title>
+    <title>TCP, Accelerate! BBR, Launch!</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -62,22 +62,22 @@
 <body class="max-width mx-auto px3 ltr">
     
       <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
   <span id="menu">
     <span id="nav">
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </span>
@@ -85,40 +85,40 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/archives/462/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/archives/462/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/archives/431/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/archives/431/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
-        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/455/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/455/&text=TCP，加速！BBR，启动！"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/455/&title=TCP，加速！BBR，启动！"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/455/&is_video=false&description=TCP，加速！BBR，启动！"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=TCP，加速！BBR，启动！&body=Check out this article: https://meow.qijieya.cn/archives/455/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/455/&title=TCP，加速！BBR，启动！"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/455/&title=TCP，加速！BBR，启动！"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/455/&title=TCP，加速！BBR，启动！"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/455/&title=TCP，加速！BBR，启动！"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/455/&name=TCP，加速！BBR，启动！&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/455/&t=TCP，加速！BBR，启动！"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/455/&text=TCP, Accelerate! BBR, Launch!"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/455/&title=TCP, Accelerate! BBR, Launch!"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/455/&is_video=false&description=TCP, Accelerate! BBR, Launch!"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=TCP, Accelerate! BBR, Launch!&body=Check out this article: https://meow.qijieya.cn/archives/455/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/455/&title=TCP, Accelerate! BBR, Launch!"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/455/&title=TCP, Accelerate! BBR, Launch!"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/455/&title=TCP, Accelerate! BBR, Launch!"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/455/&title=TCP, Accelerate! BBR, Launch!"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/455/&name=TCP, Accelerate! BBR, Launch!&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/455/&t=TCP, Accelerate! BBR, Launch!"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8BBBR%E5%BC%80%E5%90%AF%E6%83%85%E5%86%B5"><span class="toc-number">2.</span> <span class="toc-text">查看BBR开启情况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%AF%E7%94%A8BBR"><span class="toc-number">3.</span> <span class="toc-text">启用BBR</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E6%95%88%E6%9E%9C"><span class="toc-number">4.</span> <span class="toc-text">实际效果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">5.</span> <span class="toc-text">最后</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Preface"><span class="toc-number">1.</span> <span class="toc-text">Preface</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Checking-whether-BBR-is-enabled"><span class="toc-number">2.</span> <span class="toc-text">Checking whether BBR is enabled</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Enabling-BBR"><span class="toc-number">3.</span> <span class="toc-text">Enabling BBR</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Actual-results"><span class="toc-number">4.</span> <span class="toc-text">Actual results</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Final-notes"><span class="toc-number">5.</span> <span class="toc-text">Final notes</span></a></li></ol>
       </div>
     
   </span>
@@ -127,18 +127,21 @@
     
     <div class="content index py4 ">
         
+<a id="lang-switch" href="/zh/archives/455/" hreflang="zh-CN" title="切换到中文" lang="zh-CN">中文</a>
+
+        
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
     
     <h1 class="posttitle p-name" itemprop="name headline">
-        TCP，加速！BBR，启动！
+        TCP, Accelerate! BBR, Launch!
     </h1>
 
 
 
     <div class="meta">
       <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">祈杰喵</span>
+        <span class="p-name" itemprop="name">Qijie</span>
       </span>
       
     <div class="postdate">
@@ -152,14 +155,14 @@
       
     <div class="article-category">
         <i class="fa-solid fa-archive"></i>
-        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+        <a class="category-link" href="/categories/Tech-Notes/">Tech Notes</a>
     </div>
 
 
       
     <div class="article-tag">
         <i class="fa-solid fa-tag"></i>
-        <a class="p-category" href="/tags/Linux/" rel="tag">Linux</a>, <a class="p-category" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a>, <a class="p-category" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a>
+        <a class="p-category" href="/tags/Linux/" rel="tag">Linux</a>, <a class="p-category" href="/tags/Networking/" rel="tag">Networking</a>, <a class="p-category" href="/tags/Server/" rel="tag">Server</a>
     </div>
 
 
@@ -168,27 +171,27 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>你知道吗？下载&#x2F;上传速度慢除了宽带带宽小（只能氪金解决）外还受到丢包、设备转发延迟以及网卡带宽等的影响。这篇文章主要是有一定幅度解决有关丢包等因素对下载&#x2F;上传速度的影响。</p>
-<p>BBR是什么？ <del>BarBaRa（芭芭拉），闪耀登场！</del> 其实是一种由Google开发的TCP阻塞控制算法。传统的TCP阻塞控制算法 Cubic 是不受当前网络情况控制的，只会无脑发包，包丢了就重发的。这极大程度影响了收发包速度。而 BBR 从无脑发包变成主动感知网络环境，随机应变地发包。它会根据当前的丢包率以及带宽使用情况自动调整发包速率，还会大幅度提高数据包吞吐量。这可以有一定幅度减少丢包率并跑满带宽。</p>
-<p>BBR已经嵌入到Linux 4.9+，所以只要Linux内核版本大于4.9的，都可以开启。貌似Windows也有（？）但是我不管。</p>
-<p style="color:#e00">注意：BBR 只对 TCP协议 有效，对 UDP协议 完全无效。打游戏（大部分）/看视频（部分是视频流以UDP发包）等使用UDP协议的情况无效。</p>
+    <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>Did you know that slow download&#x2F;upload speeds aren’t just about low broadband bandwidth (which you can only fix by throwing money at it)? Packet loss, device forwarding latency, and NIC bandwidth all affect it too. This article is mainly about mitigating the impact of packet loss and similar factors on download&#x2F;upload speed to some extent.</p>
+<p>What is BBR? <del>BarBaRa, dazzling entrance!</del> It’s actually a TCP congestion control algorithm developed by Google. The traditional TCP congestion control algorithm, Cubic, isn’t aware of current network conditions — it just fires packets blindly and retransmits whatever gets lost. That severely affects how fast packets are sent and received. BBR shifts from blindly firing packets to actively sensing the network and adapting its sending accordingly. It automatically adjusts the sending rate based on the current packet loss rate and bandwidth usage, and greatly increases packet throughput. This can reduce packet loss to some extent and saturate your bandwidth.</p>
+<p>BBR has been built into Linux 4.9+, so any Linux kernel newer than 4.9 can enable it. Windows apparently has it too (?) but I don’t care.</p>
+<p style="color:#e00">Note: BBR only works for the TCP protocol; it has no effect at all on the UDP protocol. Playing games (most of them) / watching videos (some video streams send packets over UDP) and other situations that use the UDP protocol get no benefit from it.</p>
 
-<h1 id="查看BBR开启情况"><a href="#查看BBR开启情况" class="headerlink" title="查看BBR开启情况"></a>查看BBR开启情况</h1><p>终端输入命令：</p>
+<h1 id="Checking-whether-BBR-is-enabled"><a href="#Checking-whether-BBR-is-enabled" class="headerlink" title="Checking whether BBR is enabled"></a>Checking whether BBR is enabled</h1><p>Enter this command in the terminal:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -n net.ipv4.tcp_congestion_control</span><br></pre></td></tr></table></figure>
 
-<p>返回 <code>cubic</code>的是没有开启</p>
-<p>返回 <code>bbr</code>的是已经开启了</p>
-<h1 id="启用BBR"><a href="#启用BBR" class="headerlink" title="启用BBR"></a>启用BBR</h1><p>终端打命令：</p>
+<p>If it returns <code>cubic</code>, it isn’t enabled</p>
+<p>If it returns <code>bbr</code>, it’s already enabled</p>
+<h1 id="Enabling-BBR"><a href="#Enabling-BBR" class="headerlink" title="Enabling BBR"></a>Enabling BBR</h1><p>Type this in the terminal:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/sysctl.d/20-BBR.conf</span><br><span class="line"><span class="comment"># 按i然后打入：</span></span><br><span class="line">net.core.default_qdisc=fq</span><br><span class="line">net.ipv4.tcp_congestion_control=bbr</span><br><span class="line"><span class="comment"># 随后:wq保存退出</span></span><br><span class="line"><span class="built_in">sudo</span> reboot</span><br></pre></td></tr></table></figure>
 
-<p style="color:#e00">注意：对于sysctl相关的设置都是重启后生效，或者是<code>sudo sysctl -p</code>即可</p>
+<p style="color:#e00">Note: sysctl-related settings generally only take effect after a reboot, or just run <code>sudo sysctl -p</code></p>
 
-<p>完成这一步后可以看看上面那一步，看看BBR是否开启了。</p>
-<h1 id="实际效果"><a href="#实际效果" class="headerlink" title="实际效果"></a>实际效果</h1><p><img src="https://oss.qijieya.cn/1/1723229182474.png" alt="作者物理机的BBR是开启的"></p>
-<p>看看开启BBR后的测速结果（作者当时300Mbps宽带）</p>
-<p><img src="https://oss.qijieya.cn/1/1723229196122.png" alt="结果只供参考，请以实际情况为准"></p>
-<p>作者实感：访问网页速度（毕竟是要极短时间内发送大量GET请求以请求网站资源）有些提升，下载&#x2F;上传的时候基本上宽带带宽都被跑满的那种，TCP连接时丢包率有所降低。</p>
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>在VPS等服务器上开启BBR会有奇效（大部分），这对挂网站等疯狂建立TCP连接的情况非常有利。</p>
+<p>After finishing this step you can go back to the step above and check whether BBR is enabled.</p>
+<h1 id="Actual-results"><a href="#Actual-results" class="headerlink" title="Actual results"></a>Actual results</h1><p><img src="https://oss.qijieya.cn/1/1723229182474.png" alt="BBR is enabled on the author&#39;s physical machine"></p>
+<p>Take a look at the speed test after enabling BBR (the author had 300Mbps broadband at the time)</p>
+<p><img src="https://oss.qijieya.cn/1/1723229196122.png" alt="Results are for reference only; please refer to actual conditions"></p>
+<p>The author’s honest impression: page access speeds up somewhat (after all, it has to send a large number of GET requests in a very short time to fetch site resources), downloads&#x2F;uploads basically run the broadband bandwidth to full, and the packet loss rate on TCP connections drops somewhat.</p>
+<h1 id="Final-notes"><a href="#Final-notes" class="headerlink" title="Final notes"></a>Final notes</h1><p>Enabling BBR on VPS and other servers can work wonders (in most cases) — it’s very beneficial for situations like hosting a website that establishes TCP connections like crazy.</p>
 
   </div>
 </article>
@@ -202,15 +205,15 @@
     <div id="nav-footer" style="display: none">
       <ul>
         
-          <li><a href="/">首页</a></li>
+          <li><a href="/">Home</a></li>
         
-          <li><a href="/about/">关于</a></li>
+          <li><a href="/about/">About</a></li>
         
-          <li><a href="/archives/">归档</a></li>
+          <li><a href="/archives/">Writing</a></li>
         
-          <li><a href="/pages/">页面</a></li>
+          <li><a href="/pages/">Pages</a></li>
         
-          <li><a href="/friends/">友链</a></li>
+          <li><a href="/friends/">Friends</a></li>
         
       </ul>
     </div>
@@ -218,34 +221,34 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8BBBR%E5%BC%80%E5%90%AF%E6%83%85%E5%86%B5"><span class="toc-number">2.</span> <span class="toc-text">查看BBR开启情况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%AF%E7%94%A8BBR"><span class="toc-number">3.</span> <span class="toc-text">启用BBR</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E6%95%88%E6%9E%9C"><span class="toc-number">4.</span> <span class="toc-text">实际效果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">5.</span> <span class="toc-text">最后</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Preface"><span class="toc-number">1.</span> <span class="toc-text">Preface</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Checking-whether-BBR-is-enabled"><span class="toc-number">2.</span> <span class="toc-text">Checking whether BBR is enabled</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Enabling-BBR"><span class="toc-number">3.</span> <span class="toc-text">Enabling BBR</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Actual-results"><span class="toc-number">4.</span> <span class="toc-text">Actual results</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Final-notes"><span class="toc-number">5.</span> <span class="toc-text">Final notes</span></a></li></ol>
       </div>
     
 
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/455/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/455/&text=TCP，加速！BBR，启动！"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/455/&title=TCP，加速！BBR，启动！"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/455/&is_video=false&description=TCP，加速！BBR，启动！"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=TCP，加速！BBR，启动！&body=Check out this article: https://meow.qijieya.cn/archives/455/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/455/&title=TCP，加速！BBR，启动！"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/455/&title=TCP，加速！BBR，启动！"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/455/&title=TCP，加速！BBR，启动！"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/455/&title=TCP，加速！BBR，启动！"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/455/&name=TCP，加速！BBR，启动！&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/455/&t=TCP，加速！BBR，启动！"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/455/&text=TCP, Accelerate! BBR, Launch!"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/455/&title=TCP, Accelerate! BBR, Launch!"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/455/&is_video=false&description=TCP, Accelerate! BBR, Launch!"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=TCP, Accelerate! BBR, Launch!&body=Check out this article: https://meow.qijieya.cn/archives/455/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/455/&title=TCP, Accelerate! BBR, Launch!"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/455/&title=TCP, Accelerate! BBR, Launch!"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/455/&title=TCP, Accelerate! BBR, Launch!"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/455/&title=TCP, Accelerate! BBR, Launch!"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/455/&name=TCP, Accelerate! BBR, Launch!&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/455/&t=TCP, Accelerate! BBR, Launch!"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
 
     <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
         
-          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
         
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
@@ -259,21 +262,21 @@
     
     2026
     
-    锦木祈杰のblog
+    Jinmu Qijie&#39;s Blog
   </div>
   <div class="footer-right">
     <nav>
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </nav>
@@ -330,7 +333,7 @@
   <script type="text/javascript">
   $(function() {
     // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
     btn += '<i class="fa-regular fa-clone"></i>';
     btn += '</span>';
     // mount it!
@@ -341,7 +344,7 @@
       }
     });
     clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.trigger.setAttribute('aria-label', "Copied!");
       e.clearSelection();
     })
   })

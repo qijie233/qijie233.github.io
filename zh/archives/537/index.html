@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="注意本系列文章从最基本的“黑框框”（CLI，命令行）开始，用意是为了先着重基础而不是一上来就整花里胡俏的GUI。 一、部署开发环境安装Debian系的安装命令如下 1sudo apt install gcc g++ make  装完后输入 g++ -v查看是否安装成功  出现类似上图中的输出即为安装成功。 当然，Ubuntu最好也把这个包 build-essential装上。 Win的话实在是不推">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++入门其一：部署环境&#x2F;基本语法&#x2F;变量介绍">
+<meta property="og:url" content="https://meow.qijieya.cn/zh/archives/537/index.html">
+<meta property="og:site_name" content="锦木祈杰のblog">
+<meta property="og:description" content="注意本系列文章从最基本的“黑框框”（CLI，命令行）开始，用意是为了先着重基础而不是一上来就整花里胡俏的GUI。 一、部署开发环境安装Debian系的安装命令如下 1sudo apt install gcc g++ make  装完后输入 g++ -v查看是否安装成功  出现类似上图中的输出即为安装成功。 当然，Ubuntu最好也把这个包 build-essential装上。 Win的话实在是不推">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723228716473.png">
+<meta property="article:published_time" content="2023-12-28T10:35:00.000Z">
+<meta property="article:modified_time" content="2024-08-09T18:39:03.000Z">
+<meta property="article:author" content="祈杰喵">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oss.qijieya.cn/1/1723228716473.png">
+    
+    
+      
+      <meta name="keywords" content="祈杰博客,祈杰的博客,归离原网络科技（镇江）有限公司,原神,Linux,归离原网络科技,BG4VW,南梁软件开发工作室" />
+    
+    
+      
+        
+          <link rel="shortcut icon" href="https://oss.qijieya.cn/1/aili.gif">
+        
+      
+      
+      
+    
+    <!-- title -->
+    <title>C++入门其一：部署环境/基本语法/变量介绍</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/zh/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/zh/">首页</a></li><!--
+     --><!--
+       --><li><a href="/zh/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/zh/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/zh/pages/">页面</a></li><!--
+     --><!--
+       --><li><a href="/zh/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/zh/archives/550/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/zh/archives/529/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/zh/archives/537/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/zh/archives/537/&text=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/zh/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/zh/archives/537/&is_video=false&description=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=C++入门其一：部署环境/基本语法/变量介绍&body=Check out this article: https://meow.qijieya.cn/zh/archives/537/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/zh/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/zh/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/zh/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/zh/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/zh/archives/537/&name=C++入门其一：部署环境/基本语法/变量介绍&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/zh/archives/537/&t=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">1.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%83%A8%E7%BD%B2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-number">2.</span> <span class="toc-text">一、部署开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">2.2.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E5%8F%A5"><span class="toc-number">3.1.</span> <span class="toc-text">语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">3.2.</span> <span class="toc-text">关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">3.3.</span> <span class="toc-text">注释</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">4.</span> <span class="toc-text">变量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E5%8F%98%E9%87%8F"><span class="toc-number">4.1.</span> <span class="toc-text">定义一个变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E5%8F%98%E9%87%8F%E8%B5%8B%E5%80%BC"><span class="toc-number">4.2.</span> <span class="toc-text">为变量赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.3.</span> <span class="toc-text">变量类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%8A%E4%B8%80%E6%AE%B5%E8%90%BD"><span class="toc-number">5.</span> <span class="toc-text">告一段落</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+<a id="lang-switch" href="/archives/537/" hreflang="en" title="Switch to English" lang="en">EN</a>
+
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        C++入门其一：部署环境/基本语法/变量介绍
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">祈杰喵</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-12-28T10:35:00.000Z" class="dt-published" itemprop="datePublished">2023-12-28</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/zh/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/zh/tags/C/" rel="tag">C++</a>, <a class="p-category" href="/zh/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>本系列文章从最基本的“黑框框”（CLI，命令行）开始，用意是为了先着重基础而不是一上来就整花里胡俏的GUI。</p>
+<h1 id="一、部署开发环境"><a href="#一、部署开发环境" class="headerlink" title="一、部署开发环境"></a>一、部署开发环境</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Debian系的安装命令如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install gcc g++ make</span><br></pre></td></tr></table></figure>
+
+<p>装完后输入 <code>g++ -v</code>查看是否安装成功</p>
+<p><img src="https://oss.qijieya.cn/1/1723228716473.png" alt="这是作者的Ubuntu的情况"></p>
+<p>出现类似上图中的输出即为安装成功。</p>
+<p>当然，Ubuntu最好也把这个包 <code>build-essential</code>装上。</p>
+<p>Win的话实在是不推荐臃肿的VS，可以从MinGW开始。</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>使用文本编辑器敲入经典的Hello World：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;Hello world!\n&quot;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>保存为 <code>Hello.cpp</code>，然后敲入 <code>g++ Hello.cpp</code>。</p>
+<p>这样就会在当前目录下得到 <code>a.out</code>文件，使用 <code>./a.out</code>运行。</p>
+<p>程序会输出“Hello world!”。（如果没有报错）</p>
+<p>cout 是标准输出对象，<code>&lt;&lt;</code>被重载为流输出符，可以输出各种类型的数据。</p>
+<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><p>C&#x2F;C++的语句都以分号 <code>;</code>结尾，不要漏打哟～（这一点到JS&#x2F;Java&#x2F;PHP等语言都管用）</p>
+<p>不同于其他语言的是，你需要把语句放在 <code>int main()</code>（默认情况，具体随编译器而定）主函数中，语句才会在运行时执行。</p>
+<p>多个语句可以用一对花括号 <code>{}</code>括起来就像这样：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;嗨！&quot;</span>&lt;&lt;endl;</span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;想我了吗？&quot;</span>&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这就叫 语句块 。变量在这里会有特别的行为，这个后面再讲。</p>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>变量、类等的命名不能是它们。C++关键字（不同编译器可能会有所不同）有这些：</p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>这玩意是用于提高源代码可读性的，适当地写注释有助于提高源代码可读性。</p>
+<p>C++的注释有以下两种：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;<span class="string">&quot;会输出我&quot;</span>;<span class="comment">//这是行内注释，这一行内，&quot;//&quot;后面的都会被编译器无视</span></span><br><span class="line"><span class="comment">/*从这里开始</span></span><br><span class="line"><span class="comment">这是多行注释</span></span><br><span class="line"><span class="comment">都会被编译器无视</span></span><br><span class="line"><span class="comment">到这里结束*/</span></span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是：多行注释的开始符是 <code>/*</code>，结束符是 <code>*/</code>。</p>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="定义一个变量"><a href="#定义一个变量" class="headerlink" title="定义一个变量"></a>定义一个变量</h2><p>只需要类似于这样敲就行了</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> lty;<span class="comment">//定义一个名为lty的int类型变量</span></span><br><span class="line"><span class="type">char</span>* name,address;<span class="comment">//定义两个字符串变量</span></span><br></pre></td></tr></table></figure>
+
+<p>归根结底就是</p>
+<p><code>变量类型 变量名;</code></p>
+<h2 id="为变量赋值"><a href="#为变量赋值" class="headerlink" title="为变量赋值"></a>为变量赋值</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lty = <span class="number">1</span>;<span class="comment">//为int类型的lty赋值1</span></span><br><span class="line">name = <span class="string">&quot;洛天依&quot;</span>;<span class="comment">//为字符串类型的name赋值&quot;洛天依&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><table>
+<thead>
+<tr>
+<th>基本变量类型关键字</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int</td>
+<td>32Bit的整数</td>
+</tr>
+<tr>
+<td>short</td>
+<td>16~32Bit的整数</td>
+</tr>
+<tr>
+<td>long</td>
+<td>32~64Bit的整数</td>
+</tr>
+<tr>
+<td>long long</td>
+<td>64Bit的整数</td>
+</tr>
+<tr>
+<td>float</td>
+<td>32Bit的实数（也就是带小数的）</td>
+</tr>
+<tr>
+<td>double</td>
+<td>64Bit的实数</td>
+</tr>
+<tr>
+<td>char</td>
+<td>8Bit的单个字符</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>1Bit的布尔值，只有true（1）和false（0）</td>
+</tr>
+<tr>
+<td>enum</td>
+<td>枚举，类似于int，不过可以给整数命名</td>
+</tr>
+<tr>
+<td>……</td>
+<td>还有更多基本类型</td>
+</tr>
+</tbody></table>
+<p>前面加上 <code>unsigned</code>就是无符号，也就是变量只能为0和正数。</p>
+<p>只有整数和字符类型可以加 <code>unsigned</code>。</p>
+<p>当然也可以自己定义变量类型，这个在后面的文章会讲到。</p>
+<h1 id="告一段落"><a href="#告一段落" class="headerlink" title="告一段落"></a>告一段落</h1><p>本文只是讲个大概，作者建议多看编译器的帮助文档以及多使用搜索引擎查询你所需要的信息。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/zh/">首页</a></li>
+        
+          <li><a href="/zh/about/">关于</a></li>
+        
+          <li><a href="/zh/archives/">归档</a></li>
+        
+          <li><a href="/zh/pages/">页面</a></li>
+        
+          <li><a href="/zh/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">1.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%83%A8%E7%BD%B2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-number">2.</span> <span class="toc-text">一、部署开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">2.2.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E5%8F%A5"><span class="toc-number">3.1.</span> <span class="toc-text">语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">3.2.</span> <span class="toc-text">关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">3.3.</span> <span class="toc-text">注释</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">4.</span> <span class="toc-text">变量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E5%8F%98%E9%87%8F"><span class="toc-number">4.1.</span> <span class="toc-text">定义一个变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E5%8F%98%E9%87%8F%E8%B5%8B%E5%80%BC"><span class="toc-number">4.2.</span> <span class="toc-text">为变量赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.3.</span> <span class="toc-text">变量类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%8A%E4%B8%80%E6%AE%B5%E8%90%BD"><span class="toc-number">5.</span> <span class="toc-text">告一段落</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/zh/archives/537/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/zh/archives/537/&text=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/zh/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/zh/archives/537/&is_video=false&description=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=C++入门其一：部署环境/基本语法/变量介绍&body=Check out this article: https://meow.qijieya.cn/zh/archives/537/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/zh/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/zh/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/zh/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/zh/archives/537/&title=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/zh/archives/537/&name=C++入门其一：部署环境/基本语法/变量介绍&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/zh/archives/537/&t=C++入门其一：部署环境/基本语法/变量介绍"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2026
+    
+    锦木祈杰のblog
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/zh/">首页</a></li><!--
+     --><!--
+       --><li><a href="/zh/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/zh/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/zh/pages/">页面</a></li><!--
+     --><!--
+       --><li><a href="/zh/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+  
+  <div class="footer-beian">
+    
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">苏ICP备2025160197号</a>
+    
+    
+      <span class="footer-sep">|</span>
+    
+    
+      <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="noopener">苏公网安备32118302000607号</a>
+    
+  </div>
+  
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+ 
+  <link
+    rel="preload"
+    href="/zh/lib/font-awesome/css/all.min.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="/zh/lib/font-awesome/css/all.min.css"
+  /></noscript>
+
+
+    <!-- jquery -->
+
+  
+<script src="/zh/lib/jquery/jquery.min.js"></script>
+
+
+
+
+
+<!-- clipboard -->
+
+  
+    
+<script src="/zh/lib/clipboard/clipboard.min.js"></script>
+
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/zh/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

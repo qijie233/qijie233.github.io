@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="前言手机 现在已经离不开我们生活的方方面面。然而这玩意（尤其是大厂）自带的软件却一个都不安宁，轻的一天弹三四条无关紧要的系统应用通知，重则在你看网页刷视频的时候，“Biu~”一下弹出个短时间内让你无法关闭甚至有虚假的关闭按钮的广告。当你感觉到烦，不想接受这样的“福祉”时，系统：“系统应用，无法卸载”。 这，我不点名了，大家心里有数。 下面开始列举常见的“特性”吧！ 特性！系统应用通知主要表现为：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="看看一些有关手机的“特性”以及应对策略">
+<meta property="og:url" content="https://meow.qijieya.cn/zh/archives/417/index.html">
+<meta property="og:site_name" content="锦木祈杰のblog">
+<meta property="og:description" content="前言手机 现在已经离不开我们生活的方方面面。然而这玩意（尤其是大厂）自带的软件却一个都不安宁，轻的一天弹三四条无关紧要的系统应用通知，重则在你看网页刷视频的时候，“Biu~”一下弹出个短时间内让你无法关闭甚至有虚假的关闭按钮的广告。当你感觉到烦，不想接受这样的“福祉”时，系统：“系统应用，无法卸载”。 这，我不点名了，大家心里有数。 下面开始列举常见的“特性”吧！ 特性！系统应用通知主要表现为：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723229412886.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723229435172.png">
+<meta property="article:published_time" content="2023-10-13T11:08:00.000Z">
+<meta property="article:modified_time" content="2024-08-09T18:51:00.000Z">
+<meta property="article:author" content="祈杰喵">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="安卓">
+<meta property="article:tag" content="手机">
+<meta property="article:tag" content="特性">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oss.qijieya.cn/1/1723229412886.png">
+    
+    
+      
+      <meta name="keywords" content="祈杰博客,祈杰的博客,归离原网络科技（镇江）有限公司,原神,Linux,归离原网络科技,BG4VW,南梁软件开发工作室" />
+    
+    
+      
+        
+          <link rel="shortcut icon" href="https://oss.qijieya.cn/1/aili.gif">
+        
+      
+      
+      
+    
+    <!-- title -->
+    <title>看看一些有关手机的“特性”以及应对策略</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/zh/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/zh/">首页</a></li><!--
+     --><!--
+       --><li><a href="/zh/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/zh/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/zh/pages/">页面</a></li><!--
+     --><!--
+       --><li><a href="/zh/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/zh/archives/431/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/zh/archives/405/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/zh/archives/417/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/zh/archives/417/&text=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/zh/archives/417/&title=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/zh/archives/417/&is_video=false&description=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=看看一些有关手机的“特性”以及应对策略&body=Check out this article: https://meow.qijieya.cn/zh/archives/417/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/zh/archives/417/&title=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/zh/archives/417/&title=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/zh/archives/417/&title=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/zh/archives/417/&title=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/zh/archives/417/&name=看看一些有关手机的“特性”以及应对策略&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/zh/archives/417/&t=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%B9%E6%80%A7%EF%BC%81"><span class="toc-number">2.</span> <span class="toc-text">特性！</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E9%80%9A%E7%9F%A5"><span class="toc-number">2.1.</span> <span class="toc-text">系统应用通知</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E5%BA%94%E7%94%A8"><span class="toc-number">2.2.</span> <span class="toc-text">快应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9A%E4%B9%B0%E6%9D%A5%E6%97%B6%E7%9A%84%E9%A2%84%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="toc-number">2.3.</span> <span class="toc-text">刚买来时的预装软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E4%B8%8A%E4%BC%A0%E6%95%B0%E6%8D%AE"><span class="toc-number">2.4.</span> <span class="toc-text">后台上传数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E7%9B%91%E8%A7%86%E3%80%81%E7%9B%91%E5%90%AC"><span class="toc-number">2.5.</span> <span class="toc-text">后台监视、监听</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E4%BA%92%E7%9B%B8%E5%94%A4%E9%86%92"><span class="toc-number">2.6.</span> <span class="toc-text">后台互相唤醒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E5%AE%9A%E8%A1%8C%E4%B8%BA%E4%B8%8B%E8%87%AA%E5%8A%A8%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8"><span class="toc-number">2.7.</span> <span class="toc-text">特定行为下自动下载并安装应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%8A%E4%BD%A0%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E7%89%88%E6%9C%AC%E8%BF%87%E4%BD%8E%EF%BC%8C%E8%AF%B7%E6%9B%B4%E6%96%B0%E6%9C%80%E6%96%B0%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E3%80%8B"><span class="toc-number">2.8.</span> <span class="toc-text">《你的浏览器版本过低，请更新最新的浏览器》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%BC%80%E5%B1%8F%E5%B9%BF%E5%91%8A"><span class="toc-number">2.9.</span> <span class="toc-text">应用开屏广告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E7%A3%85%E6%9D%A5%E8%A2%AD%EF%BC%81%E5%85%B3%E9%97%ADBL%E8%A7%A3%E9%94%81%E9%80%9A%E9%81%93"><span class="toc-number">2.10.</span> <span class="toc-text">重磅来袭！关闭BL解锁通道</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A0%B4%E9%99%A4%E2%80%9C%E7%89%B9%E6%80%A7%E2%80%9D%EF%BC%8C%E8%BF%BD%E5%AF%BB%E2%80%9CEgo%E2%80%9D"><span class="toc-number">3.</span> <span class="toc-text">破除“特性”，追寻“Ego”</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3-Root%E3%80%81BL%E9%94%81%E7%AD%89%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86"><span class="toc-number">3.1.</span> <span class="toc-text">了解 Root、BL锁等基本知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Root"><span class="toc-number">3.1.1.</span> <span class="toc-text">Root</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BL%E9%94%81"><span class="toc-number">3.1.2.</span> <span class="toc-text">BL锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B7%E6%9C%BA%E5%8C%85"><span class="toc-number">3.1.3.</span> <span class="toc-text">刷机包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E8%B4%AD%E4%B9%B0%E8%AE%BE%E5%A4%87%E5%BC%80%E5%A7%8B"><span class="toc-number">3.2.</span> <span class="toc-text">从购买设备开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3BL%E9%94%81"><span class="toc-number">3.3.</span> <span class="toc-text">解BL锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B7Root%E5%8C%85"><span class="toc-number">3.4.</span> <span class="toc-text">刷Root包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89%E5%88%B7LSPosed"><span class="toc-number">3.5.</span> <span class="toc-text">（可选）刷LSPosed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%BE%E7%AE%80%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.6.</span> <span class="toc-text">精简系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E5%9C%A8%E6%B2%B3%E8%BE%B9%E8%B5%B0%EF%BC%8C%E6%80%8E%E8%83%BD%E4%B8%8D%E6%B9%BF%E9%9E%8B"><span class="toc-number">3.7.</span> <span class="toc-text">常在河边走，怎能不湿鞋</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E9%99%90%E6%89%8B%E6%9C%BA%EF%BC%81"><span class="toc-number">3.8.</span> <span class="toc-text">超限手机！</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">4.</span> <span class="toc-text">最后</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+<a id="lang-switch" href="/archives/417/" hreflang="en" title="Switch to English" lang="en">EN</a>
+
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        看看一些有关手机的“特性”以及应对策略
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">祈杰喵</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-10-13T11:08:00.000Z" class="dt-published" itemprop="datePublished">2023-10-13</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/zh/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> › <a class="category-link" href="/zh/categories/%E6%9C%89%E6%84%9F%E8%80%8C%E5%8F%91/">有感而发</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/zh/tags/Linux/" rel="tag">Linux</a>, <a class="p-category" href="/zh/tags/%E5%AE%89%E5%8D%93/" rel="tag">安卓</a>, <a class="p-category" href="/zh/tags/%E6%89%8B%E6%9C%BA/" rel="tag">手机</a>, <a class="p-category" href="/zh/tags/%E7%89%B9%E6%80%A7/" rel="tag">特性</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>手机 现在已经离不开我们生活的方方面面。然而这玩意（尤其是大厂）自带的软件却一个都不安宁，轻的一天弹三四条无关紧要的系统应用通知，重则在你看网页刷视频的时候，“Biu~”一下弹出个短时间内让你无法关闭甚至有虚假的关闭按钮的广告。当你感觉到烦，不想接受这样的“福祉”时，系统：“系统应用，无法卸载”。</p>
+<p>这，我不点名了，大家心里有数。</p>
+<p>下面开始列举常见的“特性”吧！</p>
+<h1 id="特性！"><a href="#特性！" class="headerlink" title="特性！"></a>特性！</h1><h2 id="系统应用通知"><a href="#系统应用通知" class="headerlink" title="系统应用通知"></a>系统应用通知</h2><p>主要表现为：</p>
+<ul>
+<li>一天会固定弹3+条通知</li>
+<li>伴随着 通知铃声 打扰你</li>
+<li>内容 大多没有实际意义</li>
+</ul>
+<p>这个可以在系统设置中关闭。然而 蓝厂（也就是 _ _ _ _ 50，自己填空）的“应用商店”的通知被你手动关掉后还会“贴心”地 神不知鬼不觉 地 为你开启。（目前已经是收到一个报告说有这样的表现）</p>
+<h2 id="快应用"><a href="#快应用" class="headerlink" title="快应用"></a>快应用</h2><p>主要表现为：</p>
+<ul>
+<li>当你在浏览网页、聊天或刷视频时，直接一个“Jump Scare”到你脸上（全屏）</li>
+<li>返回键可能会被禁用</li>
+<li>疯狂跳转并伴随有部分令人恶心的内容</li>
+<li>自动下载应用并安装（这个很绝）</li>
+</ul>
+<p>这个也可以在系统设置中搜索 快应用 来关闭相关“特性”。在root之前是无法卸载或禁用的。</p>
+<p>这个不管 蓝厂 还是 绿厂（ _ _ _ _ 自行脑补），凡是跟国产挂钩的必定有。</p>
+<h2 id="刚买来时的预装软件"><a href="#刚买来时的预装软件" class="headerlink" title="刚买来时的预装软件"></a>刚买来时的预装软件</h2><p>这个嘛，可以手动卸载。</p>
+<p>然而有个静静的躺在桌面上，叫“应用推荐”的文件夹，却无法删除，只能在系统设置中关闭。</p>
+<p>这个在目前来说算是最友好的，然而有那种一点就下的。</p>
+<h2 id="后台上传数据"><a href="#后台上传数据" class="headerlink" title="后台上传数据"></a>后台上传数据</h2><p>主要表现为：</p>
+<ul>
+<li>当你没有使用手机时（后台一干二净时（迫真）），在路由器后台看手机网速时发现上传带宽总不是0KB&#x2F;s</li>
+<li>当你拍照后，相册会自动的上传到对应的云</li>
+<li>除了系统上传与你无关的不敏感的日志外，有些品牌甚至很绝，连通讯录也不放过</li>
+<li>这个在电脑的一款聊天软件的表现非常突出，是全盘扫描的那种</li>
+</ul>
+<p>这个一般人真看不出来，也是目前最可怕的。很多人相册的敏感信息如身份证照片、银行卡照片甚至户口本照片也管都没管地上传上去。使得非法的人肉搜索变得更简单一些（别想着做坏事）。</p>
+<h2 id="后台监视、监听"><a href="#后台监视、监听" class="headerlink" title="后台监视、监听"></a>后台监视、监听</h2><p>主要表现为：</p>
+<ul>
+<li>自动打开麦克风、摄像头</li>
+<li>文件管理器找不到记录的文件（大概率）</li>
+<li>伴随着自动上传（小概率）</li>
+<li>如果是外来的应用，则会申请摄像头、麦克风权限，（有部分）不给就直接闪退</li>
+</ul>
+<p>这个嘛，跟上一个的“特性”的危害程度差不多。不过只要注意别乱给权限和适时遮挡摄像头就行了。</p>
+<h2 id="后台互相唤醒"><a href="#后台互相唤醒" class="headerlink" title="后台互相唤醒"></a>后台互相唤醒</h2><p>主要表现为：</p>
+<ul>
+<li>聊天软件在没有人为控制的情况下唤醒购物软件……</li>
+<li>这一唤，那一唤，手机电量秒成患</li>
+<li>难以禁止</li>
+</ul>
+<p>出现这个的原因是：国外的应用有统一的Google FCM通知管理机制，应用互相唤醒次数大为减少。然而国内没有统一的通知控制机制，导致应用被杀后台后需要通知时会在后台互相唤醒。</p>
+<p>设置 开发者选项 可以解决，但太极端了。</p>
+<h2 id="特定行为下自动下载并安装应用"><a href="#特定行为下自动下载并安装应用" class="headerlink" title="特定行为下自动下载并安装应用"></a>特定行为下自动下载并安装应用</h2><p>俗称“捆绑”。</p>
+<p>主要表现为：</p>
+<ul>
+<li>《P2P高速下载器》（这是电脑Win端的）《××省电王》《××清理大师》</li>
+<li>《安全应用推荐》等自动勾选</li>
+<li>一生二，二生三，三生万物。然后“万物”撑爆手机、电脑等设备</li>
+</ul>
+<p>这个防不胜防，记住：多留一个心眼就行了，还有就是别碰非官网的。</p>
+<p>这里就展现出apt等包管理器的优点了——统一管理（电脑Linux），避开了非官网产生的捆绑问题。</p>
+<h2 id="《你的浏览器版本过低，请更新最新的浏览器》"><a href="#《你的浏览器版本过低，请更新最新的浏览器》" class="headerlink" title="《你的浏览器版本过低，请更新最新的浏览器》"></a>《你的浏览器版本过低，请更新最新的浏览器》</h2><p>主要表现为：</p>
+<ul>
+<li>浏览网页时多发</li>
+<li>自动下载浏览器（不过是Chromium套壳罢了）并附送后门</li>
+<li>大可能伴随其他“特性”</li>
+</ul>
+<p>事实上，浏览器只需要Chromium&#x2F;Edge（Chromium，但是微软小魔改版）&#x2F;Firefox就够了，没必要用别的杂七杂八的。</p>
+<h2 id="应用开屏广告"><a href="#应用开屏广告" class="headerlink" title="应用开屏广告"></a>应用开屏广告</h2><p>主要表现为：</p>
+<ul>
+<li>启动应用时自动弹出广告</li>
+<li>跳过按钮很小，容易误触点击广告</li>
+<li>甚至 “摇一摇” 打开广告，并且非常敏感</li>
+</ul>
+<p>这个算很恶心的，稍微一动就自动跳转。并且还屡禁不止。</p>
+<h2 id="重磅来袭！关闭BL解锁通道"><a href="#重磅来袭！关闭BL解锁通道" class="headerlink" title="重磅来袭！关闭BL解锁通道"></a>重磅来袭！关闭BL解锁通道</h2><p>无数搞机者的痛啊！</p>
+<p>[collapse status&#x3D;”false” title&#x3D;”此内容可能影响到部分人的主观想法并对作者{内容删除}，侵删。”]</p>
+<p>为避免因此出现的各种纠纷，图片已做匿名化处理。<br><img src="https://oss.qijieya.cn/1/1723229412886.png" alt="始作俑者"></p>
+<p><img src="https://oss.qijieya.cn/1/1723229435172.png" alt="后起之秀"></p>
+<p>[&#x2F;collapse]</p>
+<p>蓝厂 绿厂 以及 一直“遥遥领先”的 仅部分旗舰机型可以解，并且“深度测试”（绿厂）审核期长。</p>
+<p>米家门槛略高，但可以解（仅部分）。</p>
+<p>[collapse status&#x3D;”false” title&#x3D;”展开”]</p>
+<blockquote>
+<p>“保护消费者的体验”<br>“root手机会产生以下不良影响：……”</p>
+</blockquote>
+<p>体验？说是“福祉”吧。<br>不良影响？影响到少数人的利益就只说坏处。</p>
+<p>[&#x2F;collapse]</p>
+<hr>
+<h1 id="破除“特性”，追寻“Ego”"><a href="#破除“特性”，追寻“Ego”" class="headerlink" title="破除“特性”，追寻“Ego”"></a>破除“特性”，追寻“Ego”</h1><h2 id="了解-Root、BL锁等基本知识"><a href="#了解-Root、BL锁等基本知识" class="headerlink" title="了解 Root、BL锁等基本知识"></a>了解 Root、BL锁等基本知识</h2><h3 id="Root"><a href="#Root" class="headerlink" title="Root"></a>Root</h3><p>从Unix时代而来，贯穿Linux，乃至到Android（Linux魔改版本，但日常踢出Linux发行版籍），</p>
+<p>一直是能做Anything的最高权限用户。</p>
+<p>这里不欢迎无脑 <code>rm -rf /</code>的小白。</p>
+<p>使用Root权限前需谨慎，就如初次使用sudo所说的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">我们信任您已经从系统管理员那里了解了日常注意事项。</span><br><span class="line">总结起来无外乎这三点：</span><br><span class="line">#1) 尊重别人的隐私。</span><br><span class="line">#2) 输入前要先考虑(后果和风险)。</span><br><span class="line">#3) 权力越大，责任越大。</span><br><span class="line">[sudo] luotianyi 的密码：</span><br></pre></td></tr></table></figure>
+
+<p>这里“输入”换成“操作”最好。</p>
+<h3 id="BL锁"><a href="#BL锁" class="headerlink" title="BL锁"></a>BL锁</h3><p>手机的启动是先从BootLoader开始的（就像电脑的UEFI一样，只是还有引导Linux的能力）。</p>
+<p>然而 BL锁 使得手机在未解锁的状态下 无法更改系统分区如：boot, system等。</p>
+<p>起初这个玩意的初衷就是好的，使得无法刷入如Magisk的root包，防止小白不懂瞎整把手机整成砖。</p>
+<p>然而root这一用户可以卸载系统自带的“福祉”应用（不止这些），彻底惹怒了少数人。</p>
+<p>于是，他们要把手机的root锁起来，并找借口搪塞。（原神主线任务第三章概视感）</p>
+<blockquote>
+<p>遥遥领先！</p>
+</blockquote>
+<h3 id="刷机包"><a href="#刷机包" class="headerlink" title="刷机包"></a>刷机包</h3><p>这些包可以更改系统文件，例如：Magisk可以替换boot中的文件使得系统拥有root权限等。</p>
+<p>刷包前请校检SHA256，确保万无一失。</p>
+<hr>
+<p>了解了这些基础知识，就可以动手试试（就逝世（有概率））了。</p>
+<p style="color:#e00;font-size:150%">作者提示：搞机有风险，Root需谨慎。
+<br>刷机不规范，成砖两行泪。</p>
+
+<h2 id="从购买设备开始"><a href="#从购买设备开始" class="headerlink" title="从购买设备开始"></a>从购买设备开始</h2><p>首先避开以下品牌，因为它们已经限制了大部分机型解BL锁：</p>
+<ul>
+<li>蓝厂、绿厂</li>
+<li>一直“遥遥领先！”的</li>
+<li>米家（门槛高）</li>
+</ul>
+<p>然后从 找刷机包的难度、性价比、以及对系统更改的难易度 还有 解锁后对原有功能的破坏程度 进行挑选。</p>
+<p>例如：“联动原神四回的（截止至2023-10-13）” “爱莉希雅的刻印”、Nexus等。</p>
+<p>买了设备就是解BL锁的故事了。</p>
+<h2 id="解BL锁"><a href="#解BL锁" class="headerlink" title="解BL锁"></a>解BL锁</h2><p>可以在官方、XDA等查询对应的解锁教程。这里不啰嗦。</p>
+<p>有些机型解锁很简单，一句搞定：<code>fastboot oem unlock</code>，</p>
+<p>有些机型官方会卡脖子。</p>
+<p>这里最令人疑惑的是：解BL锁要清除用户数据。如果是已经拥有并使用有一段时间 的手机要解BL锁的话，请备份数据。</p>
+<h2 id="刷Root包"><a href="#刷Root包" class="headerlink" title="刷Root包"></a>刷Root包</h2><p>可以在搜索引擎或XDA找到Magisk对应的数据包。</p>
+<p>官方Magisk包请自行提取boot.img文件并修补。（推荐）</p>
+<h2 id="（可选）刷LSPosed"><a href="#（可选）刷LSPosed" class="headerlink" title="（可选）刷LSPosed"></a>（可选）刷LSPosed</h2><p>在安装好Magisk后，还想更深度的魔改系统？</p>
+<p>LSPosed（老涩批模块（无端联想））可以做到！</p>
+<p>修改应用行为，系统操作都得靠它。</p>
+<h2 id="精简系统"><a href="#精简系统" class="headerlink" title="精简系统"></a>精简系统</h2><p>可以使用adb来禁用系统自带的应用（有点烦），例如：Ban了含“福报”的后台服务啊应用啊，顺便让智能助手闭嘴……</p>
+<p>这里可以偷懒，搜索“ 搞机助手·R ”就行（只要别在各下载站下到不保熟的版本就行）。</p>
+<p>也可以搜索对应品牌的冻结表，可以照抄作业。（不推荐）</p>
+<h2 id="常在河边走，怎能不湿鞋"><a href="#常在河边走，怎能不湿鞋" class="headerlink" title="常在河边走，怎能不湿鞋"></a>常在河边走，怎能不湿鞋</h2><p>当你在 上模块 Ban系统应用 时准备重启时，可能会无限重启、进Fastboot。</p>
+<p>这里强烈建议多上个 音量键救转Magisk模块 。</p>
+<h2 id="超限手机！"><a href="#超限手机！" class="headerlink" title="超限手机！"></a>超限手机！</h2><p>注意：此部分可能有损坏设备的风险！</p>
+<p>当你对手机性能感到不理想时，可以通过 淦温控、上高强度调度 来白嫖手机额外的性能。</p>
+<p>甚至可以超频。</p>
+<p>可以在搜索引擎搜索对应的关键词找到对应的资源。</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>也许，手机系统自带的功能可能超过了Root后所带来的效果，但为了让手机能更好的掌握自己手中，不再忍受“福祉”，所以Root强于不Root。<center></p>
+<p>Root is dead?</p>
+<p>Root is alive.</p>
+</center>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/zh/">首页</a></li>
+        
+          <li><a href="/zh/about/">关于</a></li>
+        
+          <li><a href="/zh/archives/">归档</a></li>
+        
+          <li><a href="/zh/pages/">页面</a></li>
+        
+          <li><a href="/zh/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%B9%E6%80%A7%EF%BC%81"><span class="toc-number">2.</span> <span class="toc-text">特性！</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E9%80%9A%E7%9F%A5"><span class="toc-number">2.1.</span> <span class="toc-text">系统应用通知</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E5%BA%94%E7%94%A8"><span class="toc-number">2.2.</span> <span class="toc-text">快应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9A%E4%B9%B0%E6%9D%A5%E6%97%B6%E7%9A%84%E9%A2%84%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="toc-number">2.3.</span> <span class="toc-text">刚买来时的预装软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E4%B8%8A%E4%BC%A0%E6%95%B0%E6%8D%AE"><span class="toc-number">2.4.</span> <span class="toc-text">后台上传数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E7%9B%91%E8%A7%86%E3%80%81%E7%9B%91%E5%90%AC"><span class="toc-number">2.5.</span> <span class="toc-text">后台监视、监听</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E4%BA%92%E7%9B%B8%E5%94%A4%E9%86%92"><span class="toc-number">2.6.</span> <span class="toc-text">后台互相唤醒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E5%AE%9A%E8%A1%8C%E4%B8%BA%E4%B8%8B%E8%87%AA%E5%8A%A8%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8"><span class="toc-number">2.7.</span> <span class="toc-text">特定行为下自动下载并安装应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%8A%E4%BD%A0%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E7%89%88%E6%9C%AC%E8%BF%87%E4%BD%8E%EF%BC%8C%E8%AF%B7%E6%9B%B4%E6%96%B0%E6%9C%80%E6%96%B0%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E3%80%8B"><span class="toc-number">2.8.</span> <span class="toc-text">《你的浏览器版本过低，请更新最新的浏览器》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%BC%80%E5%B1%8F%E5%B9%BF%E5%91%8A"><span class="toc-number">2.9.</span> <span class="toc-text">应用开屏广告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E7%A3%85%E6%9D%A5%E8%A2%AD%EF%BC%81%E5%85%B3%E9%97%ADBL%E8%A7%A3%E9%94%81%E9%80%9A%E9%81%93"><span class="toc-number">2.10.</span> <span class="toc-text">重磅来袭！关闭BL解锁通道</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A0%B4%E9%99%A4%E2%80%9C%E7%89%B9%E6%80%A7%E2%80%9D%EF%BC%8C%E8%BF%BD%E5%AF%BB%E2%80%9CEgo%E2%80%9D"><span class="toc-number">3.</span> <span class="toc-text">破除“特性”，追寻“Ego”</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3-Root%E3%80%81BL%E9%94%81%E7%AD%89%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86"><span class="toc-number">3.1.</span> <span class="toc-text">了解 Root、BL锁等基本知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Root"><span class="toc-number">3.1.1.</span> <span class="toc-text">Root</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BL%E9%94%81"><span class="toc-number">3.1.2.</span> <span class="toc-text">BL锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B7%E6%9C%BA%E5%8C%85"><span class="toc-number">3.1.3.</span> <span class="toc-text">刷机包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E8%B4%AD%E4%B9%B0%E8%AE%BE%E5%A4%87%E5%BC%80%E5%A7%8B"><span class="toc-number">3.2.</span> <span class="toc-text">从购买设备开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3BL%E9%94%81"><span class="toc-number">3.3.</span> <span class="toc-text">解BL锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B7Root%E5%8C%85"><span class="toc-number">3.4.</span> <span class="toc-text">刷Root包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89%E5%88%B7LSPosed"><span class="toc-number">3.5.</span> <span class="toc-text">（可选）刷LSPosed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%BE%E7%AE%80%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.6.</span> <span class="toc-text">精简系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E5%9C%A8%E6%B2%B3%E8%BE%B9%E8%B5%B0%EF%BC%8C%E6%80%8E%E8%83%BD%E4%B8%8D%E6%B9%BF%E9%9E%8B"><span class="toc-number">3.7.</span> <span class="toc-text">常在河边走，怎能不湿鞋</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E9%99%90%E6%89%8B%E6%9C%BA%EF%BC%81"><span class="toc-number">3.8.</span> <span class="toc-text">超限手机！</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">4.</span> <span class="toc-text">最后</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/zh/archives/417/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/zh/archives/417/&text=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/zh/archives/417/&title=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/zh/archives/417/&is_video=false&description=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=看看一些有关手机的“特性”以及应对策略&body=Check out this article: https://meow.qijieya.cn/zh/archives/417/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/zh/archives/417/&title=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/zh/archives/417/&title=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/zh/archives/417/&title=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/zh/archives/417/&title=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/zh/archives/417/&name=看看一些有关手机的“特性”以及应对策略&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/zh/archives/417/&t=看看一些有关手机的“特性”以及应对策略"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2026
+    
+    锦木祈杰のblog
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/zh/">首页</a></li><!--
+     --><!--
+       --><li><a href="/zh/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/zh/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/zh/pages/">页面</a></li><!--
+     --><!--
+       --><li><a href="/zh/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+  
+  <div class="footer-beian">
+    
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">苏ICP备2025160197号</a>
+    
+    
+      <span class="footer-sep">|</span>
+    
+    
+      <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="noopener">苏公网安备32118302000607号</a>
+    
+  </div>
+  
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+ 
+  <link
+    rel="preload"
+    href="/zh/lib/font-awesome/css/all.min.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="/zh/lib/font-awesome/css/all.min.css"
+  /></noscript>
+
+
+    <!-- jquery -->
+
+  
+<script src="/zh/lib/jquery/jquery.min.js"></script>
+
+
+
+
+
+<!-- clipboard -->
+
+  
+    
+<script src="/zh/lib/clipboard/clipboard.min.js"></script>
+
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/zh/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

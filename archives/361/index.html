@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang=zh>
+<html lang=en>
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="前言由于最近出现了好多 原神，启动！的视频，我灵感出现，整了两个js玩玩。 访问量  重要提示最近盗站的家伙多了，要调用的需要评论区找作者授权（引用js库）。 （站需要积极维护三个月以上） 授权免费。任何以该授权收费均为诈骗！！！ 效果实时点我以 原神，启动! 截图原神，启动！  如何调用？直接超链接 gi.qijieya.cn 就行了。（无需授权） 或者可以使用iframe元素，不过js功力好的">
+    <meta name="description" content="PrefaceSince a lot of “Genshin, launch!” videos have appeared recently, I got inspired and put together a couple of js things to play with. Page Views  Important NoticeThere are more site thieves arou">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原神启动 等有趣的js">
+<meta property="og:title" content="Genshin Launch and Other Fun JavaScript Snippets">
 <meta property="og:url" content="https://meow.qijieya.cn/archives/361/index.html">
-<meta property="og:site_name" content="锦木祈杰のblog">
-<meta property="og:description" content="前言由于最近出现了好多 原神，启动！的视频，我灵感出现，整了两个js玩玩。 访问量  重要提示最近盗站的家伙多了，要调用的需要评论区找作者授权（引用js库）。 （站需要积极维护三个月以上） 授权免费。任何以该授权收费均为诈骗！！！ 效果实时点我以 原神，启动! 截图原神，启动！  如何调用？直接超链接 gi.qijieya.cn 就行了。（无需授权） 或者可以使用iframe元素，不过js功力好的">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Jinmu Qijie&#39;s Blog">
+<meta property="og:description" content="PrefaceSince a lot of “Genshin, launch!” videos have appeared recently, I got inspired and put together a couple of js things to play with. Page Views  Important NoticeThere are more site thieves arou">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://oss.qijieya.cn/1/1723229645676.png">
 <meta property="article:published_time" content="2023-08-27T11:20:00.000Z">
 <meta property="article:modified_time" content="2025-09-28T02:13:49.000Z">
-<meta property="article:author" content="祈杰喵">
-<meta property="article:tag" content="Js">
-<meta property="article:tag" content="原神">
+<meta property="article:author" content="Qijie">
+<meta property="article:tag" content="Genshin Impact">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://oss.qijieya.cn/1/1723229645676.png">
     
     
       
-      <meta name="keywords" content="祈杰博客,祈杰的博客,归离原网络科技（镇江）有限公司,原神,Linux,归离原网络科技,BG4VW,南梁软件开发工作室" />
+      <meta name="keywords" content="Qijie Blog,Jinmu Qijie,Guiliyuan Network Technology (Zhenjiang) Co., Ltd.,Genshin Impact,Linux,BG4VW,Nanliang Software Development Studio" />
     
     
       
@@ -36,7 +36,7 @@
       
     
     <!-- title -->
-    <title>原神启动 等有趣的js</title>
+    <title>Genshin Launch and Other Fun JavaScript Snippets</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -60,22 +60,22 @@
 <body class="max-width mx-auto px3 ltr">
     
       <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
   <span id="menu">
     <span id="nav">
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </span>
@@ -83,40 +83,40 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/archives/@653/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/archives/@653/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/archives/357/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/archives/357/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
-        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/361/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/361/&text=原神启动 等有趣的js"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/361/&title=原神启动 等有趣的js"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/361/&is_video=false&description=原神启动 等有趣的js"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=原神启动 等有趣的js&body=Check out this article: https://meow.qijieya.cn/archives/361/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/361/&title=原神启动 等有趣的js"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/361/&title=原神启动 等有趣的js"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/361/&title=原神启动 等有趣的js"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/361/&title=原神启动 等有趣的js"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/361/&name=原神启动 等有趣的js&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/361/&t=原神启动 等有趣的js"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/361/&text=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/361/&title=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/361/&is_video=false&description=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Genshin Launch and Other Fun JavaScript Snippets&body=Check out this article: https://meow.qijieya.cn/archives/361/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/361/&title=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/361/&title=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/361/&title=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/361/&title=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/361/&name=Genshin Launch and Other Fun JavaScript Snippets&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/361/&t=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">访问量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E6%8F%90%E7%A4%BA"><span class="toc-number">3.</span> <span class="toc-text">重要提示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-number">4.</span> <span class="toc-text">效果</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%97%B6"><span class="toc-number">4.1.</span> <span class="toc-text">实时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%AA%E5%9B%BE"><span class="toc-number">4.2.</span> <span class="toc-text">截图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">如何调用？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8-js"><span class="toc-number">5.1.</span> <span class="toc-text">引用 js</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%8A%E5%8F%A4%E5%B8%8C%E8%85%8A%E6%8E%8C%E7%AE%A1%E9%98%B3%E5%85%89%E3%80%81%E6%B2%99%E6%BB%A9%E3%80%81%E5%A5%B3%E5%AD%A9%E5%AD%90%E7%9A%84%E7%A5%9E%E3%80%8B%EF%BC%88bushi%EF%BC%89-%E7%89%88%E6%9C%AC"><span class="toc-number">6.</span> <span class="toc-text">《古希腊掌管阳光、沙滩、女孩子的神》（bushi） 版本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-1"><span class="toc-number">6.1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%EF%BC%88%E9%9C%80%E6%8E%88%E6%9D%83%EF%BC%89"><span class="toc-number">6.2.</span> <span class="toc-text">调用（需授权）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%82%84%E6%82%84%E7%9A%84%E5%91%8A%E8%AF%89%E4%BD%A0"><span class="toc-number">7.</span> <span class="toc-text">悄悄的告诉你</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A5%87%E6%80%AA%EF%BC%81"><span class="toc-number">8.</span> <span class="toc-text">奇怪！</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Preface"><span class="toc-number">1.</span> <span class="toc-text">Preface</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Page-Views"><span class="toc-number">2.</span> <span class="toc-text">Page Views</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Important-Notice"><span class="toc-number">3.</span> <span class="toc-text">Important Notice</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Effect"><span class="toc-number">4.</span> <span class="toc-text">Effect</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Live-Demo"><span class="toc-number">4.1.</span> <span class="toc-text">Live Demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Screenshot"><span class="toc-number">4.2.</span> <span class="toc-text">Screenshot</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How-Do-You-Use-It"><span class="toc-number">5.</span> <span class="toc-text">How Do You Use It?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Referencing-the-js"><span class="toc-number">5.1.</span> <span class="toc-text">Referencing the js</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-%E2%80%9CAncient-Greek-God-in-Charge-of-Sunshine-Beaches-and-Girls%E2%80%9D-Not-Really-Version"><span class="toc-number">6.</span> <span class="toc-text">The “Ancient Greek God in Charge of Sunshine, Beaches, and Girls” (Not Really) Version</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Effect-1"><span class="toc-number">6.1.</span> <span class="toc-text">Effect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-It-Authorization-Required"><span class="toc-number">6.2.</span> <span class="toc-text">Using It (Authorization Required)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Let-Me-Tell-You-a-Secret"><span class="toc-number">7.</span> <span class="toc-text">Let Me Tell You a Secret</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Weird"><span class="toc-number">8.</span> <span class="toc-text">Weird!</span></a></li></ol>
       </div>
     
   </span>
@@ -125,18 +125,21 @@
     
     <div class="content index py4 ">
         
+<a id="lang-switch" href="/zh/archives/361/" hreflang="zh-CN" title="切换到中文" lang="zh-CN">中文</a>
+
+        
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
     
     <h1 class="posttitle p-name" itemprop="name headline">
-        原神启动 等有趣的js
+        Genshin Launch and Other Fun JavaScript Snippets
     </h1>
 
 
 
     <div class="meta">
       <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">祈杰喵</span>
+        <span class="p-name" itemprop="name">Qijie</span>
       </span>
       
     <div class="postdate">
@@ -150,14 +153,14 @@
       
     <div class="article-category">
         <i class="fa-solid fa-archive"></i>
-        <a class="category-link" href="/categories/%E6%9C%89%E6%84%9F%E8%80%8C%E5%8F%91/">有感而发</a>
+        <a class="category-link" href="/categories/Reflections/">Reflections</a>
     </div>
 
 
       
     <div class="article-tag">
         <i class="fa-solid fa-tag"></i>
-        <a class="p-category" href="/tags/Js/" rel="tag">Js</a>, <a class="p-category" href="/tags/%E5%8E%9F%E7%A5%9E/" rel="tag">原神</a>
+        <a class="p-category" href="/tags/Genshin-Impact/" rel="tag">Genshin Impact</a>, <a class="p-category" href="/tags/JavaScript/" rel="tag">JavaScript</a>
     </div>
 
 
@@ -166,38 +169,38 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由于最近出现了好多 原神，启动！的视频，我灵感出现，整了两个js玩玩。</p>
-<h1 id="访问量"><a href="#访问量" class="headerlink" title="访问量"></a>访问量</h1><script id="LA-DATA-WIDGET" crossorigin="anonymous" charset="UTF-8" src="https://v6-widget.51.la/v6/KAwOXP2EoeDQM0qP/quote.js?theme=#66CCFF,#66CCFF,#66CCFF,#FFFFFF,#000000,#EE0000,12&f=12&display=0,1,1,1,1,1,1,1"></script>
+    <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>Since a lot of “Genshin, launch!” videos have appeared recently, I got inspired and put together a couple of js things to play with.</p>
+<h1 id="Page-Views"><a href="#Page-Views" class="headerlink" title="Page Views"></a>Page Views</h1><script id="LA-DATA-WIDGET" crossorigin="anonymous" charset="UTF-8" src="https://v6-widget.51.la/v6/KAwOXP2EoeDQM0qP/quote.js?theme=#66CCFF,#66CCFF,#66CCFF,#FFFFFF,#000000,#EE0000,12&f=12&display=0,1,1,1,1,1,1,1"></script>
 
-<h1 id="重要提示"><a href="#重要提示" class="headerlink" title="重要提示"></a>重要提示</h1><p>最近盗站的家伙多了，<del>要调用的需要评论区找作者授权（引用js库）。</p>
-<p>（站需要积极维护三个月以上）</p>
-<p>授权免费。任何以该授权</del>收费均为诈骗！！！</p>
-<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><h2 id="实时"><a href="#实时" class="headerlink" title="实时"></a>实时</h2><p><a target="_blank" rel="noopener" href="https://gi.qijieya.cn"><button type="button" href="https://gi.qijieya.cn">点我以 原神，启动!</button></a></p>
-<h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><p>原神，启动！</p>
-<p><img src="https://oss.qijieya.cn/1/1723229645676.png" alt="这是原游戏截图"></p>
-<h1 id="如何调用？"><a href="#如何调用？" class="headerlink" title="如何调用？"></a>如何调用？</h1><p>直接超链接 <a target="_blank" rel="noopener" href="https://gi.qijieya.cn/">gi.qijieya.cn</a> 就行了。（无需授权）</p>
-<p>或者可以使用iframe元素，不过js功力好的家伙最好使用一个按钮的点击事件去触发创建并全屏展开这个元素（推荐）</p>
+<h1 id="Important-Notice"><a href="#Important-Notice" class="headerlink" title="Important Notice"></a>Important Notice</h1><p>There are more site thieves around lately. <del>If you want to use these, you need to find the author in the comments to get authorization (for referencing the js library).</p>
+<p>(The site needs to be actively maintained for more than three months)</p>
+<p>Authorization is free. Anyone </del>charging money based on that authorization is a scam!!!</p>
+<h1 id="Effect"><a href="#Effect" class="headerlink" title="Effect"></a>Effect</h1><h2 id="Live-Demo"><a href="#Live-Demo" class="headerlink" title="Live Demo"></a>Live Demo</h2><p><a target="_blank" rel="noopener" href="https://gi.qijieya.cn"><button type="button" href="https://gi.qijieya.cn">Click me for “Genshin, launch!”</button></a></p>
+<h2 id="Screenshot"><a href="#Screenshot" class="headerlink" title="Screenshot"></a>Screenshot</h2><p>Genshin, launch!</p>
+<p><img src="https://oss.qijieya.cn/1/1723229645676.png" alt="This is a screenshot of the original game"></p>
+<h1 id="How-Do-You-Use-It"><a href="#How-Do-You-Use-It" class="headerlink" title="How Do You Use It?"></a>How Do You Use It?</h1><p>Just hyperlink to <a target="_blank" rel="noopener" href="https://gi.qijieya.cn/">gi.qijieya.cn</a> and you’re done. (No authorization needed)</p>
+<p>Or you can use an iframe element — though those who are good at js would do best to use a button’s click event to trigger creating and full-screening this element (recommended)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=&quot;https://qijieya.cn/game/linux/&quot;&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="引用-js"><a href="#引用-js" class="headerlink" title="引用 js"></a>引用 js</h2><p>首先在head中插入</p>
+<h2 id="Referencing-the-js"><a href="#Referencing-the-js" class="headerlink" title="Referencing the js"></a>Referencing the js</h2><p>First insert this in head</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://gi.qijieya.cn/op.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>然后在要点击启动原神的元素添加属性（当然还能onload，只是没有声音了，所以不推荐）</p>
+<p>Then add the attribute to the element you want to click to launch Genshin (you can of course also use onload, but there’s no sound that way, so I don’t recommend it)</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;genshinLaunch()&quot;</span>&gt;</span>启动原神，这里以a标签示例<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>最后就可以试试效果了。</p>
-<h1 id="《古希腊掌管阳光、沙滩、女孩子的神》（bushi）-版本"><a href="#《古希腊掌管阳光、沙滩、女孩子的神》（bushi）-版本" class="headerlink" title="《古希腊掌管阳光、沙滩、女孩子的神》（bushi） 版本"></a>《古希腊掌管阳光、沙滩、女孩子的神》（bushi） 版本</h1><h2 id="效果-1"><a href="#效果-1" class="headerlink" title="效果"></a>效果</h2><p><button type="button" onclick="gotoBeach()">点我以 《古希腊掌管阳光、沙滩、女孩子的神》（bushi）!</button></p>
-<h2 id="调用（需授权）"><a href="#调用（需授权）" class="headerlink" title="调用（需授权）"></a>调用<del>（需授权）</del></h2><p>首先在head中插入</p>
+<p>And then you can try out the effect.</p>
+<h1 id="The-“Ancient-Greek-God-in-Charge-of-Sunshine-Beaches-and-Girls”-Not-Really-Version"><a href="#The-“Ancient-Greek-God-in-Charge-of-Sunshine-Beaches-and-Girls”-Not-Really-Version" class="headerlink" title="The “Ancient Greek God in Charge of Sunshine, Beaches, and Girls” (Not Really) Version"></a>The “Ancient Greek God in Charge of Sunshine, Beaches, and Girls” (Not Really) Version</h1><h2 id="Effect-1"><a href="#Effect-1" class="headerlink" title="Effect"></a>Effect</h2><p><button type="button" onclick="gotoBeach()">Click me for “The Ancient Greek God in Charge of Sunshine, Beaches, and Girls” (Not Really)!</button></p>
+<h2 id="Using-It-Authorization-Required"><a href="#Using-It-Authorization-Required" class="headerlink" title="Using It (Authorization Required)"></a>Using It <del>(Authorization Required)</del></h2><p>First insert this in head</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://gi.qijieya.cn/beach.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>然后在要点击要出现的《古希腊掌管阳光、沙滩、女孩子的神》（bushi）的元素添加属性（当然还能onload，只是没有声音了，所以不推荐）</p>
+<p>Then add the attribute to the element you want to click to make “The Ancient Greek God in Charge of Sunshine, Beaches, and Girls” (Not Really) appear (you can of course also use onload, but there’s no sound that way, so I don’t recommend it)</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;gotoBeach()&quot;</span>&gt;</span>《古希腊掌管阳光、沙滩、女孩子的神》（bushi），这里以a标签示例<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>最后就可以试试效果了。</p>
-<h1 id="悄悄的告诉你"><a href="#悄悄的告诉你" class="headerlink" title="悄悄的告诉你"></a>悄悄的告诉你</h1><p>写这个js的目的是通过原神启动这个梗来表示 原神 能无修补地在Linux下运行，也就是为什么一开始的入口是<br><a href="qijieya.cn/game/linux">qijieya.cn&#x2F;game&#x2F;linux</a> 。</p>
+<p>And then you can try out the effect.</p>
+<h1 id="Let-Me-Tell-You-a-Secret"><a href="#Let-Me-Tell-You-a-Secret" class="headerlink" title="Let Me Tell You a Secret"></a>Let Me Tell You a Secret</h1><p>The purpose of writing this js was to use the “Genshin, launch!” meme to show that Genshin can run on Linux without any patches, which is why the entry point at the very start was<br><a href="qijieya.cn/game/linux">qijieya.cn&#x2F;game&#x2F;linux</a>.</p>
 <hr>
-<h1 id="奇怪！"><a href="#奇怪！" class="headerlink" title="奇怪！"></a>奇怪！</h1><p>怎么有点 XSS 攻击的感觉？（雾）</p>
+<h1 id="Weird"><a href="#Weird" class="headerlink" title="Weird!"></a>Weird!</h1><p>Why does this feel a bit like an XSS attack? (joking)</p>
 
   </div>
 </article>
@@ -211,15 +214,15 @@
     <div id="nav-footer" style="display: none">
       <ul>
         
-          <li><a href="/">首页</a></li>
+          <li><a href="/">Home</a></li>
         
-          <li><a href="/about/">关于</a></li>
+          <li><a href="/about/">About</a></li>
         
-          <li><a href="/archives/">归档</a></li>
+          <li><a href="/archives/">Writing</a></li>
         
-          <li><a href="/pages/">页面</a></li>
+          <li><a href="/pages/">Pages</a></li>
         
-          <li><a href="/friends/">友链</a></li>
+          <li><a href="/friends/">Friends</a></li>
         
       </ul>
     </div>
@@ -227,34 +230,34 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">访问量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E6%8F%90%E7%A4%BA"><span class="toc-number">3.</span> <span class="toc-text">重要提示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-number">4.</span> <span class="toc-text">效果</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%97%B6"><span class="toc-number">4.1.</span> <span class="toc-text">实时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%AA%E5%9B%BE"><span class="toc-number">4.2.</span> <span class="toc-text">截图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">如何调用？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8-js"><span class="toc-number">5.1.</span> <span class="toc-text">引用 js</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%8A%E5%8F%A4%E5%B8%8C%E8%85%8A%E6%8E%8C%E7%AE%A1%E9%98%B3%E5%85%89%E3%80%81%E6%B2%99%E6%BB%A9%E3%80%81%E5%A5%B3%E5%AD%A9%E5%AD%90%E7%9A%84%E7%A5%9E%E3%80%8B%EF%BC%88bushi%EF%BC%89-%E7%89%88%E6%9C%AC"><span class="toc-number">6.</span> <span class="toc-text">《古希腊掌管阳光、沙滩、女孩子的神》（bushi） 版本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-1"><span class="toc-number">6.1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%EF%BC%88%E9%9C%80%E6%8E%88%E6%9D%83%EF%BC%89"><span class="toc-number">6.2.</span> <span class="toc-text">调用（需授权）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%82%84%E6%82%84%E7%9A%84%E5%91%8A%E8%AF%89%E4%BD%A0"><span class="toc-number">7.</span> <span class="toc-text">悄悄的告诉你</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A5%87%E6%80%AA%EF%BC%81"><span class="toc-number">8.</span> <span class="toc-text">奇怪！</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Preface"><span class="toc-number">1.</span> <span class="toc-text">Preface</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Page-Views"><span class="toc-number">2.</span> <span class="toc-text">Page Views</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Important-Notice"><span class="toc-number">3.</span> <span class="toc-text">Important Notice</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Effect"><span class="toc-number">4.</span> <span class="toc-text">Effect</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Live-Demo"><span class="toc-number">4.1.</span> <span class="toc-text">Live Demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Screenshot"><span class="toc-number">4.2.</span> <span class="toc-text">Screenshot</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How-Do-You-Use-It"><span class="toc-number">5.</span> <span class="toc-text">How Do You Use It?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Referencing-the-js"><span class="toc-number">5.1.</span> <span class="toc-text">Referencing the js</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-%E2%80%9CAncient-Greek-God-in-Charge-of-Sunshine-Beaches-and-Girls%E2%80%9D-Not-Really-Version"><span class="toc-number">6.</span> <span class="toc-text">The “Ancient Greek God in Charge of Sunshine, Beaches, and Girls” (Not Really) Version</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Effect-1"><span class="toc-number">6.1.</span> <span class="toc-text">Effect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-It-Authorization-Required"><span class="toc-number">6.2.</span> <span class="toc-text">Using It (Authorization Required)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Let-Me-Tell-You-a-Secret"><span class="toc-number">7.</span> <span class="toc-text">Let Me Tell You a Secret</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Weird"><span class="toc-number">8.</span> <span class="toc-text">Weird!</span></a></li></ol>
       </div>
     
 
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/361/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/361/&text=原神启动 等有趣的js"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/361/&title=原神启动 等有趣的js"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/361/&is_video=false&description=原神启动 等有趣的js"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=原神启动 等有趣的js&body=Check out this article: https://meow.qijieya.cn/archives/361/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/361/&title=原神启动 等有趣的js"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/361/&title=原神启动 等有趣的js"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/361/&title=原神启动 等有趣的js"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/361/&title=原神启动 等有趣的js"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/361/&name=原神启动 等有趣的js&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/361/&t=原神启动 等有趣的js"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/361/&text=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/361/&title=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/361/&is_video=false&description=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Genshin Launch and Other Fun JavaScript Snippets&body=Check out this article: https://meow.qijieya.cn/archives/361/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/361/&title=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/361/&title=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/361/&title=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/361/&title=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/361/&name=Genshin Launch and Other Fun JavaScript Snippets&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/361/&t=Genshin Launch and Other Fun JavaScript Snippets"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
 
     <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
         
-          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
         
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
@@ -268,21 +271,21 @@
     
     2026
     
-    锦木祈杰のblog
+    Jinmu Qijie&#39;s Blog
   </div>
   <div class="footer-right">
     <nav>
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </nav>
@@ -339,7 +342,7 @@
   <script type="text/javascript">
   $(function() {
     // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
     btn += '<i class="fa-regular fa-clone"></i>';
     btn += '</span>';
     // mount it!
@@ -350,7 +353,7 @@
       }
     });
     clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.trigger.setAttribute('aria-label', "Copied!");
       e.clearSelection();
     })
   })

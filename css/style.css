@@ -712,6 +712,32 @@ body {
     font-size: 1rem;
   }
 }
+#lang-switch {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 20;
+  padding: 0 0.55rem;
+  border: 1px solid #908d8d;
+  border-radius: 4px;
+  background: #1d1f21;
+  color: #2bbc8a;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+#lang-switch:hover {
+  border-color: #2bbc8a;
+  color: #c9cacc;
+  background: none;
+}
+@media screen and (max-width: 480px) {
+  #lang-switch {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+}
 #header-post {
   position: fixed;
   top: 2rem;

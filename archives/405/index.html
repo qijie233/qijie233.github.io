@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang=zh>
+<html lang=en>
 <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="本文主讲 竞技模式 下的游戏机制，由于 人质模式 玩家人数少，故本文不讲。 竞技模式 在CS2中会缩短局数为 13胜但可以拖6回合的加时，但始终还是5v5的模式。 经济看到屏幕左上角的（在CS2中就是屏幕左下角）  吧？这就是 局内金钱。 它是用来 购买 局内使用的武器装备。 在 竞技模式 中，起始金钱 为 $800。 在手枪局（第一把，以及换边后的第一把）中，你可以在以下选项中选一个： 半甲 $">
+    <meta name="description" content="This article mainly covers the game mechanics of Competitive mode. Since Hostage mode has few players, I won’t cover it here. In CS2, Competitive mode shortens matches to 13 wins with overtime that ca">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CS竞技模式机制详解">
+<meta property="og:title" content="A Detailed Look at CS Competitive Mode Mechanics">
 <meta property="og:url" content="https://meow.qijieya.cn/archives/405/index.html">
-<meta property="og:site_name" content="锦木祈杰のblog">
-<meta property="og:description" content="本文主讲 竞技模式 下的游戏机制，由于 人质模式 玩家人数少，故本文不讲。 竞技模式 在CS2中会缩短局数为 13胜但可以拖6回合的加时，但始终还是5v5的模式。 经济看到屏幕左上角的（在CS2中就是屏幕左下角）  吧？这就是 局内金钱。 它是用来 购买 局内使用的武器装备。 在 竞技模式 中，起始金钱 为 $800。 在手枪局（第一把，以及换边后的第一把）中，你可以在以下选项中选一个： 半甲 $">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Jinmu Qijie&#39;s Blog">
+<meta property="og:description" content="This article mainly covers the game mechanics of Competitive mode. Since Hostage mode has few players, I won’t cover it here. In CS2, Competitive mode shortens matches to 13 wins with overtime that ca">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://oss.qijieya.cn/1/1723229505411.png">
 <meta property="article:published_time" content="2023-09-20T11:08:00.000Z">
 <meta property="article:modified_time" content="2024-08-09T19:00:44.000Z">
-<meta property="article:author" content="祈杰喵">
+<meta property="article:author" content="Qijie">
 <meta property="article:tag" content="CSGO">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://oss.qijieya.cn/1/1723229505411.png">
     
     
       
-      <meta name="keywords" content="祈杰博客,祈杰的博客,归离原网络科技（镇江）有限公司,原神,Linux,归离原网络科技,BG4VW,南梁软件开发工作室" />
+      <meta name="keywords" content="Qijie Blog,Jinmu Qijie,Guiliyuan Network Technology (Zhenjiang) Co., Ltd.,Genshin Impact,Linux,BG4VW,Nanliang Software Development Studio" />
     
     
       
@@ -35,7 +35,7 @@
       
     
     <!-- title -->
-    <title>CS竞技模式机制详解</title>
+    <title>A Detailed Look at CS Competitive Mode Mechanics</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -59,22 +59,22 @@
 <body class="max-width mx-auto px3 ltr">
     
       <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
   <span id="menu">
     <span id="nav">
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </span>
@@ -82,40 +82,40 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/archives/417/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/archives/417/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/archives/399/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post" href="/archives/399/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
-        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
     </span>
     <br/>
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/405/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/405/&text=CS竞技模式机制详解"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/405/&title=CS竞技模式机制详解"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/405/&is_video=false&description=CS竞技模式机制详解"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=CS竞技模式机制详解&body=Check out this article: https://meow.qijieya.cn/archives/405/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/405/&title=CS竞技模式机制详解"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/405/&title=CS竞技模式机制详解"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/405/&title=CS竞技模式机制详解"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/405/&title=CS竞技模式机制详解"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/405/&name=CS竞技模式机制详解&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/405/&t=CS竞技模式机制详解"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/405/&text=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/405/&title=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/405/&is_video=false&description=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=A Detailed Look at CS Competitive Mode Mechanics&body=Check out this article: https://meow.qijieya.cn/archives/405/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/405/&title=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/405/&title=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/405/&title=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/405/&title=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/405/&name=A Detailed Look at CS Competitive Mode Mechanics&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/405/&t=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%8F%E6%B5%8E"><span class="toc-number">1.</span> <span class="toc-text">经济</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E9%92%B1%E6%9C%BA%E5%88%B6"><span class="toc-number">1.1.</span> <span class="toc-text">加钱机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%91%E9%92%B1%E5%88%86%E9%85%8D"><span class="toc-number">1.2.</span> <span class="toc-text">金钱分配</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%88%86%E7%A0%B4%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">爆破模式</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Economy"><span class="toc-number">1.</span> <span class="toc-text">Economy</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Money-Earning-Mechanics"><span class="toc-number">1.1.</span> <span class="toc-text">Money-Earning Mechanics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Money-Allocation"><span class="toc-number">1.2.</span> <span class="toc-text">Money Allocation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Bomb-Defusal-Mode"><span class="toc-number">2.</span> <span class="toc-text">Bomb Defusal Mode</span></a></li></ol>
       </div>
     
   </span>
@@ -124,18 +124,21 @@
     
     <div class="content index py4 ">
         
+<a id="lang-switch" href="/zh/archives/405/" hreflang="zh-CN" title="切换到中文" lang="zh-CN">中文</a>
+
+        
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
     
     <h1 class="posttitle p-name" itemprop="name headline">
-        CS竞技模式机制详解
+        A Detailed Look at CS Competitive Mode Mechanics
     </h1>
 
 
 
     <div class="meta">
       <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">祈杰喵</span>
+        <span class="p-name" itemprop="name">Qijie</span>
       </span>
       
     <div class="postdate">
@@ -160,116 +163,116 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p>本文主讲 竞技模式 下的游戏机制，由于 人质模式 玩家人数少，故本文不讲。</p>
-<p>竞技模式 在CS2中会缩短局数为 13胜但可以拖6回合的加时，但始终还是5v5的模式。</p>
-<h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>看到屏幕左上角的（在CS2中就是屏幕左下角）</p>
-<p><img src="https://oss.qijieya.cn/1/1723229505411.png" alt="看不到的话请立即停止游戏并询问医生的建议（）"></p>
-<p>吧？这就是 局内金钱。</p>
-<p>它是用来 购买 局内使用的武器装备。</p>
-<p>在 竞技模式 中，起始金钱 为 $800。</p>
-<p>在手枪局（第一把，以及换边后的第一把）中，你可以在以下选项中选一个：</p>
-<ul><li>半甲 $650	新手推荐，避免被对面不会点头的几下点掉。然而遇到会点头的同样一枪头。</li><li>Tec9或FN57 $500	（作者常用）激进的选择，Tec9有着最佳的跑打稳定性（不愧是手枪中的冲锋枪），而FN57有着20发子弹的弹匣，如果能够驾驭这两把枪，它们就能给对面极大的压力。</li><li>沙鹰 $700	强烈不推荐，因为这把手枪对急停的要求比其他枪还高。</li><li>雷钳 $400（仅CT）	额，其实手枪局只起雷钳的算少数了。</li></ul>
+    <p>This article mainly covers the game mechanics of Competitive mode. Since Hostage mode has few players, I won’t cover it here.</p>
+<p>In CS2, Competitive mode shortens matches to 13 wins with overtime that can drag on for 6 rounds, but it’s still a 5v5 mode the whole way.</p>
+<h1 id="Economy"><a href="#Economy" class="headerlink" title="Economy"></a>Economy</h1><p>See the thing in the top-left corner of the screen (in CS2, the bottom-left corner)</p>
+<p><img src="https://oss.qijieya.cn/1/1723229505411.png" alt="If you can&#39;t see it, stop playing immediately and consult a doctor ()"></p>
+<p>, right? That’s your in-game money.</p>
+<p>It’s used to buy weapons and equipment for use in the match.</p>
+<p>In Competitive mode, the starting money is $800.</p>
+<p>In the pistol round (the first round, and the first round after switching sides), you can pick one of the following options:</p>
+<ul><li>Half armor $650	Recommended for beginners, it saves you from getting dropped in a few shots by opponents who can't hit heads. Though against someone who can hit heads, it's still a one-tap to the head.</li><li>Tec9 or FN57 $500	(What I usually buy) An aggressive choice. The Tec9 has the best running stability (no wonder it's the SMG among pistols), and the FN57 has a 20-round magazine; if you can handle these two guns, they'll put enormous pressure on the other side.</li><li>Desert Eagle $700	Strongly not recommended, because this pistol demands even better counter-strafing than other guns.</li><li>Defuse kit $400 (CT only)	Well, actually only a minority of players buy just a defuse kit in the pistol round.</li></ul>
 
-<p>如果有团队意识的话，可以多买几个投掷物，打一下配合。</p>
-<h2 id="加钱机制"><a href="#加钱机制" class="headerlink" title="加钱机制"></a>加钱机制</h2><p>以下为击杀奖励：</p>
+<p>If you have a team mindset, you can buy a few more grenades and play off each other.</p>
+<h2 id="Money-Earning-Mechanics"><a href="#Money-Earning-Mechanics" class="headerlink" title="Money-Earning Mechanics"></a>Money-Earning Mechanics</h2><p>Here are the kill rewards:</p>
 <table>
 <thead>
 <tr>
-<th>武器类型</th>
-<th>拿下一人奖励</th>
+<th>Weapon type</th>
+<th>Reward per kill</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>手枪、步枪（含鸟狙和连狙）、机关枪、P90</td>
+<td>Pistols, rifles (including the scout and autosnipers), machine guns, P90</td>
 <td>+$300</td>
 </tr>
 <tr>
-<td>大狙AWP</td>
+<td>AWP</td>
 <td>+$100</td>
 </tr>
 <tr>
-<td>冲锋枪（P90除外）</td>
+<td>SMGs (except the P90)</td>
 <td>+$600</td>
 </tr>
 <tr>
-<td>喷子（霰弹枪）</td>
+<td>Shotguns</td>
 <td>+$900</td>
 </tr>
 <tr>
-<td>（吼吼，让我试试）刀（吧）！</td>
+<td>(Heh heh, let me try) knife!</td>
 <td>+$1500</td>
 </tr>
 <tr>
-<td>“啊～”宙斯 X27 《老六快乐枪》</td>
-<td>+$0（就是没有）</td>
+<td>“Ahh~” Zeus x27, “The Camper’s Happy Gun”</td>
+<td>+$0 (i.e. nothing)</td>
 </tr>
 </tbody></table>
-<p>手贱误杀队友会-$300（官匹）。</p>
-<p>以下是连败金钱机制：</p>
-<p>T 拖到时间结束是 +$0 哟～</p>
+<p>Accidentally killing a teammate out of carelessness costs -$300 (in official matchmaking).</p>
+<p>Here’s the losing-streak money mechanic:</p>
+<p>If T drags it out until time runs out, that’s +$0~</p>
 <table>
 <thead>
 <tr>
-<th>补偿机制（胜利后减一格）</th>
-<th>败的时候会拿到的</th>
+<th>Compensation mechanic (drops a notch after a win)</th>
+<th>What you get on a loss</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>0格</td>
+<td>0 notches</td>
 <td>+$1400</td>
 </tr>
 <tr>
-<td>1格</td>
+<td>1 notch</td>
 <td>+$1900</td>
 </tr>
 <tr>
-<td>2格（手枪局双方都在这里）</td>
+<td>2 notches (both sides are here in the pistol round)</td>
 <td>+$2400</td>
 </tr>
 <tr>
-<td>3格</td>
+<td>3 notches</td>
 <td>+$2900</td>
 </tr>
 <tr>
-<td>4格</td>
+<td>4 notches</td>
 <td>+$3400</td>
 </tr>
 </tbody></table>
-<p>以下是胜利奖励机制：</p>
-<p>达成任务目标：<code>+$3500</code>，并且完成者额外<code>+$300</code></p>
-<p>注意：T 下包后立即结算完成者额外奖励。</p>
-<p>歼灭对面：+$3250</p>
-<h2 id="金钱分配"><a href="#金钱分配" class="headerlink" title="金钱分配"></a>金钱分配</h2><p>了解了这些金钱机制，不妨做一些打算。</p>
-<p>在手枪局胜利之后，可以考虑<br>CT&#x2F;T：购买 全甲 + MP7&#x2F;Nova&#x2F;XM1014</p>
-<p>并且买几个投掷物打一打配合，扩大胜利后优势。</p>
-<p>当然你对手运气正旺的时候，手枪局可能会打输，这边可以考虑：</p>
-<p>T：全甲（因为CT的M4要两枪才能拿下一个全甲的头，所以多一点容错率）+ MAC10吹风机&#x2F;Nova&#x2F;XM1014&#x2F;甚至Tec9</p>
-<p>CT：半甲（反正AK等长枪一枪头，别浪费头盔的钱（$350））+ 内格夫&#x2F;MP9小蜜蜂&#x2F;Nova&#x2F;警喷&#x2F;XM1014&#x2F;甚至FN57</p>
+<p>Here’s the win reward mechanic:</p>
+<p>Achieving the objective: <code>+$3500</code>, plus an extra <code>+$300</code> for the person who completes it</p>
+<p>Note: for T, the extra reward for the planter is settled immediately after the bomb is planted.</p>
+<p>Wiping out the enemy: +$3250</p>
+<h2 id="Money-Allocation"><a href="#Money-Allocation" class="headerlink" title="Money Allocation"></a>Money Allocation</h2><p>Now that you understand these money mechanics, it’s worth making some plans.</p>
+<p>After winning the pistol round, consider<br>CT&#x2F;T: buying full armor + MP7&#x2F;Nova&#x2F;XM1014</p>
+<p>and a few grenades to coordinate, extending your advantage after the win.</p>
+<p>Of course, when your opponents are on a lucky streak, you might lose the pistol round. In that case consider:</p>
+<p>T: Full armor (because CT’s M4 needs two shots to take out a fully armored head, so you get a bit more margin for error) + MAC10 (the hairdryer)&#x2F;Nova&#x2F;XM1014&#x2F;even Tec9</p>
+<p>CT: Half armor (AKs and other rifles one-tap the head anyway, so don’t waste money on a helmet ($350)) + Negev&#x2F;MP9 (little bee)&#x2F;Nova&#x2F;MAG-7&#x2F;XM1014&#x2F;even FN57</p>
 <blockquote>
-<p>不得不说，连喷真的万金油。当然手感和节奏不好的时候别用。</p>
+<p>I have to say, the autoshotgun really is a cure-all. Though don’t use it when your aim and rhythm are off.</p>
 </blockquote>
-<p>（新手不推荐）当然可以拼运气：无甲鸟狙，中路打一两枪就跑，运气好还可以鸟狙换长枪。</p>
-<p>也可以啥都不起，等下一把直接起长枪（ECO）。</p>
-<p>4750块的AWP 是用来后期维持优势用的，不是用来听个响当望远镜用的，这AWP最好要落到会打狙的队友手里，毕竟大狙上限高下限特低。所以说：T方最多要一把大狙，而CT方最好至少有两把大狙。</p>
-<h1 id="爆破模式"><a href="#爆破模式" class="headerlink" title="爆破模式"></a>爆破模式</h1><p>较为经典的模式，大部分地图分为A&#x2F;B包点，T 需要 下包并等待炸 或 歼灭对面，而 CT 需要 拆弹 或 歼灭对面。在官匹中，下包后包会在 40s 后炸，并且范围大（自闭小镇de_inferno 增加了A点的包的伤害，使得蹲在A大坑夹角的有90%几率被炸寄）。</p>
-<p>在这个模式中，有些人蹲在角落里阴人，有些人会反清断后，甚至有个人一个拐角整出了《哑巴老六》的Ninja偷包（在CS2难以做到，因为烟可以被雷炸散）……</p>
-<p>所以，你需要了解你的定位。</p>
-<p>比如作者大部分都在打断后，有些时候会打突破，甚至手感好的时候打上几把狙。</p>
-<p>以下介绍普遍意义上的定位：</p>
+<p>(Not recommended for beginners) Of course you can gamble: no armor and a scout, take a shot or two mid and run; with luck you can even trade the scout for a rifle.</p>
+<p>You can also buy nothing and full-buy a rifle next round (ECO).</p>
+<p>The $4750 AWP is for maintaining an advantage in the late game, not for making a bang and being used as a telescope. The AWP is best placed in the hands of a teammate who can actually snipe, since the AWP has a high ceiling and a very low floor. So: on T side you want at most one AWP, while on CT side it’s best to have at least two.</p>
+<h1 id="Bomb-Defusal-Mode"><a href="#Bomb-Defusal-Mode" class="headerlink" title="Bomb Defusal Mode"></a>Bomb Defusal Mode</h1><p>A more classic mode. Most maps are divided into A&#x2F;B bomb sites: T needs to plant the bomb and wait for it to explode, or wipe out the enemy, while CT needs to defuse or wipe out the enemy. In official matchmaking, the bomb explodes 40s after planting, and the blast radius is large (on de_inferno — “Shut-in Town” — the bomb damage at A site was increased, giving anyone crouching in the corner of the A pit a 90% chance of being blown up).</p>
+<p>In this mode, some people camp in corners to ambush, some push out to retake and cover the rear, and someone even pulled off a “Mute Camper” ninja defuse around a single corner (hard to do in CS2, since smoke can be blown apart by grenades)…</p>
+<p>So you need to know your role.</p>
+<p>For example, I mostly play lurk&#x2F;refrag, sometimes entry, and even a few rounds of AWP when my aim is on.</p>
+<p>Here are the roles in the general sense:</p>
 <ul>
-<li>断后：有一定的收割残局能力，通常会架在第二枪位（对面过来时不会第一时间发现你的枪位），防守队友没顾及到的位置（也就是老六嘛）；</li>
-<li>突破手：有高超的枪法，经常拉枪线，比较激进；</li>
-<li>狙击手：有快速的反应能力，给狙可以打出并维持优势；</li>
-<li>辅助：对地图有很深的理解，很会丢道具创造优势；</li>
-<li>指挥：顾名思义，就是指导打哪个点，要转哪个点的家伙嘛；</li>
-<li>自由人：以上的都有顾及，能快速切换定位。</li>
+<li>Refrag&#x2F;lurk: has some ability to close out clutches, usually holds the second angle (so the enemy won’t spot your position the moment they come around), and covers positions your teammates aren’t watching (that is, the camper);</li>
+<li>Entry fragger: superb aim, always taking the first duel, relatively aggressive;</li>
+<li>AWPer: fast reactions; give him an AWP and he can create and sustain an advantage;</li>
+<li>Support: deep understanding of the map, great at throwing utility to create advantages;</li>
+<li>IGL: as the name suggests, the guy who calls which site to hit and when to rotate;</li>
+<li>Flex: covers all of the above and can switch roles quickly.</li>
 </ul>
 <blockquote>
-<p>你有自知之明吗？你能迎接与你实力相当（匹配机制可能会匹配一些实力较大于你的对手）的对手吗？</p>
+<p>Do you know yourself? Are you ready to face opponents on your level (matchmaking may pair you with opponents somewhat stronger than you)?</p>
 </blockquote>
-<p>做好准备，</p>
+<p>Get ready,</p>
 <blockquote>
-<p>叮！打5把CSGO！噔灯 登^ 登^ 噔……</p>
+<p>Ding! Play 5 matches of CSGO! Deng deng deng^ deng^ deng…</p>
 </blockquote>
 
   </div>
@@ -284,15 +287,15 @@
     <div id="nav-footer" style="display: none">
       <ul>
         
-          <li><a href="/">首页</a></li>
+          <li><a href="/">Home</a></li>
         
-          <li><a href="/about/">关于</a></li>
+          <li><a href="/about/">About</a></li>
         
-          <li><a href="/archives/">归档</a></li>
+          <li><a href="/archives/">Writing</a></li>
         
-          <li><a href="/pages/">页面</a></li>
+          <li><a href="/pages/">Pages</a></li>
         
-          <li><a href="/friends/">友链</a></li>
+          <li><a href="/friends/">Friends</a></li>
         
       </ul>
     </div>
@@ -300,34 +303,34 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%8F%E6%B5%8E"><span class="toc-number">1.</span> <span class="toc-text">经济</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E9%92%B1%E6%9C%BA%E5%88%B6"><span class="toc-number">1.1.</span> <span class="toc-text">加钱机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%91%E9%92%B1%E5%88%86%E9%85%8D"><span class="toc-number">1.2.</span> <span class="toc-text">金钱分配</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%88%86%E7%A0%B4%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">爆破模式</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Economy"><span class="toc-number">1.</span> <span class="toc-text">Economy</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Money-Earning-Mechanics"><span class="toc-number">1.1.</span> <span class="toc-text">Money-Earning Mechanics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Money-Allocation"><span class="toc-number">1.2.</span> <span class="toc-text">Money Allocation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Bomb-Defusal-Mode"><span class="toc-number">2.</span> <span class="toc-text">Bomb Defusal Mode</span></a></li></ol>
       </div>
     
 
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/archives/405/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/405/&text=CS竞技模式机制详解"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/405/&title=CS竞技模式机制详解"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/405/&is_video=false&description=CS竞技模式机制详解"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=CS竞技模式机制详解&body=Check out this article: https://meow.qijieya.cn/archives/405/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/405/&title=CS竞技模式机制详解"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/405/&title=CS竞技模式机制详解"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/405/&title=CS竞技模式机制详解"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/405/&title=CS竞技模式机制详解"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/405/&name=CS竞技模式机制详解&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/405/&t=CS竞技模式机制详解"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/archives/405/&text=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/archives/405/&title=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/archives/405/&is_video=false&description=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=A Detailed Look at CS Competitive Mode Mechanics&body=Check out this article: https://meow.qijieya.cn/archives/405/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/archives/405/&title=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/archives/405/&title=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/archives/405/&title=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/archives/405/&title=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/archives/405/&name=A Detailed Look at CS Competitive Mode Mechanics&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/archives/405/&t=A Detailed Look at CS Competitive Mode Mechanics"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
 
     <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
         
-          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
         
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
@@ -341,21 +344,21 @@
     
     2026
     
-    锦木祈杰のblog
+    Jinmu Qijie&#39;s Blog
   </div>
   <div class="footer-right">
     <nav>
       <ul>
         <!--
-       --><li><a href="/">首页</a></li><!--
+       --><li><a href="/">Home</a></li><!--
      --><!--
-       --><li><a href="/about/">关于</a></li><!--
+       --><li><a href="/about/">About</a></li><!--
      --><!--
-       --><li><a href="/archives/">归档</a></li><!--
+       --><li><a href="/archives/">Writing</a></li><!--
      --><!--
-       --><li><a href="/pages/">页面</a></li><!--
+       --><li><a href="/pages/">Pages</a></li><!--
      --><!--
-       --><li><a href="/friends/">友链</a></li><!--
+       --><li><a href="/friends/">Friends</a></li><!--
      -->
       </ul>
     </nav>
@@ -412,7 +415,7 @@
   <script type="text/javascript">
   $(function() {
     // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
     btn += '<i class="fa-regular fa-clone"></i>';
     btn += '</span>';
     // mount it!
@@ -423,7 +426,7 @@
       }
     });
     clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.trigger.setAttribute('aria-label', "Copied!");
       e.clearSelection();
     })
   })

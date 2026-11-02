@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="0x0001之前就一直想弄一台NAS玩玩，一直在找合适的小主机，看咸鱼大本都是j4125之类的工控机总感觉性能和和外观不是很符合我的需求，毕竟我可是真切体验过2核奔腾主机体验的人，最终盯上小主机这一行列我的目标是作为NAS和家庭小服务器原来准备买惠普的4代小主机，但是怕性能不够，想买六代的，但是又贵了一些，失始终在徘徊迟疑不定，最后咬了咬牙选择了目前手上这款小主机我最终选择这款小主机，显然是在权衡">
+<meta property="og:type" content="article">
+<meta property="og:title" content="联想小主机上手（M6600q-N100）">
+<meta property="og:url" content="https://meow.qijieya.cn/zh/archives/709/index.html">
+<meta property="og:site_name" content="锦木祈杰のblog">
+<meta property="og:description" content="0x0001之前就一直想弄一台NAS玩玩，一直在找合适的小主机，看咸鱼大本都是j4125之类的工控机总感觉性能和和外观不是很符合我的需求，毕竟我可是真切体验过2核奔腾主机体验的人，最终盯上小主机这一行列我的目标是作为NAS和家庭小服务器原来准备买惠普的4代小主机，但是怕性能不够，想买六代的，但是又贵了一些，失始终在徘徊迟疑不定，最后咬了咬牙选择了目前手上这款小主机我最终选择这款小主机，显然是在权衡">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1a49ef6579482548d86fc0955bcdb727.jpg">
+<meta property="og:image" content="https://oss.qijieya.cn/1/a76796b046dcfaf551e291953ff384a7.jpg">
+<meta property="og:image" content="https://oss.qijieya.cn/1/580c1b1b5c48261aec154688e24beb60.jpg">
+<meta property="og:image" content="https://oss.qijieya.cn/1/e025112a517ccb35300000f29c055e23.jpg">
+<meta property="og:image" content="https://oss.qijieya.cn/1/03d4892de386d41852fd5e451c64b6b7.jpg">
+<meta property="article:published_time" content="2024-11-02T13:06:00.000Z">
+<meta property="article:modified_time" content="2024-12-13T02:33:20.000Z">
+<meta property="article:author" content="祈杰喵">
+<meta property="article:tag" content="乌班图">
+<meta property="article:tag" content="服务器">
+<meta property="article:tag" content="电脑">
+<meta property="article:tag" content="网络">
+<meta property="article:tag" content="评测">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oss.qijieya.cn/1/1a49ef6579482548d86fc0955bcdb727.jpg">
+    
+    
+      
+      <meta name="keywords" content="祈杰博客,祈杰的博客,归离原网络科技（镇江）有限公司,原神,Linux,归离原网络科技,BG4VW,南梁软件开发工作室" />
+    
+    
+      
+        
+          <link rel="shortcut icon" href="https://oss.qijieya.cn/1/aili.gif">
+        
+      
+      
+      
+    
+    <!-- title -->
+    <title>联想小主机上手（M6600q-N100）</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/zh/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/zh/">首页</a></li><!--
+     --><!--
+       --><li><a href="/zh/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/zh/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/zh/pages/">页面</a></li><!--
+     --><!--
+       --><li><a href="/zh/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/zh/archives/700/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/zh/archives/241007/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/zh/archives/709/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/zh/archives/709/&text=联想小主机上手（M6600q-N100）"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/zh/archives/709/&title=联想小主机上手（M6600q-N100）"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/zh/archives/709/&is_video=false&description=联想小主机上手（M6600q-N100）"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=联想小主机上手（M6600q-N100）&body=Check out this article: https://meow.qijieya.cn/zh/archives/709/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/zh/archives/709/&title=联想小主机上手（M6600q-N100）"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/zh/archives/709/&title=联想小主机上手（M6600q-N100）"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/zh/archives/709/&title=联想小主机上手（M6600q-N100）"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/zh/archives/709/&title=联想小主机上手（M6600q-N100）"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/zh/archives/709/&name=联想小主机上手（M6600q-N100）&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/zh/archives/709/&t=联想小主机上手（M6600q-N100）"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0x0001"><span class="toc-number">1.</span> <span class="toc-text">0x0001</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x0002"><span class="toc-number">2.</span> <span class="toc-text">0x0002</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x0003"><span class="toc-number">3.</span> <span class="toc-text">0x0003</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x0004"><span class="toc-number">4.</span> <span class="toc-text">0x0004</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+<a id="lang-switch" href="/archives/709/" hreflang="en" title="Switch to English" lang="en">EN</a>
+
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        联想小主机上手（M6600q-N100）
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">祈杰喵</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-11-02T13:06:00.000Z" class="dt-published" itemprop="datePublished">2024-11-02</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/zh/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> › <a class="category-link" href="/zh/categories/%E7%94%9F%E6%B4%BB%E6%9D%82%E8%B0%88/">生活杂谈</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/zh/tags/%E4%B9%8C%E7%8F%AD%E5%9B%BE/" rel="tag">乌班图</a>, <a class="p-category" href="/zh/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a>, <a class="p-category" href="/zh/tags/%E7%94%B5%E8%84%91/" rel="tag">电脑</a>, <a class="p-category" href="/zh/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a>, <a class="p-category" href="/zh/tags/%E8%AF%84%E6%B5%8B/" rel="tag">评测</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 style="" id="0x0001">0x0001</h1><p style="">之前就一直想弄一台NAS玩玩，一直在找合适的小主机，看咸鱼大本都是j4125之类的工控机总感觉性能和和外观不是很符合我的需求，毕竟我可是真切体验过2核奔腾主机体验的人，最终盯上小主机这一行列</p><p style="">我的目标是作为NAS和家庭小服务器</p><p style="">原来准备买惠普的4代小主机，但是怕性能不够，想买六代的，但是又贵了一些，失始终在徘徊迟疑不定，最后咬了咬牙选择了目前手上这款小主机</p><p style="">我最终选择这款小主机，显然是在权衡了性能、价格、外观等多方面的因素后做出的决定。也许一开始惠普四代的选择看起来很吸引人，但在考虑到性能和价格的平衡时，你开始寻找更具性价比的选项。当你看到这款小主机的性能表现和外观设计时，可能觉得它更符合你的需求。你或许还对它后续的扩展性和升级性有所期待，最终决定咬咬牙选择这款小主机。</p><h1 style="" id="0x0002">0x0002</h1><p style="">配置是i5 -6600T低压4核心处理器，毕竟整机功耗只有65W峰值，内存单条海力士4G 2166，硬盘三星256GM.2 SATA  总价450 RMB</p><p style="">为了作为一台合格的NAS，我又买了一条同配置海力士内存条（-28RMB）,一块希捷2.5寸的1T盘（-158RMB），总价格来到了630RMB（钱包好疼！）</p><p style="">接口方面我是很满意的</p><p style=""><img src="https://oss.qijieya.cn/1/1a49ef6579482548d86fc0955bcdb727.jpg" width="50%" height="60%" style="display: inline-block"></p><p style="">后置四个USB3.0，前置两个USB3.0，单网口，两个DP，美中不足的是没有VGA或者HDMI接口，但是话又说回来，卖家送了嘿嘿</p><p style=""><img src="https://oss.qijieya.cn/1/a76796b046dcfaf551e291953ff384a7.jpg" width="496px" height="585px" style="display: inline-block"></p><p style="">内部结构一目了然，拆还是很好拆的，老板还附赠了一个2.5寸的硬盘架，里面的内部接口有一个M.2的SATA接口，一个网卡接口（右下角），还有一个2.5寸，内存插是两根DDR4，我插了两根海力士2166的，反正做NAS也没多大的需求嘛</p><p style="">让我惊喜的是，老板介绍页面上说的128G硬盘（M.2）到我手上是256G，还是三星的！后面具体查了一下通电时间只有8100小时，健康度94%，但是不显示写入量和读取量，怪事</p><p style=""><img src="https://oss.qijieya.cn/1/580c1b1b5c48261aec154688e24beb60.jpg" width="50%" height="70%" style="display: inline-block"></p><p style="">功耗峰值是65W,肯定是不可能满载运行的，所以即使是在夜晚风扇噪声也不算很大，待机功耗大概也就在十几瓦吧，什么？你说机械硬盘声音？直接硬盘休眠 不就好了</p><h1 style="" id="0x0003">0x0003</h1><p style="">总配置如图</p><p style=""><img src="https://oss.qijieya.cn/1/e025112a517ccb35300000f29c055e23.jpg" width="100%" height="100%" style="display: inline-block"></p><p style=""><img src="https://oss.qijieya.cn/1/03d4892de386d41852fd5e451c64b6b7.jpg" width="100%" height="70%" style="display: inline-block"></p><p style="">毕竟是小主机嘛，装完系统我就直接放在那里了，必要的时候直接将电视作为显示屏应急用一下（猫猫可爱！）</p><p style="">后面有机会再详细说说<a href="https://www.fnnas.com/" target="_blank">FNOS</a>的使用体验吧（国产NAS系统）</p><h1 style="" id="0x0004">0x0004</h1><p style=""><strong>总结一下吧 </strong></p><p style=""><strong>优点</strong></p><ul><li><p style="">颜值高，看一眼就喜欢上这款小主机，光这个外观就加了很多分。</p></li><li><p style="line-height: 1.8">性价比高，笔记本6700H改的台式U，性能各方面都挺不错</p></li><li><p style="line-height: 1.8">DDR4双内存插槽，联想品牌机高端厚重</p></li><li><p style="line-height: 1.8">可以自己更换CPU</p></li></ul><p style="line-height: 1.8"><strong>缺点</strong></p><ul><li><p style="line-height: 1.8">好贵</p></li><li><p style="line-height: 1.8">好贵</p></li><li><p style="line-height: 1.8">好贵</p></li><li><p style="line-height: 1.8">等到你买回家了之后想要拓展一下发现：好贵</p></li><li><p style="line-height: 1.8">性价比比较低</p></li></ul><p style="line-height: 1.8">下次见哟END</p><p style="line-height: 1.8"></p><p style=""></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/zh/">首页</a></li>
+        
+          <li><a href="/zh/about/">关于</a></li>
+        
+          <li><a href="/zh/archives/">归档</a></li>
+        
+          <li><a href="/zh/pages/">页面</a></li>
+        
+          <li><a href="/zh/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0x0001"><span class="toc-number">1.</span> <span class="toc-text">0x0001</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x0002"><span class="toc-number">2.</span> <span class="toc-text">0x0002</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x0003"><span class="toc-number">3.</span> <span class="toc-text">0x0003</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x0004"><span class="toc-number">4.</span> <span class="toc-text">0x0004</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/zh/archives/709/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/zh/archives/709/&text=联想小主机上手（M6600q-N100）"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/zh/archives/709/&title=联想小主机上手（M6600q-N100）"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/zh/archives/709/&is_video=false&description=联想小主机上手（M6600q-N100）"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=联想小主机上手（M6600q-N100）&body=Check out this article: https://meow.qijieya.cn/zh/archives/709/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/zh/archives/709/&title=联想小主机上手（M6600q-N100）"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/zh/archives/709/&title=联想小主机上手（M6600q-N100）"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/zh/archives/709/&title=联想小主机上手（M6600q-N100）"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/zh/archives/709/&title=联想小主机上手（M6600q-N100）"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/zh/archives/709/&name=联想小主机上手（M6600q-N100）&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/zh/archives/709/&t=联想小主机上手（M6600q-N100）"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2026
+    
+    锦木祈杰のblog
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/zh/">首页</a></li><!--
+     --><!--
+       --><li><a href="/zh/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/zh/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/zh/pages/">页面</a></li><!--
+     --><!--
+       --><li><a href="/zh/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+  
+  <div class="footer-beian">
+    
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">苏ICP备2025160197号</a>
+    
+    
+      <span class="footer-sep">|</span>
+    
+    
+      <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="noopener">苏公网安备32118302000607号</a>
+    
+  </div>
+  
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+ 
+  <link
+    rel="preload"
+    href="/zh/lib/font-awesome/css/all.min.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="/zh/lib/font-awesome/css/all.min.css"
+  /></noscript>
+
+
+    <!-- jquery -->
+
+  
+<script src="/zh/lib/jquery/jquery.min.js"></script>
+
+
+
+
+
+<!-- clipboard -->
+
+  
+    
+<script src="/zh/lib/clipboard/clipboard.min.js"></script>
+
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/zh/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

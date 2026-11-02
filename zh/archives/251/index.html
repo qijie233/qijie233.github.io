@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="用官方给的安装命令一般会有以下报错：  仅部分Windows系统会出现该报错。  所以得“曲线救Poetry”！下面开始教程。 注意：本文的 “PS &gt;” 不需要也不能键入终端。  第一步：先安装pipx  先换源，后安装pipx 12PS &gt; pip config set global.index-url https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simplePS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows Server 2022下如何正确安装poetry">
+<meta property="og:url" content="https://meow.qijieya.cn/zh/archives/251/index.html">
+<meta property="og:site_name" content="锦木祈杰のblog">
+<meta property="og:description" content="用官方给的安装命令一般会有以下报错：  仅部分Windows系统会出现该报错。  所以得“曲线救Poetry”！下面开始教程。 注意：本文的 “PS &gt;” 不需要也不能键入终端。  第一步：先安装pipx  先换源，后安装pipx 12PS &gt; pip config set global.index-url https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simplePS">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723230230858.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723230243823.png">
+<meta property="og:image" content="https://oss.qijieya.cn/1/1723230256126.png">
+<meta property="article:published_time" content="2023-07-15T10:28:00.000Z">
+<meta property="article:modified_time" content="2024-08-09T19:04:34.000Z">
+<meta property="article:author" content="祈杰喵">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="云崽">
+<meta property="article:tag" content="服务器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oss.qijieya.cn/1/1723230230858.png">
+    
+    
+      
+      <meta name="keywords" content="祈杰博客,祈杰的博客,归离原网络科技（镇江）有限公司,原神,Linux,归离原网络科技,BG4VW,南梁软件开发工作室" />
+    
+    
+      
+        
+          <link rel="shortcut icon" href="https://oss.qijieya.cn/1/aili.gif">
+        
+      
+      
+      
+    
+    <!-- title -->
+    <title>Windows Server 2022下如何正确安装poetry</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/zh/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/zh/">首页</a></li><!--
+     --><!--
+       --><li><a href="/zh/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/zh/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/zh/pages/">页面</a></li><!--
+     --><!--
+       --><li><a href="/zh/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/zh/archives/300/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/zh/archives/211/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/zh/archives/251/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/zh/archives/251/&text=Windows Server 2022下如何正确安装poetry"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/zh/archives/251/&title=Windows Server 2022下如何正确安装poetry"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/zh/archives/251/&is_video=false&description=Windows Server 2022下如何正确安装poetry"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Windows Server 2022下如何正确安装poetry&body=Check out this article: https://meow.qijieya.cn/zh/archives/251/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/zh/archives/251/&title=Windows Server 2022下如何正确安装poetry"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/zh/archives/251/&title=Windows Server 2022下如何正确安装poetry"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/zh/archives/251/&title=Windows Server 2022下如何正确安装poetry"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/zh/archives/251/&title=Windows Server 2022下如何正确安装poetry"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/zh/archives/251/&name=Windows Server 2022下如何正确安装poetry&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/zh/archives/251/&t=Windows Server 2022下如何正确安装poetry"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">用官方给的安装命令一般会有以下报错：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">第一步：先安装pipx</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">第二步：正式安装 Poetry</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">第三步：查看Poetry安装情况</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+<a id="lang-switch" href="/archives/251/" hreflang="en" title="Switch to English" lang="en">EN</a>
+
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Windows Server 2022下如何正确安装poetry
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">祈杰喵</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-07-15T10:28:00.000Z" class="dt-published" itemprop="datePublished">2023-07-15</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/zh/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/zh/tags/Windows/" rel="tag">Windows</a>, <a class="p-category" href="/zh/tags/%E4%BA%91%E5%B4%BD/" rel="tag">云崽</a>, <a class="p-category" href="/zh/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1>用官方给的安装命令一般会有以下报错：</h1>
+
+<p>仅部分Windows系统会出现该报错。</p>
+<p><img src="https://oss.qijieya.cn/1/1723230230858.png" alt="证书问题"></p>
+<p>所以得“曲线救Poetry”！下面开始教程。</p>
+<p style="color:#f00;font-size:135%">注意：本文的 “PS >” 不需要也不能键入终端。</p>
+
+<h1>第一步：先安装pipx</h1>
+
+<p>先换源，后安装pipx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PS &gt; pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">PS &gt; pip install pipx</span><br></pre></td></tr></table></figure>
+
+<h1>第二步：正式安装 Poetry</h1>
+
+<p>运行以下命令以安装Poetry，速度可能会受当前网络环境影响。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PS &gt; pipx ensurepath</span><br><span class="line">PS &gt; pipx install poetry</span><br></pre></td></tr></table></figure>
+
+<p>安装演示：</p>
+<p><img src="https://oss.qijieya.cn/1/1723230243823.png" alt="这样你就剩下加环境变量的事了"></p>
+<h1>第三步：查看Poetry安装情况</h1>
+
+<p>直接敲入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS &gt; poetry</span><br></pre></td></tr></table></figure>
+
+<p>查看Poetry是否正确安装，如果无误，终端最后就会这样输出：</p>
+<p><img src="https://oss.qijieya.cn/1/1723230256126.png" alt="It works!"></p>
+<p>这样就说明你Poetry已经正确安装了，接下来就是nb2或者是py插件的故事了。～</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/zh/">首页</a></li>
+        
+          <li><a href="/zh/about/">关于</a></li>
+        
+          <li><a href="/zh/archives/">归档</a></li>
+        
+          <li><a href="/zh/pages/">页面</a></li>
+        
+          <li><a href="/zh/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">用官方给的安装命令一般会有以下报错：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">第一步：先安装pipx</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">第二步：正式安装 Poetry</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">第三步：查看Poetry安装情况</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://meow.qijieya.cn/zh/archives/251/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://meow.qijieya.cn/zh/archives/251/&text=Windows Server 2022下如何正确安装poetry"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://meow.qijieya.cn/zh/archives/251/&title=Windows Server 2022下如何正确安装poetry"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://meow.qijieya.cn/zh/archives/251/&is_video=false&description=Windows Server 2022下如何正确安装poetry"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Windows Server 2022下如何正确安装poetry&body=Check out this article: https://meow.qijieya.cn/zh/archives/251/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://meow.qijieya.cn/zh/archives/251/&title=Windows Server 2022下如何正确安装poetry"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://meow.qijieya.cn/zh/archives/251/&title=Windows Server 2022下如何正确安装poetry"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://meow.qijieya.cn/zh/archives/251/&title=Windows Server 2022下如何正确安装poetry"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://meow.qijieya.cn/zh/archives/251/&title=Windows Server 2022下如何正确安装poetry"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://meow.qijieya.cn/zh/archives/251/&name=Windows Server 2022下如何正确安装poetry&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://meow.qijieya.cn/zh/archives/251/&t=Windows Server 2022下如何正确安装poetry"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2026
+    
+    锦木祈杰のblog
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/zh/">首页</a></li><!--
+     --><!--
+       --><li><a href="/zh/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/zh/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/zh/pages/">页面</a></li><!--
+     --><!--
+       --><li><a href="/zh/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+  
+  <div class="footer-beian">
+    
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">苏ICP备2025160197号</a>
+    
+    
+      <span class="footer-sep">|</span>
+    
+    
+      <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="noopener">苏公网安备32118302000607号</a>
+    
+  </div>
+  
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+ 
+  <link
+    rel="preload"
+    href="/zh/lib/font-awesome/css/all.min.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="/zh/lib/font-awesome/css/all.min.css"
+  /></noscript>
+
+
+    <!-- jquery -->
+
+  
+<script src="/zh/lib/jquery/jquery.min.js"></script>
+
+
+
+
+
+<!-- clipboard -->
+
+  
+    
+<script src="/zh/lib/clipboard/clipboard.min.js"></script>
+
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/zh/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
